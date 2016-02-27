@@ -12,6 +12,7 @@ import ModelsTreeKit
 class AppUserSession: UserSession {
     override init(params: SessionCompletionParams<LoginSessionCompletion>) {
         super.init(params: params)
+      credentials = SessionCredentials(params: params)
     }
 
     required init(archivationProxy: ArchivationProxy) {

@@ -14,6 +14,10 @@ class LoginFlowStoryboard: UIStoryboard {
     return storyboard.instantiateViewControllerWithIdentifier("SignIn") as! SignInViewController
   }
   
+  class func registrationViewController() -> RegistrationViewController {
+    return storyboard.instantiateViewControllerWithIdentifier("Registration") as! RegistrationViewController
+  }
+  
   static var storyboard: UIStoryboard {
     return UIStoryboard(name: "LoginFlow", bundle: nil)
   }

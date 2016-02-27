@@ -10,5 +10,10 @@ import Foundation
 import UIKit
 
 class SignInViewController: UIViewController {
-  weak var model: SignInModel?
+  weak var model: SignInModel!
+  
+  @IBAction
+  private func register(sender: AnyObject?) {
+    model.register()
+  }
 }

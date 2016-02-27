@@ -13,6 +13,7 @@ class LoginFlowNavigationController: UINavigationController {
   
   weak var model: LoginFlowModel! {
     didSet {
+      model.applyRepresentation(self)
       model.pushChildSignal.subscribeNext { [weak self] child in
         self?.buildRepresentationFor(child)
         }.putInto(pool)
@@ -28,6 +29,11 @@ class LoginFlowNavigationController: UINavigationController {
       let signInController = LoginFlowStoryboard.signInViewController()
       signInController.model = model
       self.viewControllers = [signInController]
+      
+    case let model as RegistrationModel:
+      let controller = LoginFlowStoryboard.registrationViewController()
+      controller.model = model
+      pushViewController(controller, animated: true)
       
     default:
       break
