@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Sign In View Controller-->
+        <scene sceneID="Fis-yL-jbF">
+            <objects>
+                <viewController storyboardIdentifier="SignIn" id="yxt-Na-2Qm" customClass="SignInViewController" customModule="ExamMaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jeY-qF-Zrs"/>
+                        <viewControllerLayoutGuide type="bottom" id="6CY-QX-CL2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NtM-LT-ZGA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lg-Ew-jvL">
+                                <rect key="frame" x="132" y="269" width="57" height="30"/>
+                                <state key="normal" title="Register"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0lg-Ew-jvL" firstAttribute="centerX" secondItem="NtM-LT-ZGA" secondAttribute="centerX" id="IvX-VV-tdj"/>
+                            <constraint firstItem="0lg-Ew-jvL" firstAttribute="centerY" secondItem="NtM-LT-ZGA" secondAttribute="centerY" id="pGu-Wz-LJs"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GUm-5z-02u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="466" y="238"/>
+        </scene>
+    </scenes>
+</document>

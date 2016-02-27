@@ -9,6 +9,6 @@
 import Foundation
 import UIKit
 
-class SignInViewController: UITableViewController {
+class SignInViewController: UIViewController {
   weak var model: SignInModel?
 }

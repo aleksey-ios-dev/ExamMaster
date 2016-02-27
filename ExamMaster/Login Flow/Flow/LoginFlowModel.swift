@@ -11,7 +11,7 @@ import ModelsTreeKit
 
 class LoginFlowModel: Model {
   
-  func pushInitialModels() {
+  func pushInitialChildren() {
     pushChildSignal.sendNext(SignInModel(parent: self))
   }
   

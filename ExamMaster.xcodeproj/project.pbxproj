@@ -12,6 +12,8 @@
 		5BD081A01C81888900269752 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0819F1C81888900269752 /* DashboardModel.swift */; };
 		5BD081A51C818B3700269752 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD081A41C818B3700269752 /* SignInModel.swift */; };
 		5BD081A71C81903800269752 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD081A61C81903800269752 /* SignInViewController.swift */; };
+		5BD081AA1C8193D400269752 /* LoginFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BD081A91C8193D400269752 /* LoginFlow.storyboard */; };
+		5BD081AC1C8193F400269752 /* LoginFlowStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD081AB1C8193F400269752 /* LoginFlowStoryboard.swift */; };
 		5BF529B01C816E8300B8FE10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529AF1C816E8300B8FE10 /* AppDelegate.swift */; };
 		5BF529B51C816E8300B8FE10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF529B31C816E8300B8FE10 /* Main.storyboard */; };
 		5BF529B71C816E8300B8FE10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF529B61C816E8300B8FE10 /* Assets.xcassets */; };
@@ -72,6 +74,8 @@
 		5BD0819F1C81888900269752 /* DashboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
 		5BD081A41C818B3700269752 /* SignInModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		5BD081A61C81903800269752 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		5BD081A91C8193D400269752 /* LoginFlow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginFlow.storyboard; sourceTree = "<group>"; };
+		5BD081AB1C8193F400269752 /* LoginFlowStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFlowStoryboard.swift; sourceTree = "<group>"; };
 		5BF529AC1C816E8300B8FE10 /* ExamMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF529AF1C816E8300B8FE10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BF529B41C816E8300B8FE10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -136,6 +140,15 @@
 			path = "Sign in";
 			sourceTree = "<group>";
 		};
+		5BD081A81C8192C600269752 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				5BD081A91C8193D400269752 /* LoginFlow.storyboard */,
+				5BD081AB1C8193F400269752 /* LoginFlowStoryboard.swift */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		5BF529A31C816E8300B8FE10 = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +207,7 @@
 		5BF529E11C817EC700B8FE10 /* Login Flow */ = {
 			isa = PBXGroup;
 			children = (
+				5BD081A81C8192C600269752 /* Storyboard */,
 				5BD081A31C818B3000269752 /* Sign in */,
 				5BF529E21C817EDD00B8FE10 /* Flow */,
 			);
@@ -292,6 +306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BD081AA1C8193D400269752 /* LoginFlow.storyboard in Resources */,
 				5BF529BA1C816E8300B8FE10 /* LaunchScreen.storyboard in Resources */,
 				5BF529B71C816E8300B8FE10 /* Assets.xcassets in Resources */,
 				5BF529B51C816E8300B8FE10 /* Main.storyboard in Resources */,
@@ -319,6 +334,7 @@
 				5BD0819D1C81803600269752 /* MainFlowNavigationController.swift in Sources */,
 				5BF529D91C8179E300B8FE10 /* AppLoginSession.swift in Sources */,
 				5BF529B01C816E8300B8FE10 /* AppDelegate.swift in Sources */,
+				5BD081AC1C8193F400269752 /* LoginFlowStoryboard.swift in Sources */,
 				5BD081A01C81888900269752 /* DashboardModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

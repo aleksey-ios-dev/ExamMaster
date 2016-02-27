@@ -11,26 +11,27 @@ import ModelsTreeKit
 
 class LoginFlowNavigationController: UINavigationController {
   
-  weak var model: LoginFlowModel!
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    model.pushChildSignal.subscribeNext { [weak self] child in
-      self?.buildRepresentationFor(child)
-    }.putInto(pool)
-    
-    model.pushInitialModels()
+  weak var model: LoginFlowModel! {
+    didSet {
+      model.pushChildSignal.subscribeNext { [weak self] child in
+        self?.buildRepresentationFor(child)
+        }.putInto(pool)
+      
+      model.pushInitialChildren()
+    }
   }
   
   private func buildRepresentationFor(model: Model) {
     switch model {
+      
     case let model as SignInModel:
-      let signInController = SignInViewController()
+      let signInController = LoginFlowStoryboard.signInViewController()
       signInController.model = model
       self.viewControllers = [signInController]
+      
     default:
       break
+      
     }
   }
   
