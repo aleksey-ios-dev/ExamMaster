@@ -1,5 +1,5 @@
 //
-//  LoginFlowModel.swift
+//  DashboardModel.swift
 //  ExamMaster
 //
 //  Created by aleksey on 27.02.16.
@@ -9,10 +9,6 @@
 import Foundation
 import ModelsTreeKit
 
-class LoginFlowModel: Model {
-  
-  func pushInitialModels() {
-    pushChildSignal.sendNext(SignInModel(parent: self))
-  }
+class DashboardModel: Model {
   
 }

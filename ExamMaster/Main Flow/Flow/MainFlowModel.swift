@@ -10,5 +10,7 @@ import Foundation
 import ModelsTreeKit
 
 class MainFlowModel: Model {
-  
+  func pushInitialModels() {
+    pushChildSignal.sendNext(DashboardModel(parent: self))
+  }
 }

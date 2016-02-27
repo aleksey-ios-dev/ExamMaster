@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5BD0819B1C81802E00269752 /* MainFlowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0819A1C81802E00269752 /* MainFlowModel.swift */; };
 		5BD0819D1C81803600269752 /* MainFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0819C1C81803600269752 /* MainFlowNavigationController.swift */; };
+		5BD081A01C81888900269752 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0819F1C81888900269752 /* DashboardModel.swift */; };
+		5BD081A51C818B3700269752 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD081A41C818B3700269752 /* SignInModel.swift */; };
+		5BD081A71C81903800269752 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD081A61C81903800269752 /* SignInViewController.swift */; };
 		5BF529B01C816E8300B8FE10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529AF1C816E8300B8FE10 /* AppDelegate.swift */; };
 		5BF529B51C816E8300B8FE10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF529B31C816E8300B8FE10 /* Main.storyboard */; };
 		5BF529B71C816E8300B8FE10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF529B61C816E8300B8FE10 /* Assets.xcassets */; };
@@ -66,6 +69,9 @@
 /* Begin PBXFileReference section */
 		5BD0819A1C81802E00269752 /* MainFlowModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlowModel.swift; sourceTree = "<group>"; };
 		5BD0819C1C81803600269752 /* MainFlowNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlowNavigationController.swift; sourceTree = "<group>"; };
+		5BD0819F1C81888900269752 /* DashboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
+		5BD081A41C818B3700269752 /* SignInModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
+		5BD081A61C81903800269752 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		5BF529AC1C816E8300B8FE10 /* ExamMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF529AF1C816E8300B8FE10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BF529B41C816E8300B8FE10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,6 +104,7 @@
 		5BD081961C81801700269752 /* Main Flow */ = {
 			isa = PBXGroup;
 			children = (
+				5BD0819E1C81888200269752 /* Dashboard */,
 				5BD081991C81802700269752 /* Flow */,
 			);
 			path = "Main Flow";
@@ -110,6 +117,23 @@
 				5BD0819C1C81803600269752 /* MainFlowNavigationController.swift */,
 			);
 			path = Flow;
+			sourceTree = "<group>";
+		};
+		5BD0819E1C81888200269752 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				5BD0819F1C81888900269752 /* DashboardModel.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		5BD081A31C818B3000269752 /* Sign in */ = {
+			isa = PBXGroup;
+			children = (
+				5BD081A41C818B3700269752 /* SignInModel.swift */,
+				5BD081A61C81903800269752 /* SignInViewController.swift */,
+			);
+			path = "Sign in";
 			sourceTree = "<group>";
 		};
 		5BF529A31C816E8300B8FE10 = {
@@ -170,6 +194,7 @@
 		5BF529E11C817EC700B8FE10 /* Login Flow */ = {
 			isa = PBXGroup;
 			children = (
+				5BD081A31C818B3000269752 /* Sign in */,
 				5BF529E21C817EDD00B8FE10 /* Flow */,
 			);
 			path = "Login Flow";
@@ -283,15 +308,18 @@
 				5BF529DA1C8179E300B8FE10 /* AppNavigationManager.swift in Sources */,
 				5BF529DE1C8179E300B8FE10 /* AppUserSession.swift in Sources */,
 				5BF529DC1C8179E300B8FE10 /* AppRootSessionRouter.swift in Sources */,
+				5BD081A51C818B3700269752 /* SignInModel.swift in Sources */,
 				5BF529E41C817EE600B8FE10 /* LoginFlowModel.swift in Sources */,
 				5BD0819B1C81802E00269752 /* MainFlowModel.swift in Sources */,
 				5BF529E61C817F0C00B8FE10 /* LoginFlowNavigationController.swift in Sources */,
 				5BF529DD1C8179E300B8FE10 /* AppServiceConfigurator.swift in Sources */,
+				5BD081A71C81903800269752 /* SignInViewController.swift in Sources */,
 				5BF529DF1C8179E300B8FE10 /* Errors.swift in Sources */,
 				5BF529DB1C8179E300B8FE10 /* AppRootRepresentationsRouter.swift in Sources */,
 				5BD0819D1C81803600269752 /* MainFlowNavigationController.swift in Sources */,
 				5BF529D91C8179E300B8FE10 /* AppLoginSession.swift in Sources */,
 				5BF529B01C816E8300B8FE10 /* AppDelegate.swift in Sources */,
+				5BD081A01C81888900269752 /* DashboardModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

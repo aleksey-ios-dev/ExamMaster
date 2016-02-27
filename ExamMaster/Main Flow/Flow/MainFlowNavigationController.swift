@@ -10,5 +10,11 @@ import UIKit
 import ModelsTreeKit
 
 class MainFlowNavigaionController: UINavigationController {
-  
+//  var 
 }
+
+//extension UINavigationController: ModelAssignable {
+//  public func assignModel(model: Model) {
+//    
+//  }
+//}
