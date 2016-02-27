@@ -7,10 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BD0819B1C81802E00269752 /* MainFlowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0819A1C81802E00269752 /* MainFlowModel.swift */; };
+		5BD0819D1C81803600269752 /* MainFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0819C1C81803600269752 /* MainFlowNavigationController.swift */; };
 		5BF529B01C816E8300B8FE10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529AF1C816E8300B8FE10 /* AppDelegate.swift */; };
 		5BF529B51C816E8300B8FE10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF529B31C816E8300B8FE10 /* Main.storyboard */; };
 		5BF529B71C816E8300B8FE10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF529B61C816E8300B8FE10 /* Assets.xcassets */; };
 		5BF529BA1C816E8300B8FE10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF529B81C816E8300B8FE10 /* LaunchScreen.storyboard */; };
+		5BF529D01C81789700B8FE10 /* ModelsTreeKit.framework in Embed Kit */ = {isa = PBXBuildFile; fileRef = 5BF529C81C81779F00B8FE10 /* ModelsTreeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5BF529D91C8179E300B8FE10 /* AppLoginSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D11C8179E300B8FE10 /* AppLoginSession.swift */; };
+		5BF529DA1C8179E300B8FE10 /* AppNavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D21C8179E300B8FE10 /* AppNavigationManager.swift */; };
+		5BF529DB1C8179E300B8FE10 /* AppRootRepresentationsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D31C8179E300B8FE10 /* AppRootRepresentationsRouter.swift */; };
+		5BF529DC1C8179E300B8FE10 /* AppRootSessionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D41C8179E300B8FE10 /* AppRootSessionRouter.swift */; };
+		5BF529DD1C8179E300B8FE10 /* AppServiceConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D51C8179E300B8FE10 /* AppServiceConfigurator.swift */; };
+		5BF529DE1C8179E300B8FE10 /* AppUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D61C8179E300B8FE10 /* AppUserSession.swift */; };
+		5BF529DF1C8179E300B8FE10 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D71C8179E300B8FE10 /* Errors.swift */; };
+		5BF529E41C817EE600B8FE10 /* LoginFlowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529E31C817EE600B8FE10 /* LoginFlowModel.swift */; };
+		5BF529E61C817F0C00B8FE10 /* LoginFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529E51C817F0C00B8FE10 /* LoginFlowNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,9 +40,32 @@
 			remoteGlobalIDString = 5BB53FB31C25D5AC00246130;
 			remoteInfo = ModelsTreeKitTests;
 		};
+		5BF529CD1C81787500B8FE10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BF529C21C81779F00B8FE10 /* ModelsTreeKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BB53FA81C25D5AC00246130;
+			remoteInfo = ModelsTreeKit;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5BF529CF1C81788700B8FE10 /* Embed Kit */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5BF529D01C81789700B8FE10 /* ModelsTreeKit.framework in Embed Kit */,
+			);
+			name = "Embed Kit";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		5BD0819A1C81802E00269752 /* MainFlowModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlowModel.swift; sourceTree = "<group>"; };
+		5BD0819C1C81803600269752 /* MainFlowNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlowNavigationController.swift; sourceTree = "<group>"; };
 		5BF529AC1C816E8300B8FE10 /* ExamMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF529AF1C816E8300B8FE10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BF529B41C816E8300B8FE10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,6 +73,15 @@
 		5BF529B91C816E8300B8FE10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BF529BB1C816E8300B8FE10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BF529C21C81779F00B8FE10 /* ModelsTreeKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ModelsTreeKit.xcodeproj; path = Kit/ModelsTreeKit.xcodeproj; sourceTree = "<group>"; };
+		5BF529D11C8179E300B8FE10 /* AppLoginSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLoginSession.swift; sourceTree = "<group>"; };
+		5BF529D21C8179E300B8FE10 /* AppNavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationManager.swift; sourceTree = "<group>"; };
+		5BF529D31C8179E300B8FE10 /* AppRootRepresentationsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRootRepresentationsRouter.swift; sourceTree = "<group>"; };
+		5BF529D41C8179E300B8FE10 /* AppRootSessionRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRootSessionRouter.swift; sourceTree = "<group>"; };
+		5BF529D51C8179E300B8FE10 /* AppServiceConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppServiceConfigurator.swift; sourceTree = "<group>"; };
+		5BF529D61C8179E300B8FE10 /* AppUserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserSession.swift; sourceTree = "<group>"; };
+		5BF529D71C8179E300B8FE10 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		5BF529E31C817EE600B8FE10 /* LoginFlowModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFlowModel.swift; sourceTree = "<group>"; };
+		5BF529E51C817F0C00B8FE10 /* LoginFlowNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFlowNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +95,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BD081961C81801700269752 /* Main Flow */ = {
+			isa = PBXGroup;
+			children = (
+				5BD081991C81802700269752 /* Flow */,
+			);
+			path = "Main Flow";
+			sourceTree = "<group>";
+		};
+		5BD081991C81802700269752 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				5BD0819A1C81802E00269752 /* MainFlowModel.swift */,
+				5BD0819C1C81803600269752 /* MainFlowNavigationController.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
 		5BF529A31C816E8300B8FE10 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +132,8 @@
 		5BF529AE1C816E8300B8FE10 /* ExamMaster */ = {
 			isa = PBXGroup;
 			children = (
+				5BD081961C81801700269752 /* Main Flow */,
+				5BF529E11C817EC700B8FE10 /* Login Flow */,
 				5BF529CB1C8177C600B8FE10 /* Kit Decoration */,
 				5BF529AF1C816E8300B8FE10 /* AppDelegate.swift */,
 				5BF529B31C816E8300B8FE10 /* Main.storyboard */,
@@ -93,8 +156,32 @@
 		5BF529CB1C8177C600B8FE10 /* Kit Decoration */ = {
 			isa = PBXGroup;
 			children = (
+				5BF529D11C8179E300B8FE10 /* AppLoginSession.swift */,
+				5BF529D21C8179E300B8FE10 /* AppNavigationManager.swift */,
+				5BF529D31C8179E300B8FE10 /* AppRootRepresentationsRouter.swift */,
+				5BF529D41C8179E300B8FE10 /* AppRootSessionRouter.swift */,
+				5BF529D51C8179E300B8FE10 /* AppServiceConfigurator.swift */,
+				5BF529D61C8179E300B8FE10 /* AppUserSession.swift */,
+				5BF529D71C8179E300B8FE10 /* Errors.swift */,
 			);
 			path = "Kit Decoration";
+			sourceTree = "<group>";
+		};
+		5BF529E11C817EC700B8FE10 /* Login Flow */ = {
+			isa = PBXGroup;
+			children = (
+				5BF529E21C817EDD00B8FE10 /* Flow */,
+			);
+			path = "Login Flow";
+			sourceTree = "<group>";
+		};
+		5BF529E21C817EDD00B8FE10 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				5BF529E31C817EE600B8FE10 /* LoginFlowModel.swift */,
+				5BF529E51C817F0C00B8FE10 /* LoginFlowNavigationController.swift */,
+			);
+			path = Flow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,10 +194,12 @@
 				5BF529A81C816E8300B8FE10 /* Sources */,
 				5BF529A91C816E8300B8FE10 /* Frameworks */,
 				5BF529AA1C816E8300B8FE10 /* Resources */,
+				5BF529CF1C81788700B8FE10 /* Embed Kit */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5BF529CE1C81787500B8FE10 /* PBXTargetDependency */,
 			);
 			name = ExamMaster;
 			productName = ExamMaster;
@@ -191,11 +280,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BF529DA1C8179E300B8FE10 /* AppNavigationManager.swift in Sources */,
+				5BF529DE1C8179E300B8FE10 /* AppUserSession.swift in Sources */,
+				5BF529DC1C8179E300B8FE10 /* AppRootSessionRouter.swift in Sources */,
+				5BF529E41C817EE600B8FE10 /* LoginFlowModel.swift in Sources */,
+				5BD0819B1C81802E00269752 /* MainFlowModel.swift in Sources */,
+				5BF529E61C817F0C00B8FE10 /* LoginFlowNavigationController.swift in Sources */,
+				5BF529DD1C8179E300B8FE10 /* AppServiceConfigurator.swift in Sources */,
+				5BF529DF1C8179E300B8FE10 /* Errors.swift in Sources */,
+				5BF529DB1C8179E300B8FE10 /* AppRootRepresentationsRouter.swift in Sources */,
+				5BD0819D1C81803600269752 /* MainFlowNavigationController.swift in Sources */,
+				5BF529D91C8179E300B8FE10 /* AppLoginSession.swift in Sources */,
 				5BF529B01C816E8300B8FE10 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5BF529CE1C81787500B8FE10 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ModelsTreeKit;
+			targetProxy = 5BF529CD1C81787500B8FE10 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5BF529B31C816E8300B8FE10 /* Main.storyboard */ = {
