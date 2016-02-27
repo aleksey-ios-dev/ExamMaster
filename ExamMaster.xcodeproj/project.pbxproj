@@ -8,20 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		5BF529B01C816E8300B8FE10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529AF1C816E8300B8FE10 /* AppDelegate.swift */; };
-		5BF529B21C816E8300B8FE10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529B11C816E8300B8FE10 /* ViewController.swift */; };
 		5BF529B51C816E8300B8FE10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF529B31C816E8300B8FE10 /* Main.storyboard */; };
 		5BF529B71C816E8300B8FE10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF529B61C816E8300B8FE10 /* Assets.xcassets */; };
 		5BF529BA1C816E8300B8FE10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF529B81C816E8300B8FE10 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5BF529C71C81779F00B8FE10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BF529C21C81779F00B8FE10 /* ModelsTreeKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BB53FA91C25D5AC00246130;
+			remoteInfo = ModelsTreeKit;
+		};
+		5BF529C91C81779F00B8FE10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BF529C21C81779F00B8FE10 /* ModelsTreeKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BB53FB31C25D5AC00246130;
+			remoteInfo = ModelsTreeKitTests;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5BF529AC1C816E8300B8FE10 /* ExamMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF529AF1C816E8300B8FE10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5BF529B11C816E8300B8FE10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5BF529B41C816E8300B8FE10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BF529B61C816E8300B8FE10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BF529B91C816E8300B8FE10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BF529BB1C816E8300B8FE10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BF529C21C81779F00B8FE10 /* ModelsTreeKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ModelsTreeKit.xcodeproj; path = Kit/ModelsTreeKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +54,7 @@
 		5BF529A31C816E8300B8FE10 = {
 			isa = PBXGroup;
 			children = (
+				5BF529C21C81779F00B8FE10 /* ModelsTreeKit.xcodeproj */,
 				5BF529AE1C816E8300B8FE10 /* ExamMaster */,
 				5BF529AD1C816E8300B8FE10 /* Products */,
 			);
@@ -54,14 +71,30 @@
 		5BF529AE1C816E8300B8FE10 /* ExamMaster */ = {
 			isa = PBXGroup;
 			children = (
+				5BF529CB1C8177C600B8FE10 /* Kit Decoration */,
 				5BF529AF1C816E8300B8FE10 /* AppDelegate.swift */,
-				5BF529B11C816E8300B8FE10 /* ViewController.swift */,
 				5BF529B31C816E8300B8FE10 /* Main.storyboard */,
 				5BF529B61C816E8300B8FE10 /* Assets.xcassets */,
 				5BF529B81C816E8300B8FE10 /* LaunchScreen.storyboard */,
 				5BF529BB1C816E8300B8FE10 /* Info.plist */,
 			);
 			path = ExamMaster;
+			sourceTree = "<group>";
+		};
+		5BF529C31C81779F00B8FE10 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5BF529C81C81779F00B8FE10 /* ModelsTreeKit.framework */,
+				5BF529CA1C81779F00B8FE10 /* ModelsTreeKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5BF529CB1C8177C600B8FE10 /* Kit Decoration */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Kit Decoration";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,12 +143,35 @@
 			mainGroup = 5BF529A31C816E8300B8FE10;
 			productRefGroup = 5BF529AD1C816E8300B8FE10 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5BF529C31C81779F00B8FE10 /* Products */;
+					ProjectRef = 5BF529C21C81779F00B8FE10 /* ModelsTreeKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5BF529AB1C816E8300B8FE10 /* ExamMaster */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5BF529C81C81779F00B8FE10 /* ModelsTreeKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ModelsTreeKit.framework;
+			remoteRef = 5BF529C71C81779F00B8FE10 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5BF529CA1C81779F00B8FE10 /* ModelsTreeKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ModelsTreeKitTests.xctest;
+			remoteRef = 5BF529C91C81779F00B8FE10 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5BF529AA1C816E8300B8FE10 /* Resources */ = {
@@ -135,7 +191,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BF529B21C816E8300B8FE10 /* ViewController.swift in Sources */,
 				5BF529B01C816E8300B8FE10 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +339,7 @@
 				5BF529C01C816E8300B8FE10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
