@@ -11,6 +11,7 @@ import ModelsTreeKit
 
 protocol ExamCreationFlowParent {
   func childModelDidCancelFlow(child: Model) -> Void
+  func child(child: Model, didSelectSubject: Subject) -> Void
 }
 
 class ExamCreationFlowModel: Model {
@@ -38,4 +39,7 @@ extension ExamCreationFlowModel: ExamCreationFlowParent {
     cancelFlow()
   }
   
+  func child(child: Model, didSelectSubject subject: Subject) {
+    pushChildSignal.sendNext(ExamTopicPickerModel(parent: self, subject: subject))
+  }
 }

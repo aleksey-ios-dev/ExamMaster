@@ -26,19 +26,27 @@ class ExamCreationFlowNavigationController: UINavigationController {
   
   func buildRepresentationFor(model: Model) {
     switch model {
+      
     case let model as ExamSubjectPickerModel:
       let controller = ExamSubjectPickerViewController()
       controller.model = model
       applyDefaultNavigationButtonsTo(controller)
       viewControllers = [controller]
-      default:
+      
+    case let model as ExamTopicPickerModel:
+      let controller = ExamTopicPickerViewController()
+      controller.model = model
+      applyDefaultNavigationButtonsTo(controller)
+      pushViewController(controller, animated: true)
+      
+    default:
       break
     }
   }
   
   func applyDefaultNavigationButtonsTo(controller: UIViewController) {
     let button = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "cancelFlow:")
-    controller.navigationItem.leftBarButtonItem = button
+    controller.navigationItem.rightBarButtonItem = button
   }
   
   //Actions

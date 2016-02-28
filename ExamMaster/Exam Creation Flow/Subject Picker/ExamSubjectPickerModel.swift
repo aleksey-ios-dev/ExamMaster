@@ -9,9 +9,11 @@
 import Foundation
 import ModelsTreeKit
 
-class ExamSubjectPickerModel: Model {
+typealias Subject = String
+
+class ExamSubjectPickerModel: List<String> {
   
-  let title = "Pick subject"
+  let title = "Subject"
   
   private weak var flowModel: ExamCreationFlowModel!
   
@@ -23,5 +25,13 @@ class ExamSubjectPickerModel: Model {
   
   func cancelFlow() {
     flowModel.childModelDidCancelFlow(self)
+  }
+  
+  func fetchSubjects() {
+    performUpdates { insert(["Math", "Chemistry", "History"]) }
+  }
+  
+  func selectSubject(subject: String) {
+    flowModel.child(self, didSelectSubject: subject)
   }
 }

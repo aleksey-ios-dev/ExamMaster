@@ -1,5 +1,5 @@
 //
-//  ExamSubjectPickerViewController.swift
+//  ExamTopicPickerViewController.swift
 //  ExamMaster
 //
 //  Created by aleksey on 28.02.16.
@@ -7,11 +7,13 @@
 //
 
 import Foundation
+
+import Foundation
 import ModelsTreeKit
 
-class ExamSubjectPickerViewController: UITableViewController {
+class ExamTopicPickerViewController: UITableViewController {
   
-  weak var model: ExamSubjectPickerModel! {
+  weak var model: ExamTopicPickerModel! {
     didSet {
       model.applyRepresentation(self)
       title = model.title
@@ -30,11 +32,11 @@ class ExamSubjectPickerViewController: UITableViewController {
     adapter.registerCellClass(ItemCell)
     adapter.nibNameForObjectMatching = { _ in return String(ItemCell) }
     
-    adapter.didSelectCellSignal.subscribeNext { [ weak self] _, subject in
-      self?.model.selectSubject(subject!)
-    }.putInto(pool)
+    adapter.didSelectCellSignal.subscribeNext { _, object in
+      
+      }.putInto(pool)
     
-    model.fetchSubjects()
+    model.fetchTopics()
   }
   
 }
