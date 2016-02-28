@@ -11,32 +11,15 @@ import ModelsTreeKit
 
 protocol LoginFlowParent {
   func childModel(child: Model, didSelectRegister authorizationInfo: AuthorizationInfo) -> Void
+  func childModelDidSelectShowRegistration(child: Model) -> Void
 }
 
 class LoginFlowModel: Model {
 
-  override init(parent: Model?) {
-    super.init(parent: parent)
-    
-    registerForBubbleNotification(Bubble.LoginFlow.Register)
-  }
-  
   func pushInitialChildren() {
     pushChildSignal.sendNext(SignInModel(parent: self))
   }
-  
-  //Bubbles handling
-  
-  override func handleBubbleNotification(bubble: Bubble, sender: Model) {
-    switch bubble.code {
-    case Bubble.LoginFlowCodes.Register.rawValue:
-      pushChildSignal.sendNext(RegistrationModel(parent: self))
-      
-    default:
-      break
-    }
-  }
-  
+
 }
 
 extension LoginFlowModel: LoginFlowParent {
@@ -49,6 +32,10 @@ extension LoginFlowModel: LoginFlowParent {
     params[AppCredentialsKeys.Username.rawValue] = authorizationInfo.username
     
     session()?.closeWithParams(params)
+  }
+  
+  func childModelDidSelectShowRegistration(child: Model) {
+    pushChildSignal.sendNext(RegistrationModel(parent: self))
   }
   
 }

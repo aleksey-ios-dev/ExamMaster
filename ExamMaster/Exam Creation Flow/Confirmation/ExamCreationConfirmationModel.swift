@@ -12,10 +12,10 @@ import ModelsTreeKit
 class ExamCreationConfirmationModel: Model {
   
   let title = "Done!"
+  let exam: Exam
   
   private weak var flowModel: ExamCreationFlowModel!
-  private let exam: Exam
-  
+ 
   init(parent: ExamCreationFlowModel?, exam: Exam) {
     self.exam = exam
 

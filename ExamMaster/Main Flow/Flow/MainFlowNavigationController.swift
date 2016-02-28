@@ -16,12 +16,16 @@ class MainFlowNavigaionController: RESideMenu {
       model.applyRepresentation(self)
       model.pushChildSignal.subscribeNext { [weak self] child in
         self?.buildRepresentationFor(child)
-        }.putInto(pool)
+      }.putInto(pool)
       model.pushInitialChildren()
       
       model.removeChildSignal.subscribeNext { [weak self] child in
         self?.removePresentationFor(child)
-      }
+      }.putInto(pool)
+      
+      model.showSideMenuSignal.subscribeNext { [weak self] in
+        self?.presentLeftMenuViewController()
+      }.putInto(pool)
     }
   }
   

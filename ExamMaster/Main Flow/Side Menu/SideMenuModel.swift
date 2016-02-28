@@ -14,22 +14,16 @@ class SideMenuModel: Model {
   let examsCountSignal = Signal<Int>()
   
   private var examsCount = 0 {
-    didSet {
-      examsCountSignal.sendNext(examsCount)
-    }
+    didSet { examsCountSignal.sendNext(examsCount) }
   }
   
   override init(parent: Model?) {
     super.init(parent: parent)
-    
-    registerForEvent(.ExamCreated) { [weak self] _ in
-      self?.examsCount++
-    }
-    
+    registerForEvent(.ExamCreated) { [weak self] _ in self?.examsCount++ }
     applyInitialState()
   }
   
-  func applyInitialState() {
+  private func applyInitialState() {
     examsCount = 0
   }
   
@@ -40,7 +34,5 @@ class SideMenuModel: Model {
   func startNewExam() {
     raiseSessionEvent(.StartExam, withObject: nil)
   }
-  
-  
   
 }

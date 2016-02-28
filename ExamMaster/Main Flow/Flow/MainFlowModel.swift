@@ -9,11 +9,31 @@
 import Foundation
 import ModelsTreeKit
 
+extension Bubble { //TODO remove
+  
+  enum MainFlow {
+    private static var domain = "MainFlow"
+    
+    static var ShowSideMenu: Bubble {
+      return Bubble(code: MainFlowCodes.ShowSideMenu.rawValue, domain: domain)
+    }
+  }
+  
+  enum MainFlowCodes: Int {
+    case ShowSideMenu
+  }
+  
+}
+
 class MainFlowModel: Model {
+  
+  let showSideMenuSignal = Signal<Void>()
   
   override init(parent: Model?) {
     super.init(parent: parent)
     
+    registerForBubbleNotification(Bubble.MainFlow.ShowSideMenu)
+  
     registerForEvent(.StartExam) { [weak self] _ in
       guard let _self = self else { return }
       
@@ -36,6 +56,17 @@ class MainFlowModel: Model {
     pushChildSignal.sendNext(SideMenuModel(parent: self))
     
     printSessionTree()
+  }
+  
+  override func handleBubbleNotification(bubble: Bubble, sender: Model) {
+    guard bubble.domain == Bubble.MainFlow.domain else { return }
+    
+    switch bubble.code {
+    case Bubble.MainFlowCodes.ShowSideMenu.rawValue:
+      showSideMenuSignal.sendNext()
+    default:
+      break
+    }
   }
   
 }

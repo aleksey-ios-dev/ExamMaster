@@ -30,4 +30,10 @@ class DashboardViewController: UIViewController {
     model.startNewExam()
   }
   
+  @IBAction
+  private func showMenu(sender: AnyObject?) {
+    model.showMenu()
+  }
+
+  
 }

@@ -19,20 +19,66 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Xw-ZD-XaL">
-                                <rect key="frame" x="140" y="362" width="41" height="30"/>
+                                <rect key="frame" x="140" y="488" width="41" height="30"/>
                                 <state key="normal" title="Finish"/>
                                 <connections>
                                     <action selector="finish:" destination="mew-Ko-A6g" eventType="touchUpInside" id="RpO-S5-vzM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your exam:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TY-Xt-PjR">
+                                <rect key="frame" x="118" y="80" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAp-87-5iT">
+                                <rect key="frame" x="131" y="121" width="59" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeI-XZ-7OV">
+                                <rect key="frame" x="139" y="162" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Questions count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHb-ZA-q9Y">
+                                <rect key="frame" x="97" y="203" width="126" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time limit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZrP-3j-0g8">
+                                <rect key="frame" x="123" y="244" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.98495709896087646" green="0.0" blue="0.90877622365951538" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="UAp-87-5iT" firstAttribute="centerX" secondItem="zgT-K1-ykF" secondAttribute="centerX" id="3Ci-ag-o7S"/>
+                            <constraint firstItem="4TY-Xt-PjR" firstAttribute="top" secondItem="JAo-Yp-qlW" secondAttribute="bottom" constant="60" id="FUK-RB-rap"/>
+                            <constraint firstItem="ZrP-3j-0g8" firstAttribute="centerX" secondItem="zgT-K1-ykF" secondAttribute="centerX" id="K0p-JN-Fdm"/>
                             <constraint firstItem="5Xw-ZD-XaL" firstAttribute="centerX" secondItem="zgT-K1-ykF" secondAttribute="centerX" id="R0s-9V-16e"/>
-                            <constraint firstItem="n5Z-Dm-NhB" firstAttribute="top" secondItem="5Xw-ZD-XaL" secondAttribute="bottom" constant="176" id="qTv-SD-NN4"/>
+                            <constraint firstItem="LeI-XZ-7OV" firstAttribute="centerX" secondItem="zgT-K1-ykF" secondAttribute="centerX" id="Wg2-D9-z1w"/>
+                            <constraint firstItem="UAp-87-5iT" firstAttribute="top" secondItem="4TY-Xt-PjR" secondAttribute="bottom" constant="20" id="Xil-uW-UCH"/>
+                            <constraint firstItem="VHb-ZA-q9Y" firstAttribute="centerX" secondItem="zgT-K1-ykF" secondAttribute="centerX" id="bqI-IE-0AY"/>
+                            <constraint firstItem="VHb-ZA-q9Y" firstAttribute="top" secondItem="LeI-XZ-7OV" secondAttribute="bottom" constant="20" id="cjX-Al-BRb"/>
+                            <constraint firstItem="n5Z-Dm-NhB" firstAttribute="top" secondItem="5Xw-ZD-XaL" secondAttribute="bottom" constant="50" id="qTv-SD-NN4"/>
+                            <constraint firstItem="4TY-Xt-PjR" firstAttribute="centerX" secondItem="zgT-K1-ykF" secondAttribute="centerX" id="rKc-yo-HhK"/>
+                            <constraint firstItem="LeI-XZ-7OV" firstAttribute="top" secondItem="UAp-87-5iT" secondAttribute="bottom" constant="20" id="rfE-MG-6YT"/>
+                            <constraint firstItem="ZrP-3j-0g8" firstAttribute="top" secondItem="VHb-ZA-q9Y" secondAttribute="bottom" constant="20" id="whc-cd-hnJ"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="questionsCountLabel" destination="VHb-ZA-q9Y" id="Fqs-B7-UFB"/>
+                        <outlet property="subjectLabel" destination="UAp-87-5iT" id="H8Q-wc-OpR"/>
+                        <outlet property="timeLimitLabel" destination="ZrP-3j-0g8" id="oHa-BE-bjZ"/>
+                        <outlet property="topicLabel" destination="LeI-XZ-7OV" id="BHo-rg-Bau"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ugh-Qo-E0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,7 +103,7 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sZ-2s-fBd">
-                                <rect key="frame" x="20" y="71" width="280" height="20.5"/>
+                                <rect key="frame" x="20" y="71" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -69,13 +115,13 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aau-zI-h2r">
-                                <rect key="frame" x="20" y="206" width="280" height="20.5"/>
+                                <rect key="frame" x="20" y="206" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8I-iO-vtw">
-                                <rect key="frame" x="117" y="332" width="87" height="30"/>
+                                <rect key="frame" x="117" y="488" width="87" height="30"/>
                                 <state key="normal" title="Create exam"/>
                                 <connections>
                                     <action selector="confirm:" destination="PH5-C4-6Yy" eventType="touchUpInside" id="qnm-6d-hOM"/>
@@ -94,13 +140,13 @@
                             <constraint firstItem="k8I-iO-vtw" firstAttribute="centerX" secondItem="Df9-Fp-GcT" secondAttribute="centerX" id="OOv-xG-Zgp"/>
                             <constraint firstItem="zCp-8p-Zbv" firstAttribute="leading" secondItem="Df9-Fp-GcT" secondAttribute="leadingMargin" constant="-4" id="SCm-TX-BLR"/>
                             <constraint firstItem="Aau-zI-h2r" firstAttribute="centerX" secondItem="Df9-Fp-GcT" secondAttribute="centerX" id="Yzi-zc-hW4"/>
+                            <constraint firstItem="zCP-rJ-uYG" firstAttribute="top" secondItem="k8I-iO-vtw" secondAttribute="bottom" constant="50" id="d3J-xC-dVO"/>
                             <constraint firstAttribute="trailing" secondItem="Aau-zI-h2r" secondAttribute="trailing" constant="20" id="dHZ-Of-8lF"/>
                             <constraint firstItem="0sZ-2s-fBd" firstAttribute="centerX" secondItem="Df9-Fp-GcT" secondAttribute="centerX" id="nA8-3I-RlE"/>
                             <constraint firstItem="YiO-yU-ZJ5" firstAttribute="leading" secondItem="Df9-Fp-GcT" secondAttribute="leadingMargin" id="nxe-4X-mdh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zCp-8p-Zbv" secondAttribute="trailing" constant="-4" id="rga-04-v0h"/>
                             <constraint firstItem="zCp-8p-Zbv" firstAttribute="centerX" secondItem="Df9-Fp-GcT" secondAttribute="centerX" id="smW-uo-Rcn"/>
                             <constraint firstAttribute="trailing" secondItem="0sZ-2s-fBd" secondAttribute="trailing" constant="20" id="uD3-Yd-RL0"/>
-                            <constraint firstItem="k8I-iO-vtw" firstAttribute="top" secondItem="zCp-8p-Zbv" secondAttribute="bottom" constant="66" id="zBH-lF-pT5"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

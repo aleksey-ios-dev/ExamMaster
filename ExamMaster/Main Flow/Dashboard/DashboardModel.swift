@@ -11,12 +11,18 @@ import ModelsTreeKit
 
 class DashboardModel: Model {
   
+  let showMenuSignal = Signal<Void>()
+  
   var title: String {
     return session()!.credentials!.username
   }
   
   func startNewExam() {
     raiseSessionEvent(.StartExam, withObject: nil)
+  }
+  
+  func showMenu() {
+    raiseBubbleNotification(Bubble.MainFlow.ShowSideMenu, sender: self)
   }
   
 }

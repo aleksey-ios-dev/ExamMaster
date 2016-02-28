@@ -50,6 +50,6 @@ class SignInModel: Model {
   }
   
   func register() {
-    raiseBubbleNotification(Bubble.LoginFlow.Register, sender: self)
+    flowModel.childModelDidSelectShowRegistration(self)
   }
 }
