@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import ModelsTreeKit
 
-public enum AppEventName: String {
+public enum AppEvent: String, SessionEventName {
   case StartExam = "StartExam"
   case ExamCreated = "ExamCreated"
 }

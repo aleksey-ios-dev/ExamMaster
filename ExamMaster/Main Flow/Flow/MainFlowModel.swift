@@ -34,7 +34,7 @@ class MainFlowModel: Model {
     
     registerForBubbleNotification(Bubble.MainFlow.ShowSideMenu)
   
-    registerForEvent(SessionEvent(name: AppEventName.StartExam.rawValue)) { [weak self] _ in
+    registerForEvent(SessionEvent(name: AppEvent.StartExam)) { [weak self] _ in
       guard let _self = self else { return }
       
       let flowModel = ExamCreationFlowModel(parent: self)
