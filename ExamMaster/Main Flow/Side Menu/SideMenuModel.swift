@@ -11,6 +11,28 @@ import ModelsTreeKit
 
 class SideMenuModel: Model {
   
+  let examsCountSignal = Signal<Int>()
+  
+  private var examsCount = 0 {
+    didSet {
+      examsCountSignal.sendNext(examsCount)
+    }
+  }
+  
+  override init(parent: Model?) {
+    super.init(parent: parent)
+    
+    registerForEvent(.ExamCreated) { [weak self] _ in
+      self?.examsCount++
+    }
+    
+    applyInitialState()
+  }
+  
+  func applyInitialState() {
+    examsCount = 0
+  }
+  
   func logout() {
     session()?.closeWithParams(nil)
   }
@@ -18,5 +40,7 @@ class SideMenuModel: Model {
   func startNewExam() {
     raiseSessionEvent(.StartExam, withObject: nil)
   }
+  
+  
   
 }

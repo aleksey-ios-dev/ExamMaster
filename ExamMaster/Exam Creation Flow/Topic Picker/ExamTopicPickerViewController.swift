@@ -32,9 +32,9 @@ class ExamTopicPickerViewController: UITableViewController {
     adapter.registerCellClass(ItemCell)
     adapter.nibNameForObjectMatching = { _ in return String(ItemCell) }
     
-    adapter.didSelectCellSignal.subscribeNext { _, object in
-      
-      }.putInto(pool)
+    adapter.didSelectCellSignal.subscribeNext { [weak self] _, object in
+      self?.model.selectTopic(object!)
+    }.putInto(pool)
     
     model.fetchTopics()
   }

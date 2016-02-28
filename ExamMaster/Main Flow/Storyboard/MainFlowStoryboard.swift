@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class MainFlowStoryboard: UIStoryboard {
+  
   class func sideMenuViewController() -> SideMenuViewController {
     return storyboard.instantiateViewControllerWithIdentifier("SideMenu") as! SideMenuViewController
   }

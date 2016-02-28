@@ -10,9 +10,21 @@ import Foundation
 import UIKit
 
 class SideMenuViewController: UIViewController {
+  
+  @IBOutlet
+  private weak var examsCreatedLabel: UILabel!
+  
   weak var model: SideMenuModel! {
     didSet {
       model.applyRepresentation(self)
+    }
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    model.examsCountSignal.map { return "Exams created: \($0)" }.subscribeNext { [weak self] in
+      self?.examsCreatedLabel.text = $0
     }
   }
   

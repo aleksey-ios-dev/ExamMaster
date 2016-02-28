@@ -21,10 +21,10 @@ class ExamTopicPickerModel: List<Topic> {
   init(parent: ExamCreationFlowModel, subject: Subject) {
     self.subject = subject
     super.init(parent: parent)
+    self.flowModel = parent
   }
   
   func fetchTopics() {
-    printSessionTree()
     var result: [String]!
 
     switch subject {
@@ -34,5 +34,9 @@ class ExamTopicPickerModel: List<Topic> {
       default: result = []
     }
     performUpdates { insert(result) }
+  }
+  
+  func selectTopic(topic: Topic) {
+    flowModel.child(self, didSelectTopic: topic)
   }
 }

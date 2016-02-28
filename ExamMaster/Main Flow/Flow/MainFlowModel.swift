@@ -19,6 +19,10 @@ class MainFlowModel: Model {
       
       let flowModel = ExamCreationFlowModel(parent: self)
       
+      flowModel.completionSignal.subscribeCompleted { _ in
+        _self.removeChildSignal.sendNext(flowModel)
+        }.putInto(_self.pool)
+      
       flowModel.cancelSignal.subscribeCompleted { _ in
         _self.removeChildSignal.sendNext(flowModel)
       }.putInto(_self.pool)

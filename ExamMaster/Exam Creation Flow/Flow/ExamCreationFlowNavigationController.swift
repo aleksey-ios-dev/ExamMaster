@@ -39,6 +39,18 @@ class ExamCreationFlowNavigationController: UINavigationController {
       applyDefaultNavigationButtonsTo(controller)
       pushViewController(controller, animated: true)
       
+    case let model as ExamOptionsPickerModel:
+      let controller = ExamCreationFlowStoryboard.optionsViewController()
+      controller.model = model
+      applyDefaultNavigationButtonsTo(controller)
+      pushViewController(controller, animated: true)
+      
+    case let model as ExamCreationConfirmationModel:
+      let controller = ExamCreationFlowStoryboard.confirmationViewController()
+      controller.model = model
+      controller.navigationItem.hidesBackButton = true
+      pushViewController(controller, animated: true)
+      
     default:
       break
     }

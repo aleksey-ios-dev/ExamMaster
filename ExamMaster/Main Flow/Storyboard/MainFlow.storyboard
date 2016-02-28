@@ -45,6 +45,12 @@
                                     <action selector="startNewExam:" destination="ngo-1Z-Pfb" eventType="touchUpInside" id="Kpl-uE-IIB"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTs-F8-GvY">
+                                <rect key="frame" x="16" y="75" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.12941176469999999" green="1" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -52,9 +58,14 @@
                             <constraint firstItem="tgs-ER-23q" firstAttribute="centerX" secondItem="hAk-6S-oEu" secondAttribute="centerX" id="8Ku-Vi-ebi"/>
                             <constraint firstItem="WdR-gU-cj8" firstAttribute="leading" secondItem="hAk-6S-oEu" secondAttribute="leadingMargin" id="PMO-UK-Njl"/>
                             <constraint firstItem="WdR-gU-cj8" firstAttribute="top" secondItem="VMB-RS-jRl" secondAttribute="bottom" constant="8" id="UmA-nH-swF"/>
+                            <constraint firstItem="RTs-F8-GvY" firstAttribute="leading" secondItem="hAk-6S-oEu" secondAttribute="leading" constant="16" id="mkB-Gr-UT9"/>
+                            <constraint firstItem="RTs-F8-GvY" firstAttribute="top" secondItem="WdR-gU-cj8" secondAttribute="bottom" constant="17" id="tGB-uW-pZ5"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="examsCreatedLabel" destination="RTs-F8-GvY" id="DmI-IW-ZeC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dT5-75-8ec" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

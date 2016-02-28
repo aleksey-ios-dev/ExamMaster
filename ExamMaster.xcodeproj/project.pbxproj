@@ -13,6 +13,13 @@
 		5B15DD201C8308CE00A4EBDB /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B15DD1F1C8308CE00A4EBDB /* ItemCell.xib */; };
 		5B15DD261C830C1500A4EBDB /* ExamTopicPickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD251C830C1500A4EBDB /* ExamTopicPickerModel.swift */; };
 		5B15DD281C830C2200A4EBDB /* ExamTopicPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD271C830C2200A4EBDB /* ExamTopicPickerViewController.swift */; };
+		5B15DD2A1C83146400A4EBDB /* ExamOptionsPickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD291C83146400A4EBDB /* ExamOptionsPickerModel.swift */; };
+		5B15DD2C1C83151E00A4EBDB /* ExamOptionsPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD2B1C83151E00A4EBDB /* ExamOptionsPickerViewController.swift */; };
+		5B15DD2E1C83157D00A4EBDB /* ExamCreationFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B15DD2D1C83157D00A4EBDB /* ExamCreationFlow.storyboard */; };
+		5B15DD301C83160500A4EBDB /* ExamCreationFlowStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD2F1C83160500A4EBDB /* ExamCreationFlowStoryboard.swift */; };
+		5B15DD341C831B4700A4EBDB /* Exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD331C831B4700A4EBDB /* Exam.swift */; };
+		5B15DD371C8324F600A4EBDB /* ExamCreationConfirmationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD361C8324F600A4EBDB /* ExamCreationConfirmationModel.swift */; };
+		5B15DD391C83261800A4EBDB /* ExamCreationConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD381C83261800A4EBDB /* ExamCreationConfirmationViewController.swift */; };
 		5B5657D91C82998100016494 /* LoginFlowDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5657D81C82998100016494 /* LoginFlowDefinitions.swift */; };
 		5B5657E91C82A06900016494 /* ExamCreationFlowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5657E81C82A06900016494 /* ExamCreationFlowModel.swift */; };
 		5B5657EB1C82A0C400016494 /* ExamCreationFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5657EA1C82A0C400016494 /* ExamCreationFlowNavigationController.swift */; };
@@ -95,6 +102,13 @@
 		5B15DD1F1C8308CE00A4EBDB /* ItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 		5B15DD251C830C1500A4EBDB /* ExamTopicPickerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamTopicPickerModel.swift; sourceTree = "<group>"; };
 		5B15DD271C830C2200A4EBDB /* ExamTopicPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamTopicPickerViewController.swift; sourceTree = "<group>"; };
+		5B15DD291C83146400A4EBDB /* ExamOptionsPickerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamOptionsPickerModel.swift; sourceTree = "<group>"; };
+		5B15DD2B1C83151E00A4EBDB /* ExamOptionsPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamOptionsPickerViewController.swift; sourceTree = "<group>"; };
+		5B15DD2D1C83157D00A4EBDB /* ExamCreationFlow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ExamCreationFlow.storyboard; sourceTree = "<group>"; };
+		5B15DD2F1C83160500A4EBDB /* ExamCreationFlowStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamCreationFlowStoryboard.swift; sourceTree = "<group>"; };
+		5B15DD331C831B4700A4EBDB /* Exam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exam.swift; sourceTree = "<group>"; };
+		5B15DD361C8324F600A4EBDB /* ExamCreationConfirmationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamCreationConfirmationModel.swift; sourceTree = "<group>"; };
+		5B15DD381C83261800A4EBDB /* ExamCreationConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamCreationConfirmationViewController.swift; sourceTree = "<group>"; };
 		5B5657D81C82998100016494 /* LoginFlowDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFlowDefinitions.swift; sourceTree = "<group>"; };
 		5B5657E81C82A06900016494 /* ExamCreationFlowModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamCreationFlowModel.swift; sourceTree = "<group>"; };
 		5B5657EA1C82A0C400016494 /* ExamCreationFlowNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamCreationFlowNavigationController.swift; sourceTree = "<group>"; };
@@ -167,9 +181,35 @@
 			path = "Topic Picker";
 			sourceTree = "<group>";
 		};
+		5B15DD311C831B3C00A4EBDB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5B15DD321C831B3C00A4EBDB /* Exam */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5B15DD321C831B3C00A4EBDB /* Exam */ = {
+			isa = PBXGroup;
+			children = (
+				5B15DD331C831B4700A4EBDB /* Exam.swift */,
+			);
+			path = Exam;
+			sourceTree = "<group>";
+		};
+		5B15DD351C8324E500A4EBDB /* Confirmation */ = {
+			isa = PBXGroup;
+			children = (
+				5B15DD361C8324F600A4EBDB /* ExamCreationConfirmationModel.swift */,
+				5B15DD381C83261800A4EBDB /* ExamCreationConfirmationViewController.swift */,
+			);
+			path = Confirmation;
+			sourceTree = "<group>";
+		};
 		5B5657E21C82A05600016494 /* Exam Creation Flow */ = {
 			isa = PBXGroup;
 			children = (
+				5B15DD351C8324E500A4EBDB /* Confirmation */,
 				5B15DD1C1C8307C400A4EBDB /* Cell */,
 				5B5657E31C82A05600016494 /* Flow */,
 				5B5657E41C82A05600016494 /* Options Picker */,
@@ -192,6 +232,8 @@
 		5B5657E41C82A05600016494 /* Options Picker */ = {
 			isa = PBXGroup;
 			children = (
+				5B15DD291C83146400A4EBDB /* ExamOptionsPickerModel.swift */,
+				5B15DD2B1C83151E00A4EBDB /* ExamOptionsPickerViewController.swift */,
 			);
 			path = "Options Picker";
 			sourceTree = "<group>";
@@ -199,6 +241,8 @@
 		5B5657E51C82A05600016494 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				5B15DD2D1C83157D00A4EBDB /* ExamCreationFlow.storyboard */,
+				5B15DD2F1C83160500A4EBDB /* ExamCreationFlowStoryboard.swift */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -328,6 +372,7 @@
 		5BF529AE1C816E8300B8FE10 /* ExamMaster */ = {
 			isa = PBXGroup;
 			children = (
+				5B15DD311C831B3C00A4EBDB /* Model */,
 				5BD081BE1C81E82900269752 /* Vendors */,
 				5B5657E21C82A05600016494 /* Exam Creation Flow */,
 				5BD081961C81801700269752 /* Main Flow */,
@@ -472,6 +517,7 @@
 			files = (
 				5BD081AA1C8193D400269752 /* LoginFlow.storyboard in Resources */,
 				5BF529BA1C816E8300B8FE10 /* LaunchScreen.storyboard in Resources */,
+				5B15DD2E1C83157D00A4EBDB /* ExamCreationFlow.storyboard in Resources */,
 				5B15DD201C8308CE00A4EBDB /* ItemCell.xib in Resources */,
 				5BF529B71C816E8300B8FE10 /* Assets.xcassets in Resources */,
 				5BD081D61C81EF7F00269752 /* MainFlow.storyboard in Resources */,
@@ -494,6 +540,7 @@
 				5B5657EB1C82A0C400016494 /* ExamCreationFlowNavigationController.swift in Sources */,
 				5BD081A51C818B3700269752 /* SignInModel.swift in Sources */,
 				5BD081C51C81E82900269752 /* UIViewController+RESideMenu.m in Sources */,
+				5B15DD301C83160500A4EBDB /* ExamCreationFlowStoryboard.swift in Sources */,
 				5BF529E41C817EE600B8FE10 /* LoginFlowModel.swift in Sources */,
 				5BD0819B1C81802E00269752 /* MainFlowModel.swift in Sources */,
 				5B15DD261C830C1500A4EBDB /* ExamTopicPickerModel.swift in Sources */,
@@ -501,12 +548,15 @@
 				5BF529DD1C8179E300B8FE10 /* AppServiceConfigurator.swift in Sources */,
 				5BD081B51C81A39700269752 /* RegistrationModel.swift in Sources */,
 				5BD081CD1C81EB8500269752 /* SideMenuModel.swift in Sources */,
+				5B15DD341C831B4700A4EBDB /* Exam.swift in Sources */,
 				5B15DD1E1C8307CF00A4EBDB /* ItemCell.swift in Sources */,
 				5BD081A71C81903800269752 /* SignInViewController.swift in Sources */,
 				5BD081C41C81E82900269752 /* RECommonFunctions.m in Sources */,
 				5BF529DF1C8179E300B8FE10 /* Errors.swift in Sources */,
 				5BD081C81C81E84A00269752 /* RESideMenu.m in Sources */,
 				5BD081CF1C81EE2900269752 /* SideMenuViewController.swift in Sources */,
+				5B15DD371C8324F600A4EBDB /* ExamCreationConfirmationModel.swift in Sources */,
+				5B15DD2C1C83151E00A4EBDB /* ExamOptionsPickerViewController.swift in Sources */,
 				5B5657D91C82998100016494 /* LoginFlowDefinitions.swift in Sources */,
 				5BD081D41C81EF2000269752 /* MainFlowStoryboard.swift in Sources */,
 				5BD081D11C81EE4000269752 /* DashboardViewController.swift in Sources */,
@@ -514,12 +564,14 @@
 				5B15DD181C82B0A100A4EBDB /* ExamSubjectPickerModel.swift in Sources */,
 				5B15DD1B1C82B17000A4EBDB /* ExamSubjectPickerViewController.swift in Sources */,
 				5BD081B71C81A5CB00269752 /* RegistrationViewController.swift in Sources */,
+				5B15DD2A1C83146400A4EBDB /* ExamOptionsPickerModel.swift in Sources */,
 				5B5657E91C82A06900016494 /* ExamCreationFlowModel.swift in Sources */,
 				5BD0819D1C81803600269752 /* MainFlowNavigationController.swift in Sources */,
 				5BF529D91C8179E300B8FE10 /* AppLoginSession.swift in Sources */,
 				5BF529B01C816E8300B8FE10 /* AppDelegate.swift in Sources */,
 				5BD081AC1C8193F400269752 /* LoginFlowStoryboard.swift in Sources */,
 				5BD081A01C81888900269752 /* DashboardModel.swift in Sources */,
+				5B15DD391C83261800A4EBDB /* ExamCreationConfirmationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
