@@ -18,7 +18,7 @@ class DashboardModel: Model {
   }
   
   func startNewExam() {
-    raiseSessionEvent(.StartExam, withObject: nil)
+    raiseSessionEvent(SessionEvent(name: AppEventName.StartExam.rawValue), withObject: nil)
   }
   
   func showMenu() {

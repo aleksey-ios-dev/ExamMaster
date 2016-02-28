@@ -9,7 +9,7 @@
 import Foundation
 import ModelsTreeKit
 
-extension Bubble { //TODO remove
+extension Bubble {
   
   enum MainFlow {
     private static var domain = "MainFlow"
@@ -34,7 +34,7 @@ class MainFlowModel: Model {
     
     registerForBubbleNotification(Bubble.MainFlow.ShowSideMenu)
   
-    registerForEvent(.StartExam) { [weak self] _ in
+    registerForEvent(SessionEvent(name: AppEventName.StartExam.rawValue)) { [weak self] _ in
       guard let _self = self else { return }
       
       let flowModel = ExamCreationFlowModel(parent: self)
