@@ -12,10 +12,11 @@ import ModelsTreeKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-  var window: UIWindow?
+  var window: UIWindow? = UIWindow(frame: UIScreen.mainScreen().bounds)
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     
+    SessionController.controller.configuration = SessionControllerConfiguration.appConfiguration()
     SessionController.controller.representationsRouter = AppRootRepresentationsRouter()
     SessionController.controller.modelsRouter = AppRootModelsRouter()
     SessionController.controller.sessionsRouter = AppRootSessionsRouter()
@@ -23,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     SessionController.controller.navigationManager = AppNavigationManager(window: window)
     
     SessionController.controller.restoreLastOpenedOrStartLoginSession()
-
+    
     return true
   }
 

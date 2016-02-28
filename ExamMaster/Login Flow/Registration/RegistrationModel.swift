@@ -13,6 +13,8 @@ import ModelsTreeKit
 
 class RegistrationModel: Model {
   
+  let title = "Registration"
+  
   weak var flowModel: LoginFlowModel!
   
   let inputValiditySignal: Signal<Bool>
@@ -24,7 +26,7 @@ class RegistrationModel: Model {
   init(parent: LoginFlowModel?) {
     inputValiditySignal = usernameSignal.combineLatest(passwordSignal).map { username, password in
       guard let username = username, let password = password else { return false }
-      return username.characters.count > 3 && password.characters.count > 5
+      return username.characters.count > 1 && password.characters.count > 1
     }
 
     super.init(parent: parent)

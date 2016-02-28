@@ -64,9 +64,12 @@ class LoginFlowModel: Model {
 extension LoginFlowModel: LoginFlowParent {
   
   func childModel(child: Model, didSelectRegister authorizationInfo: AuthorizationInfo) {
-    var params = SessionCompletionParams<LoginSessionCompletion>()
-    params[.Token] = "1234"
-    params[.Uid] = String(authorizationInfo.password?.hash)
+    var params = SessionCompletionParams()
+    
+    params[AppCredentialsKeys.Token.rawValue] = String(authorizationInfo.password?.hash)
+    params[AppCredentialsKeys.Uid.rawValue] = authorizationInfo.username
+    params[AppCredentialsKeys.Username.rawValue] = authorizationInfo.username
+    
     session()?.closeWithParams(params)
   }
   

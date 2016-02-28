@@ -1,5 +1,5 @@
 //
-//  DashboardModel.swift
+//  SideMenuModel.swift
 //  ExamMaster
 //
 //  Created by aleksey on 27.02.16.
@@ -9,8 +9,8 @@
 import Foundation
 import ModelsTreeKit
 
-class DashboardModel: Model {
-  var title: String {
-    return session()!.credentials!.username
+class SideMenuModel: Model {
+  func logout() {
+    session()?.closeWithParams(nil)
   }
 }

@@ -10,19 +10,19 @@ import Foundation
 import ModelsTreeKit
 
 class AppUserSession: UserSession {
-    override init(params: SessionCompletionParams<LoginSessionCompletion>) {
-        super.init(params: params)
-      credentials = SessionCredentials(params: params)
+  
+  override init(params: SessionCompletionParams) {
+    super.init(params: params)
+  }
+  
+  required init(archivationProxy: ArchivationProxy) {
+    super.init(archivationProxy: archivationProxy)
+  }
+  
+  override func raiseError(error: Error) {
+    if error == Error(domain: NetworkErrorDomain(), code: NetworkErrorDomain.Errors.BadToken) {
+      print("\(self): Bad token received, closing")
+      closeWithParams(nil)
     }
-
-    required init(archivationProxy: ArchivationProxy) {
-        super.init(archivationProxy: archivationProxy)
-    }
-    
-    override func raiseError(error: Error) {
-        if error == Error(domain: NetworkErrorDomain(), code: NetworkErrorDomain.Errors.BadToken) {
-            print("\(self): Bad token received, closing")
-            closeWithParams(nil)
-        }
-    }
+  }
 }

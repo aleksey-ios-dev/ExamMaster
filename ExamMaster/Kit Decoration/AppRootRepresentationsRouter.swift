@@ -14,7 +14,7 @@ class AppRootRepresentationsRouter: RootRepresentationsRouter {
     func representationFor(session session: Session) -> AnyObject {
         switch session {
         case is UserSession:
-            return MainFlowNavigaionController()
+            return MainFlowNavigaionController(contentViewController: UIViewController(), leftMenuViewController: UIViewController(), rightMenuViewController: UIViewController())
         default:
             return LoginFlowNavigationController()
         }

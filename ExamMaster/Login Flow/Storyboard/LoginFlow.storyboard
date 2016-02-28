@@ -100,9 +100,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kB2-or-eAm">
+                                <rect key="frame" x="137" y="141" width="47" height="30"/>
+                                <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <action selector="authorize:" destination="ncX-0o-ZJe" eventType="touchUpInside" id="QYa-6s-TAs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="kB2-or-eAm" firstAttribute="centerX" secondItem="93H-NJ-Gp3" secondAttribute="centerX" id="19x-UI-QiJ"/>
                             <constraint firstItem="1Zo-4h-s9b" firstAttribute="leading" secondItem="93H-NJ-Gp3" secondAttribute="leadingMargin" id="28K-LP-852"/>
                             <constraint firstItem="8K1-5i-tHg" firstAttribute="centerX" secondItem="93H-NJ-Gp3" secondAttribute="centerX" id="3uH-hp-tYJ"/>
                             <constraint firstItem="1Zo-4h-s9b" firstAttribute="trailing" secondItem="93H-NJ-Gp3" secondAttribute="trailingMargin" id="CgP-u8-XUf"/>
@@ -115,6 +123,7 @@
                             <constraint firstAttribute="trailing" secondItem="1Zo-4h-s9b" secondAttribute="trailing" constant="20" id="rtQ-tn-DTz"/>
                             <constraint firstItem="28x-QX-6NE" firstAttribute="top" secondItem="1Zo-4h-s9b" secondAttribute="bottom" constant="18" id="sBJ-WN-YSv"/>
                             <constraint firstItem="28x-QX-6NE" firstAttribute="leading" secondItem="93H-NJ-Gp3" secondAttribute="leadingMargin" id="t7y-0I-ZaF"/>
+                            <constraint firstItem="kB2-or-eAm" firstAttribute="top" secondItem="28x-QX-6NE" secondAttribute="bottom" constant="13" id="wly-nS-5RB"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -126,6 +135,11 @@
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="confirmationButton" destination="kB2-or-eAm" id="Icp-as-UAH"/>
+                        <outlet property="passwordTextField" destination="28x-QX-6NE" id="HPl-Yz-caY"/>
+                        <outlet property="usernameTextField" destination="1Zo-4h-s9b" id="dNc-og-1vA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="of6-eu-4Cz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -19,7 +19,7 @@ class AppRootSessionsRouter: SessionsGenerator {
         return AppUserSession(archivationProxy: proxy)
     }
     
-    func newUserSessionWithParams(params: SessionCompletionParams<LoginSessionCompletion>) -> UserSession {
+    func newUserSessionWithParams(params: SessionCompletionParams) -> UserSession {
         return AppUserSession(params: params)
     }
 }

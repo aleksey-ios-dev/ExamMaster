@@ -16,6 +16,7 @@ class AppNavigationManager: RootNavigationManager {
         self.window = window
 
         self.window?.rootViewController = transitionController
+        window?.makeKeyAndVisible()
     }
     
     private let transitionController = TSTTransitionViewController()

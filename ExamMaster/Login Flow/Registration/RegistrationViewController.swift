@@ -13,6 +13,7 @@ class RegistrationViewController: UIViewController {
   weak var model: RegistrationModel! {
     didSet {
       model.applyRepresentation(self)
+      title = model.title
     }
   }
   

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Side Menu View Controller-->
+        <scene sceneID="RGe-UM-sQO">
+            <objects>
+                <viewController storyboardIdentifier="SideMenu" id="ngo-1Z-Pfb" customClass="SideMenuViewController" customModule="ExamMaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VMB-RS-jRl"/>
+                        <viewControllerLayoutGuide type="bottom" id="HsX-9q-ir0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hAk-6S-oEu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgs-ER-23q">
+                                <rect key="frame" x="136" y="269" width="48" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="AOk-U0-gjJ"/>
+                                    <constraint firstAttribute="height" constant="30" id="syz-2s-BDe"/>
+                                </constraints>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="1" green="1" blue="0.82619757401315785" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logout:" destination="ngo-1Z-Pfb" eventType="touchUpInside" id="CRh-0B-soo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.12941176469999999" green="1" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="tgs-ER-23q" firstAttribute="centerX" secondItem="hAk-6S-oEu" secondAttribute="centerX" id="8Ku-Vi-ebi"/>
+                            <constraint firstItem="tgs-ER-23q" firstAttribute="centerY" secondItem="hAk-6S-oEu" secondAttribute="centerY" id="lcD-qX-mbh"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dT5-75-8ec" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="395" y="297"/>
+        </scene>
+        <!--Dashboard View Controller-->
+        <scene sceneID="05R-Hp-ji9">
+            <objects>
+                <viewController storyboardIdentifier="Dashboard" id="6JG-oB-O0e" customClass="DashboardViewController" customModule="ExamMaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rdn-lQ-oLN"/>
+                        <viewControllerLayoutGuide type="bottom" id="PHi-1l-9i1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wpP-cS-jrs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaV-CI-y6w">
+                                <rect key="frame" x="139" y="56" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.78741776315789469" green="1" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="IaV-CI-y6w" firstAttribute="top" secondItem="Rdn-lQ-oLN" secondAttribute="bottom" constant="36" id="BbR-pd-bBn"/>
+                            <constraint firstItem="IaV-CI-y6w" firstAttribute="centerX" secondItem="wpP-cS-jrs" secondAttribute="centerX" id="cHd-n6-bba"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="titleLabel" destination="IaV-CI-y6w" id="4tp-6r-2FX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JUu-MQ-ghN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="395" y="297"/>
+        </scene>
+    </scenes>
+</document>

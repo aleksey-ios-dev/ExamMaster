@@ -16,8 +16,17 @@
 		5BD081AC1C8193F400269752 /* LoginFlowStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD081AB1C8193F400269752 /* LoginFlowStoryboard.swift */; };
 		5BD081B51C81A39700269752 /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD081B41C81A39700269752 /* RegistrationModel.swift */; };
 		5BD081B71C81A5CB00269752 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD081B61C81A5CB00269752 /* RegistrationViewController.swift */; };
+		5BD081BC1C81DEAD00269752 /* AppSessionControllerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD081BB1C81DEAD00269752 /* AppSessionControllerConfiguration.swift */; };
+		5BD081C41C81E82900269752 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD081C11C81E82900269752 /* RECommonFunctions.m */; };
+		5BD081C51C81E82900269752 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD081C31C81E82900269752 /* UIViewController+RESideMenu.m */; };
+		5BD081C81C81E84A00269752 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD081C71C81E84A00269752 /* RESideMenu.m */; };
+		5BD081CD1C81EB8500269752 /* SideMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD081CC1C81EB8500269752 /* SideMenuModel.swift */; };
+		5BD081CF1C81EE2900269752 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD081CE1C81EE2900269752 /* SideMenuViewController.swift */; };
+		5BD081D11C81EE4000269752 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD081D01C81EE4000269752 /* DashboardViewController.swift */; };
+		5BD081D41C81EF2000269752 /* MainFlowStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD081D31C81EF2000269752 /* MainFlowStoryboard.swift */; };
+		5BD081D61C81EF7F00269752 /* MainFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BD081D51C81EF7F00269752 /* MainFlow.storyboard */; };
+		5BD081D81C82946900269752 /* AppCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD081D71C82946900269752 /* AppCredentials.swift */; };
 		5BF529B01C816E8300B8FE10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529AF1C816E8300B8FE10 /* AppDelegate.swift */; };
-		5BF529B51C816E8300B8FE10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF529B31C816E8300B8FE10 /* Main.storyboard */; };
 		5BF529B71C816E8300B8FE10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF529B61C816E8300B8FE10 /* Assets.xcassets */; };
 		5BF529BA1C816E8300B8FE10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF529B81C816E8300B8FE10 /* LaunchScreen.storyboard */; };
 		5BF529D01C81789700B8FE10 /* ModelsTreeKit.framework in Embed Kit */ = {isa = PBXBuildFile; fileRef = 5BF529C81C81779F00B8FE10 /* ModelsTreeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -80,9 +89,22 @@
 		5BD081AB1C8193F400269752 /* LoginFlowStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFlowStoryboard.swift; sourceTree = "<group>"; };
 		5BD081B41C81A39700269752 /* RegistrationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
 		5BD081B61C81A5CB00269752 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		5BD081BB1C81DEAD00269752 /* AppSessionControllerConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSessionControllerConfiguration.swift; sourceTree = "<group>"; };
+		5BD081C01C81E82900269752 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		5BD081C11C81E82900269752 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		5BD081C21C81E82900269752 /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
+		5BD081C31C81E82900269752 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
+		5BD081C61C81E84A00269752 /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenu.h; sourceTree = "<group>"; };
+		5BD081C71C81E84A00269752 /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenu.m; sourceTree = "<group>"; };
+		5BD081C91C81E87800269752 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		5BD081CC1C81EB8500269752 /* SideMenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuModel.swift; sourceTree = "<group>"; };
+		5BD081CE1C81EE2900269752 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		5BD081D01C81EE4000269752 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		5BD081D31C81EF2000269752 /* MainFlowStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlowStoryboard.swift; sourceTree = "<group>"; };
+		5BD081D51C81EF7F00269752 /* MainFlow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainFlow.storyboard; sourceTree = "<group>"; };
+		5BD081D71C82946900269752 /* AppCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCredentials.swift; sourceTree = "<group>"; };
 		5BF529AC1C816E8300B8FE10 /* ExamMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF529AF1C816E8300B8FE10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5BF529B41C816E8300B8FE10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BF529B61C816E8300B8FE10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BF529B91C816E8300B8FE10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BF529BB1C816E8300B8FE10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,6 +134,8 @@
 		5BD081961C81801700269752 /* Main Flow */ = {
 			isa = PBXGroup;
 			children = (
+				5BD081D21C81EF1900269752 /* Storyboard */,
+				5BD081CB1C81EB7500269752 /* Side Menu */,
 				5BD0819E1C81888200269752 /* Dashboard */,
 				5BD081991C81802700269752 /* Flow */,
 			);
@@ -131,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				5BD0819F1C81888900269752 /* DashboardModel.swift */,
+				5BD081D01C81EE4000269752 /* DashboardViewController.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -162,12 +187,52 @@
 			path = Registration;
 			sourceTree = "<group>";
 		};
+		5BD081BE1C81E82900269752 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				5BD081BF1C81E82900269752 /* RESideMenu */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		5BD081BF1C81E82900269752 /* RESideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				5BD081C61C81E84A00269752 /* RESideMenu.h */,
+				5BD081C71C81E84A00269752 /* RESideMenu.m */,
+				5BD081C01C81E82900269752 /* RECommonFunctions.h */,
+				5BD081C11C81E82900269752 /* RECommonFunctions.m */,
+				5BD081C21C81E82900269752 /* UIViewController+RESideMenu.h */,
+				5BD081C31C81E82900269752 /* UIViewController+RESideMenu.m */,
+			);
+			path = RESideMenu;
+			sourceTree = "<group>";
+		};
+		5BD081CB1C81EB7500269752 /* Side Menu */ = {
+			isa = PBXGroup;
+			children = (
+				5BD081CC1C81EB8500269752 /* SideMenuModel.swift */,
+				5BD081CE1C81EE2900269752 /* SideMenuViewController.swift */,
+			);
+			path = "Side Menu";
+			sourceTree = "<group>";
+		};
+		5BD081D21C81EF1900269752 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				5BD081D31C81EF2000269752 /* MainFlowStoryboard.swift */,
+				5BD081D51C81EF7F00269752 /* MainFlow.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		5BF529A31C816E8300B8FE10 = {
 			isa = PBXGroup;
 			children = (
-				5BF529C21C81779F00B8FE10 /* ModelsTreeKit.xcodeproj */,
+				5BD081C91C81E87800269752 /* BridgingHeader.h */,
 				5BF529AE1C816E8300B8FE10 /* ExamMaster */,
 				5BF529AD1C816E8300B8FE10 /* Products */,
+				5BF529C21C81779F00B8FE10 /* ModelsTreeKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,11 +247,11 @@
 		5BF529AE1C816E8300B8FE10 /* ExamMaster */ = {
 			isa = PBXGroup;
 			children = (
+				5BD081BE1C81E82900269752 /* Vendors */,
 				5BD081961C81801700269752 /* Main Flow */,
 				5BF529E11C817EC700B8FE10 /* Login Flow */,
 				5BF529CB1C8177C600B8FE10 /* Kit Decoration */,
 				5BF529AF1C816E8300B8FE10 /* AppDelegate.swift */,
-				5BF529B31C816E8300B8FE10 /* Main.storyboard */,
 				5BF529B61C816E8300B8FE10 /* Assets.xcassets */,
 				5BF529B81C816E8300B8FE10 /* LaunchScreen.storyboard */,
 				5BF529BB1C816E8300B8FE10 /* Info.plist */,
@@ -213,6 +278,8 @@
 				5BF529D51C8179E300B8FE10 /* AppServiceConfigurator.swift */,
 				5BF529D61C8179E300B8FE10 /* AppUserSession.swift */,
 				5BF529D71C8179E300B8FE10 /* Errors.swift */,
+				5BD081BB1C81DEAD00269752 /* AppSessionControllerConfiguration.swift */,
+				5BD081D71C82946900269752 /* AppCredentials.swift */,
 			);
 			path = "Kit Decoration";
 			sourceTree = "<group>";
@@ -220,8 +287,8 @@
 		5BF529E11C817EC700B8FE10 /* Login Flow */ = {
 			isa = PBXGroup;
 			children = (
-				5BD081B31C81A39700269752 /* Registration */,
 				5BD081A81C8192C600269752 /* Storyboard */,
+				5BD081B31C81A39700269752 /* Registration */,
 				5BD081A31C818B3000269752 /* Sign in */,
 				5BF529E21C817EDD00B8FE10 /* Flow */,
 			);
@@ -323,7 +390,7 @@
 				5BD081AA1C8193D400269752 /* LoginFlow.storyboard in Resources */,
 				5BF529BA1C816E8300B8FE10 /* LaunchScreen.storyboard in Resources */,
 				5BF529B71C816E8300B8FE10 /* Assets.xcassets in Resources */,
-				5BF529B51C816E8300B8FE10 /* Main.storyboard in Resources */,
+				5BD081D61C81EF7F00269752 /* MainFlow.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,17 +401,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BD081D81C82946900269752 /* AppCredentials.swift in Sources */,
 				5BF529DA1C8179E300B8FE10 /* AppNavigationManager.swift in Sources */,
+				5BD081BC1C81DEAD00269752 /* AppSessionControllerConfiguration.swift in Sources */,
 				5BF529DE1C8179E300B8FE10 /* AppUserSession.swift in Sources */,
 				5BF529DC1C8179E300B8FE10 /* AppRootSessionRouter.swift in Sources */,
 				5BD081A51C818B3700269752 /* SignInModel.swift in Sources */,
+				5BD081C51C81E82900269752 /* UIViewController+RESideMenu.m in Sources */,
 				5BF529E41C817EE600B8FE10 /* LoginFlowModel.swift in Sources */,
 				5BD0819B1C81802E00269752 /* MainFlowModel.swift in Sources */,
 				5BF529E61C817F0C00B8FE10 /* LoginFlowNavigationController.swift in Sources */,
 				5BF529DD1C8179E300B8FE10 /* AppServiceConfigurator.swift in Sources */,
 				5BD081B51C81A39700269752 /* RegistrationModel.swift in Sources */,
+				5BD081CD1C81EB8500269752 /* SideMenuModel.swift in Sources */,
 				5BD081A71C81903800269752 /* SignInViewController.swift in Sources */,
+				5BD081C41C81E82900269752 /* RECommonFunctions.m in Sources */,
 				5BF529DF1C8179E300B8FE10 /* Errors.swift in Sources */,
+				5BD081C81C81E84A00269752 /* RESideMenu.m in Sources */,
+				5BD081CF1C81EE2900269752 /* SideMenuViewController.swift in Sources */,
+				5BD081D41C81EF2000269752 /* MainFlowStoryboard.swift in Sources */,
+				5BD081D11C81EE4000269752 /* DashboardViewController.swift in Sources */,
 				5BF529DB1C8179E300B8FE10 /* AppRootRepresentationsRouter.swift in Sources */,
 				5BD081B71C81A5CB00269752 /* RegistrationViewController.swift in Sources */,
 				5BD0819D1C81803600269752 /* MainFlowNavigationController.swift in Sources */,
@@ -366,14 +442,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5BF529B31C816E8300B8FE10 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5BF529B41C816E8300B8FE10 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5BF529B81C816E8300B8FE10 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -474,6 +542,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AC.ExamMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRC_ROOT)BridgingHeader.h";
 			};
 			name = Debug;
 		};
@@ -485,6 +554,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AC.ExamMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRC_ROOT)BridgingHeader.h";
 			};
 			name = Release;
 		};
