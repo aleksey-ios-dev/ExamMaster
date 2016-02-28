@@ -11,7 +11,10 @@ import Foundation
 class ExamSubjectPickerViewController: UITableViewController {
   
   weak var model: ExamSubjectPickerModel! {
-    didSet { model.applyRepresentation(self) }
+    didSet {
+      model.applyRepresentation(self)
+      title = model.title
+    }
   }
   
 }

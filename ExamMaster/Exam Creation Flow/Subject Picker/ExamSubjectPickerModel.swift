@@ -11,6 +11,8 @@ import ModelsTreeKit
 
 class ExamSubjectPickerModel: Model {
   
+  let title = "Pick subject"
+  
   private weak var flowModel: ExamCreationFlowModel!
   
   init(parent: ExamCreationFlowModel) {

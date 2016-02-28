@@ -37,11 +37,6 @@ class SignInViewController: UIViewController {
   
   @IBAction
   private func register(sender: AnyObject?) {
-    guard let model = model else {
-      print("dead")
-      return
-    }
-
     model.register()
   }
   
