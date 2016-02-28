@@ -10,7 +10,13 @@ import Foundation
 import ModelsTreeKit
 
 class SideMenuModel: Model {
+  
   func logout() {
     session()?.closeWithParams(nil)
   }
+  
+  func startNewExam() {
+    raiseSessionEvent(.StartExam, withObject: nil)
+  }
+  
 }

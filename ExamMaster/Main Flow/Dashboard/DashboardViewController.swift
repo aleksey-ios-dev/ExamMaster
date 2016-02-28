@@ -21,7 +21,13 @@ class DashboardViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     titleLabel.text = "Hello, " + model.title + "!"
+  }
+  
+  @IBAction
+  private func startNewExam(sender: AnyObject?) {
+    model.startNewExam()
   }
   
 }

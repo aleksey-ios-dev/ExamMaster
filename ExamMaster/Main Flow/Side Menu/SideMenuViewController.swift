@@ -20,4 +20,10 @@ class SideMenuViewController: UIViewController {
   private func logout(sender: AnyObject?) {
     model.logout()
   }
+  
+  @IBAction
+  private func startNewExam(sender: AnyObject?) {
+    model.startNewExam()
+  }
+  
 }

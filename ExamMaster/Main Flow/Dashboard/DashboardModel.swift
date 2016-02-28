@@ -10,7 +10,13 @@ import Foundation
 import ModelsTreeKit
 
 class DashboardModel: Model {
+  
   var title: String {
     return session()!.credentials!.username
   }
+  
+  func startNewExam() {
+    raiseSessionEvent(.StartExam, withObject: nil)
+  }
+  
 }

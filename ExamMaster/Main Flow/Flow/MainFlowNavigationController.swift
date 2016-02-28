@@ -18,6 +18,10 @@ class MainFlowNavigaionController: RESideMenu {
         self?.buildRepresentationFor(child)
         }.putInto(pool)
       model.pushInitialChildren()
+      
+      model.removeChildSignal.subscribeNext { [weak self] child in
+        self?.removePresentationFor(child)
+      }
     }
   }
   
@@ -27,8 +31,6 @@ class MainFlowNavigaionController: RESideMenu {
       super.init(contentViewController: contentViewController,
         leftMenuViewController: leftMenuViewController,
         rightMenuViewController: rightMenuViewController)
-      
-//      panGestureEnabled = false
   }
 
   required init?(coder aDecoder: NSCoder) {
@@ -38,20 +40,36 @@ class MainFlowNavigaionController: RESideMenu {
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
   }
-
-  func buildRepresentationFor(child: Model) {
+  
+  func removePresentationFor(child: Model) {
     switch child {
       
-    case let child as SideMenuModel:
+    case child as ExamCreationFlowModel:
+      dismissViewControllerAnimated(true, completion: nil)
+      
+    default:
+      break
+    }
+  }
+
+  func buildRepresentationFor(model: Model) {
+    switch model {
+      
+    case let model as SideMenuModel:
       let controller = MainFlowStoryboard.sideMenuViewController()
-      controller.model = child
+      controller.model = model
       leftMenuViewController = controller
       
-    case let child as DashboardModel:
+    case let model as DashboardModel:
       let controller = MainFlowStoryboard.dashboardViewController()
-      controller.model = child
+      controller.model = model
       
       contentViewController = controller
+      
+    case let model as ExamCreationFlowModel:
+      let controller = ExamCreationFlowNavigationController()
+      controller.model = model
+      contentViewController.presentViewController(controller, animated: true, completion: nil)
       
     default:
       break

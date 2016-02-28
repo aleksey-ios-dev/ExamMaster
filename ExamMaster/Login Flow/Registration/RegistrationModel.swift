@@ -32,6 +32,8 @@ class RegistrationModel: Model {
     super.init(parent: parent)
     
     self.flowModel = parent
+    
+    printSessionTree()
   }
   
   func applyUsername(username: String) {

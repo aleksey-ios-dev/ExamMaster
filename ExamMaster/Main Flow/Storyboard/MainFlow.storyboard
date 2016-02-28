@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Side Menu View Controller-->
@@ -18,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgs-ER-23q">
-                                <rect key="frame" x="136" y="269" width="48" height="30"/>
+                                <rect key="frame" x="136" y="498" width="48" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="AOk-U0-gjJ"/>
                                     <constraint firstAttribute="height" constant="30" id="syz-2s-BDe"/>
@@ -30,11 +31,27 @@
                                     <action selector="logout:" destination="ngo-1Z-Pfb" eventType="touchUpInside" id="CRh-0B-soo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WdR-gU-cj8">
+                                <rect key="frame" x="16" y="28" width="200" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="0.33000000000000002" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="UPF-l6-8A9"/>
+                                    <constraint firstAttribute="height" constant="30" id="xwO-QE-Tne"/>
+                                </constraints>
+                                <state key="normal" title="Start New Exam">
+                                    <color key="titleColor" red="1" green="1" blue="0.82619757400000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startNewExam:" destination="ngo-1Z-Pfb" eventType="touchUpInside" id="Kpl-uE-IIB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.12941176469999999" green="1" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="HsX-9q-ir0" firstAttribute="top" secondItem="tgs-ER-23q" secondAttribute="bottom" constant="40" id="4aO-et-M5Z"/>
                             <constraint firstItem="tgs-ER-23q" firstAttribute="centerX" secondItem="hAk-6S-oEu" secondAttribute="centerX" id="8Ku-Vi-ebi"/>
-                            <constraint firstItem="tgs-ER-23q" firstAttribute="centerY" secondItem="hAk-6S-oEu" secondAttribute="centerY" id="lcD-qX-mbh"/>
+                            <constraint firstItem="WdR-gU-cj8" firstAttribute="leading" secondItem="hAk-6S-oEu" secondAttribute="leadingMargin" id="PMO-UK-Njl"/>
+                            <constraint firstItem="WdR-gU-cj8" firstAttribute="top" secondItem="VMB-RS-jRl" secondAttribute="bottom" constant="8" id="UmA-nH-swF"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -56,16 +73,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaV-CI-y6w">
-                                <rect key="frame" x="139" y="56" width="42" height="21"/>
+                                <rect key="frame" x="139" y="56" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4JX-nq-6C6">
+                                <rect key="frame" x="85" y="95.5" width="150" height="30"/>
+                                <color key="backgroundColor" red="0.93106329441070557" green="1" blue="0.68452131748199463" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="635-fv-tqC"/>
+                                </constraints>
+                                <state key="normal" title="Start new exam">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startNewExam:" destination="6JG-oB-O0e" eventType="touchUpInside" id="3tD-OK-q1p"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.78741776315789469" green="1" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="IaV-CI-y6w" firstAttribute="top" secondItem="Rdn-lQ-oLN" secondAttribute="bottom" constant="36" id="BbR-pd-bBn"/>
                             <constraint firstItem="IaV-CI-y6w" firstAttribute="centerX" secondItem="wpP-cS-jrs" secondAttribute="centerX" id="cHd-n6-bba"/>
+                            <constraint firstItem="4JX-nq-6C6" firstAttribute="top" secondItem="IaV-CI-y6w" secondAttribute="bottom" constant="19" id="fRn-3B-9gs"/>
+                            <constraint firstItem="4JX-nq-6C6" firstAttribute="centerX" secondItem="wpP-cS-jrs" secondAttribute="centerX" id="h8o-3b-W9q"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
