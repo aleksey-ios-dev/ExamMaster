@@ -14,9 +14,15 @@ class LoginFlowNavigationController: UINavigationController {
   weak var model: LoginFlowModel! {
     didSet {
       model.applyRepresentation(self)
+      
       model.pushChildSignal.subscribeNext { [weak self] child in
         self?.buildRepresentationFor(child)
-        }.putInto(pool)
+      }.putInto(pool)
+      
+      model.authorizationProgressSignal.subscribeNext { inProgress in
+        if inProgress { SVProgressHUD.show() }
+        else { SVProgressHUD.dismiss() }
+      }.putInto(pool)
       
       model.pushInitialChildren()
     }

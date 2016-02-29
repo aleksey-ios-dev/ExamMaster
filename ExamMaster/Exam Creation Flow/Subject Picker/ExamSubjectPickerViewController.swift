@@ -15,6 +15,11 @@ class ExamSubjectPickerViewController: UITableViewController {
     didSet {
       model.applyRepresentation(self)
       title = model.title
+      
+      model.progressSignal.subscribeNext { inProgress in
+        if inProgress { SVProgressHUD.show() }
+        else { SVProgressHUD.dismiss() }
+      }.putInto(pool)
     }
   }
   

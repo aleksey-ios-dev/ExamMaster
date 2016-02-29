@@ -21,6 +21,12 @@
 		5B15DD371C8324F600A4EBDB /* ExamCreationConfirmationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD361C8324F600A4EBDB /* ExamCreationConfirmationModel.swift */; };
 		5B15DD391C83261800A4EBDB /* ExamCreationConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD381C83261800A4EBDB /* ExamCreationConfirmationViewController.swift */; };
 		5B18E0CE1C8351EE00FD22B4 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B18E0CD1C8351EE00FD22B4 /* Definitions.swift */; };
+		5B18E0DF1C83DB8D00FD22B4 /* AuthorizationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B18E0DE1C83DB8D00FD22B4 /* AuthorizationClient.swift */; };
+		5B18E0E11C83DBBA00FD22B4 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B18E0E01C83DBBA00FD22B4 /* APIClient.swift */; };
+		5B18E0EB1C83E29E00FD22B4 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B18E0E41C83E29E00FD22B4 /* SVIndefiniteAnimatedView.m */; };
+		5B18E0EC1C83E29E00FD22B4 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5B18E0E61C83E29E00FD22B4 /* SVProgressHUD.bundle */; };
+		5B18E0ED1C83E29E00FD22B4 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B18E0E81C83E29E00FD22B4 /* SVProgressHUD.m */; };
+		5B18E0EE1C83E29E00FD22B4 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B18E0EA1C83E29E00FD22B4 /* SVRadialGradientLayer.m */; };
 		5B5657D91C82998100016494 /* LoginFlowDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5657D81C82998100016494 /* LoginFlowDefinitions.swift */; };
 		5B5657E91C82A06900016494 /* ExamCreationFlowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5657E81C82A06900016494 /* ExamCreationFlowModel.swift */; };
 		5B5657EB1C82A0C400016494 /* ExamCreationFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5657EA1C82A0C400016494 /* ExamCreationFlowNavigationController.swift */; };
@@ -111,6 +117,16 @@
 		5B15DD361C8324F600A4EBDB /* ExamCreationConfirmationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamCreationConfirmationModel.swift; sourceTree = "<group>"; };
 		5B15DD381C83261800A4EBDB /* ExamCreationConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamCreationConfirmationViewController.swift; sourceTree = "<group>"; };
 		5B18E0CD1C8351EE00FD22B4 /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
+		5B18E0DE1C83DB8D00FD22B4 /* AuthorizationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationClient.swift; sourceTree = "<group>"; };
+		5B18E0E01C83DBBA00FD22B4 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		5B18E0E31C83E29E00FD22B4 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		5B18E0E41C83E29E00FD22B4 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		5B18E0E51C83E29E00FD22B4 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		5B18E0E61C83E29E00FD22B4 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		5B18E0E71C83E29E00FD22B4 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		5B18E0E81C83E29E00FD22B4 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		5B18E0E91C83E29E00FD22B4 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		5B18E0EA1C83E29E00FD22B4 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		5B5657D81C82998100016494 /* LoginFlowDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFlowDefinitions.swift; sourceTree = "<group>"; };
 		5B5657E81C82A06900016494 /* ExamCreationFlowModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamCreationFlowModel.swift; sourceTree = "<group>"; };
 		5B5657EA1C82A0C400016494 /* ExamCreationFlowNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamCreationFlowNavigationController.swift; sourceTree = "<group>"; };
@@ -206,6 +222,30 @@
 				5B15DD381C83261800A4EBDB /* ExamCreationConfirmationViewController.swift */,
 			);
 			path = Confirmation;
+			sourceTree = "<group>";
+		};
+		5B18E0DC1C83DB7000FD22B4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5B18E0DE1C83DB8D00FD22B4 /* AuthorizationClient.swift */,
+				5B18E0E01C83DBBA00FD22B4 /* APIClient.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5B18E0E21C83E29E00FD22B4 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				5B18E0E31C83E29E00FD22B4 /* SVIndefiniteAnimatedView.h */,
+				5B18E0E41C83E29E00FD22B4 /* SVIndefiniteAnimatedView.m */,
+				5B18E0E51C83E29E00FD22B4 /* SVProgressHUD-Prefix.pch */,
+				5B18E0E61C83E29E00FD22B4 /* SVProgressHUD.bundle */,
+				5B18E0E71C83E29E00FD22B4 /* SVProgressHUD.h */,
+				5B18E0E81C83E29E00FD22B4 /* SVProgressHUD.m */,
+				5B18E0E91C83E29E00FD22B4 /* SVRadialGradientLayer.h */,
+				5B18E0EA1C83E29E00FD22B4 /* SVRadialGradientLayer.m */,
+			);
+			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		5B5657E21C82A05600016494 /* Exam Creation Flow */ = {
@@ -317,6 +357,7 @@
 		5BD081BE1C81E82900269752 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				5B18E0E21C83E29E00FD22B4 /* SVProgressHUD */,
 				5BD081BF1C81E82900269752 /* RESideMenu */,
 			);
 			path = Vendors;
@@ -374,6 +415,7 @@
 		5BF529AE1C816E8300B8FE10 /* ExamMaster */ = {
 			isa = PBXGroup;
 			children = (
+				5B18E0DC1C83DB7000FD22B4 /* Services */,
 				5B15DD311C831B3C00A4EBDB /* Model */,
 				5BD081BE1C81E82900269752 /* Vendors */,
 				5B5657E21C82A05600016494 /* Exam Creation Flow */,
@@ -518,6 +560,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B18E0EC1C83E29E00FD22B4 /* SVProgressHUD.bundle in Resources */,
 				5BD081AA1C8193D400269752 /* LoginFlow.storyboard in Resources */,
 				5BF529BA1C816E8300B8FE10 /* LaunchScreen.storyboard in Resources */,
 				5B15DD2E1C83157D00A4EBDB /* ExamCreationFlow.storyboard in Resources */,
@@ -534,6 +577,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B18E0DF1C83DB8D00FD22B4 /* AuthorizationClient.swift in Sources */,
 				5BD081D81C82946900269752 /* AppCredentials.swift in Sources */,
 				5BF529DA1C8179E300B8FE10 /* AppNavigationManager.swift in Sources */,
 				5BD081BC1C81DEAD00269752 /* AppSessionControllerConfiguration.swift in Sources */,
@@ -553,6 +597,7 @@
 				5BD081CD1C81EB8500269752 /* SideMenuModel.swift in Sources */,
 				5B15DD341C831B4700A4EBDB /* Exam.swift in Sources */,
 				5B15DD1E1C8307CF00A4EBDB /* ItemCell.swift in Sources */,
+				5B18E0EB1C83E29E00FD22B4 /* SVIndefiniteAnimatedView.m in Sources */,
 				5BD081A71C81903800269752 /* SignInViewController.swift in Sources */,
 				5BD081C41C81E82900269752 /* RECommonFunctions.m in Sources */,
 				5BF529DF1C8179E300B8FE10 /* Errors.swift in Sources */,
@@ -560,10 +605,13 @@
 				5BD081CF1C81EE2900269752 /* SideMenuViewController.swift in Sources */,
 				5B15DD371C8324F600A4EBDB /* ExamCreationConfirmationModel.swift in Sources */,
 				5B15DD2C1C83151E00A4EBDB /* ExamOptionsPickerViewController.swift in Sources */,
+				5B18E0EE1C83E29E00FD22B4 /* SVRadialGradientLayer.m in Sources */,
+				5B18E0E11C83DBBA00FD22B4 /* APIClient.swift in Sources */,
 				5B5657D91C82998100016494 /* LoginFlowDefinitions.swift in Sources */,
 				5BD081D41C81EF2000269752 /* MainFlowStoryboard.swift in Sources */,
 				5B18E0CE1C8351EE00FD22B4 /* Definitions.swift in Sources */,
 				5BD081D11C81EE4000269752 /* DashboardViewController.swift in Sources */,
+				5B18E0ED1C83E29E00FD22B4 /* SVProgressHUD.m in Sources */,
 				5BF529DB1C8179E300B8FE10 /* AppRootRepresentationsRouter.swift in Sources */,
 				5B15DD181C82B0A100A4EBDB /* ExamSubjectPickerModel.swift in Sources */,
 				5B15DD1B1C82B17000A4EBDB /* ExamSubjectPickerViewController.swift in Sources */,

@@ -7,3 +7,4 @@
 //
 
 #import "RESideMenu.h"
+#import "SVProgressHUD.h"

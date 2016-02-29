@@ -16,6 +16,8 @@ protocol LoginFlowParent {
 
 class LoginFlowModel: Model {
 
+  let authorizationProgressSignal = Signal<Bool>()
+  
   func pushInitialChildren() {
     pushChildSignal.sendNext(SignInModel(parent: self))
   }
@@ -25,13 +27,17 @@ class LoginFlowModel: Model {
 extension LoginFlowModel: LoginFlowParent {
   
   func childModel(child: Model, didSelectRegister authorizationInfo: AuthorizationInfo) {
-    var params = SessionCompletionParams()
+    authorizationProgressSignal.sendNext(true)
     
-    params[AppCredentialsKeys.Token.rawValue] = String(authorizationInfo.password?.hash)
-    params[AppCredentialsKeys.Uid.rawValue] = authorizationInfo.username
-    params[AppCredentialsKeys.Username.rawValue] = authorizationInfo.username
-    
-    session()?.closeWithParams(params)
+    let authorizationClient: AuthorizationClient = session()!.services.getService()!
+    authorizationClient.authorizeWithInfo(authorizationInfo) { [weak self] params, error in
+      self?.authorizationProgressSignal.sendNext(false)
+      guard error == nil else {
+        self?.raiseError(error!)
+        return
+      }
+      self?.session()?.closeWithParams(params)
+    }
   }
   
   func childModelDidSelectShowRegistration(child: Model) {

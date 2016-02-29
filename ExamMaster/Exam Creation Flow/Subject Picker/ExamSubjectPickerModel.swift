@@ -14,6 +14,7 @@ typealias Subject = String
 class ExamSubjectPickerModel: List<String> {
   
   let title = "Subject"
+  let progressSignal = Signal<Bool>()
   
   private weak var flowModel: ExamCreationFlowModel!
   
@@ -28,7 +29,20 @@ class ExamSubjectPickerModel: List<String> {
   }
   
   func fetchSubjects() {
-    performUpdates { insert(["Math", "Chemistry", "History"]) }
+    progressSignal.sendNext(true)
+    let client: APIClient = session()!.services.getService()
+    client.fetchSubjects { [ weak self] subjects, error in
+      guard let _self = self else { return }
+      
+      _self.progressSignal.sendNext(false)
+      
+      guard error == nil else {
+        _self.raiseError(error!)
+        return
+      }
+      
+      _self.performUpdates { _self.insert(subjects!) }
+    }
   }
   
   func selectSubject(subject: String) {

@@ -10,26 +10,22 @@ import Foundation
 import ModelsTreeKit
 
 class AppServiceConfigurator: ServicesConfigurator {
+  
     func configure(session: Session) {
         let locator = ServiceLocator()
         
         switch session {
         case is UserSession:
-          break
-//            locator.registerService(Defaults(locator: locator), forKey: ServiceKey.Defaults.rawValue)
-//            locator.registerService(DataStorage(locator: locator), forKey: ServiceKey.DataStorage.rawValue)
-//            locator.registerService(InitializationService(locator: locator), forKey: ServiceKey.Initialization.rawValue)
-//            locator.registerService(UserStore(locator: locator), forKey: ServiceKey.UserStore.rawValue)
-//            locator.registerService(DataLoader(locator: locator), forKey: ServiceKey.DataLoader.rawValue)
-//            locator.registerService(ScanResultsProcessor(locator: locator), forKey: ServiceKey.ScanResultsProcessor.rawValue)
+          locator.registerService(APIClient(locator: locator))
+          
         case is LoginSession:
-//            locator.registerService(DataStorage(locator: locator), forKey: ServiceKey.DataStorage.rawValue)
-//            locator.registerService(UserStore(locator: locator), forKey: ServiceKey.UserStore.rawValue)
-          break
+          locator.registerService(AuthorizationClient(locator: locator))
+          
         default:
             break
         }
         
         session.services = locator
     }
+  
 }
