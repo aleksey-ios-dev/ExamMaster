@@ -40,11 +40,11 @@ class MainFlowModel: Model {
       let flowModel = ExamCreationFlowModel(parent: _self)
       
       flowModel.completionSignal.subscribeCompleted { [weak _self] _ in
-        _self?.removeChildSignal.sendNext(flowModel)
+        _self?.wantsRemoveChildSignal.sendNext(flowModel)
       }.putInto(_self.pool)
       
       flowModel.cancelSignal.subscribeCompleted { [weak _self] _ in
-        _self?.removeChildSignal.sendNext(flowModel)
+        _self?.wantsRemoveChildSignal.sendNext(flowModel)
       }.putInto(_self.pool)
       
       _self.pushChildSignal.sendNext(flowModel)

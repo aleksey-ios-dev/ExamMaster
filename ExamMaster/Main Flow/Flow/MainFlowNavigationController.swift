@@ -20,7 +20,7 @@ class MainFlowNavigaionController: RESideMenu {
       
       model.pushInitialChildren()
       
-      model.removeChildSignal.subscribeNext { [weak self] child in
+      model.wantsRemoveChildSignal.subscribeNext { [weak self] child in
         self?.removePresentationFor(child)
       }.putInto(pool)
       
