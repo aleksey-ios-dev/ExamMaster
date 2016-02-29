@@ -10,8 +10,10 @@ import Foundation
 import ModelsTreeKit
 
 struct ExamOptions {
+  
   var timeLimit: NSTimeInterval
   var questionsCount: Int
+  
 }
 
 protocol ExamCreationFlowParent {
@@ -21,6 +23,7 @@ protocol ExamCreationFlowParent {
   func child(child: Model, didSelectSubject subject: Subject) -> Void
   func child(child: Model, didSelectTopic topic: Topic) -> Void
   func child(child: Model, didConfirmExamCreationWithOptions options: ExamOptions) -> Void
+  
 }
 
 class ExamCreationFlowModel: Model {
@@ -31,6 +34,12 @@ class ExamCreationFlowModel: Model {
 
   override init(parent: Model?) {
     super.init(parent: parent)
+  }
+  
+  override func sessionWillClose() {
+    super.sessionWillClose()
+    
+    cancelSignal.sendCompleted()
   }
   
   func pushInitialChildren() {

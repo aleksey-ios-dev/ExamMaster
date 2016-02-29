@@ -29,8 +29,9 @@ class APIClient: Service {
       case "History": topics = ["Medieval", "Renaissance", "Modern"]
       default: topics = []
       }
-      
-      completion(topics: topics, error: nil)
+      //let error = Error(domain: NetworkErrorDomain(), code: NetworkErrorDomain.Errors.BadToken)
+      let error = Error(domain: NetworkErrorDomain(), code: NetworkErrorDomain.Errors.ResponseError)
+      completion(topics: topics, error: error)
     }
   }
 }

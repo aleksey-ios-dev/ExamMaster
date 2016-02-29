@@ -23,7 +23,11 @@ class ExamTopicPickerModel: List<Topic> {
     self.subject = subject
     super.init(parent: parent)
     self.flowModel = parent
+    
+    registerForError(Error(domain: NetworkErrorDomain(), code: NetworkErrorDomain.Errors.ResponseError))
   }
+  
+  //Actions
   
   func fetchTopics() {
     progressSignal.sendNext(true)
