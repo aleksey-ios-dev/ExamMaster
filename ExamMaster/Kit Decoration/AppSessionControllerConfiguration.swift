@@ -14,7 +14,7 @@ extension SessionControllerConfiguration {
   static func appConfiguration() -> SessionControllerConfiguration {
     return SessionControllerConfiguration(
       keychainAccessKey: "ExamMaster",
-      credentialsPrimaryKey: AppCredentialsKeys.Uid.rawValue)
+      credentialsPrimaryKey: AppCredentialsKeys.Uid)
   }
   
 }

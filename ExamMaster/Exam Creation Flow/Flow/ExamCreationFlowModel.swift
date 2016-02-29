@@ -32,10 +32,6 @@ class ExamCreationFlowModel: Model {
   let completionSignal = Signal<Void>()
 
   private let exam = Exam()
-  
-  deinit {
-    
-  }
 
   override init(parent: Model?) {
     super.init(parent: parent)

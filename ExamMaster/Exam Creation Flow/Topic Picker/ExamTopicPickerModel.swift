@@ -31,7 +31,9 @@ class ExamTopicPickerModel: List<Topic> {
   
   func fetchTopics() {
     progressSignal.sendNext(true)
+    
     let client: APIClient = session()!.services.getService()
+    
     client.fetchTopicsForSubject(subject) { [ weak self] topics, error in
       guard let _self = self else { return }
       
@@ -39,6 +41,7 @@ class ExamTopicPickerModel: List<Topic> {
       
       guard error == nil else {
         _self.raiseError(error!)
+        
         return
       }
       

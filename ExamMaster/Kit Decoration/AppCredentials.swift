@@ -9,7 +9,7 @@
 import Foundation
 import ModelsTreeKit
 
-enum AppCredentialsKeys: String {
+enum AppCredentialsKeys: String, CredentialsKey {
   case Token = "token"
   case Uid = "uid"
   case Username = "username"
@@ -18,14 +18,14 @@ enum AppCredentialsKeys: String {
 
 extension SessionCredentials {
   var uid: String! {
-    return self[AppCredentialsKeys.Uid.rawValue] as! String
+    return self[AppCredentialsKeys.Uid] as! String
   }
   
   var token: String! {
-    return self[AppCredentialsKeys.Token.rawValue] as! String
+    return self[AppCredentialsKeys.Token] as! String
   }
   
   var username: String! {
-    return self[AppCredentialsKeys.Username.rawValue] as! String
+    return self[AppCredentialsKeys.Username] as! String
   }
 }
