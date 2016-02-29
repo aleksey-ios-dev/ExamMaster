@@ -17,6 +17,7 @@ class MainFlowNavigaionController: RESideMenu {
       model.pushChildSignal.subscribeNext { [weak self] child in
         self?.buildRepresentationFor(child)
       }.putInto(pool)
+      
       model.pushInitialChildren()
       
       model.removeChildSignal.subscribeNext { [weak self] child in

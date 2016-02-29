@@ -37,14 +37,14 @@ class MainFlowModel: Model {
     registerForEvent(SessionEvent(name: AppEvent.StartExam)) { [weak self] _ in
       guard let _self = self else { return }
       
-      let flowModel = ExamCreationFlowModel(parent: self)
+      let flowModel = ExamCreationFlowModel(parent: _self)
       
-      flowModel.completionSignal.subscribeCompleted { _ in
-        _self.removeChildSignal.sendNext(flowModel)
-        }.putInto(_self.pool)
+      flowModel.completionSignal.subscribeCompleted { [weak _self] _ in
+        _self?.removeChildSignal.sendNext(flowModel)
+      }.putInto(_self.pool)
       
-      flowModel.cancelSignal.subscribeCompleted { _ in
-        _self.removeChildSignal.sendNext(flowModel)
+      flowModel.cancelSignal.subscribeCompleted { [weak _self] _ in
+        _self?.removeChildSignal.sendNext(flowModel)
       }.putInto(_self.pool)
       
       _self.pushChildSignal.sendNext(flowModel)

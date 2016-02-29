@@ -16,7 +16,7 @@ class ExamCreationFlowNavigationController: UINavigationController {
       model.applyRepresentation(self)
       model.pushChildSignal.subscribeNext { [weak self] child in
         self?.buildRepresentationFor(child)
-      }
+      }.putInto(pool)
     }
   }
   

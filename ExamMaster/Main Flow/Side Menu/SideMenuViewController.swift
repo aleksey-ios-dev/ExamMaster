@@ -25,7 +25,7 @@ class SideMenuViewController: UIViewController {
     
     model.examsCountSignal.map { return "Exams created: \($0)" }.subscribeNext { [weak self] in
       self?.examsCreatedLabel.text = $0
-    }
+    }.putInto(pool)
   }
   
   @IBAction

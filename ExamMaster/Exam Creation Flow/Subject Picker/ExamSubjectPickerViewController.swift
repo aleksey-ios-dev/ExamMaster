@@ -30,8 +30,9 @@ class ExamSubjectPickerViewController: UITableViewController {
     super.viewDidLoad()
     
     dataSource = ListDataSource(list: model)
-    adapter = TableViewAdapter(dataSource: dataSource, tableView: tableView)
+    dataSource.groupContentsSortingCriteria = { $0 < $1 }
     
+    adapter = TableViewAdapter(dataSource: dataSource, tableView: tableView)
     adapter.registerCellClass(ItemCell)
     adapter.nibNameForObjectMatching = { _ in return String(ItemCell) }
     
