@@ -9,7 +9,7 @@
 import Foundation
 import ModelsTreeKit
 
-protocol LoginFlowParent {
+protocol LoginFlowParent: class {
   func childModel(child: Model, didSelectRegister authorizationInfo: AuthorizationInfo) -> Void
   func childModelDidSelectShowRegistration(child: Model) -> Void
 }
@@ -19,7 +19,7 @@ class LoginFlowModel: Model {
   let authorizationProgressSignal = Signal<Bool>()
   
   func pushInitialChildren() {
-    pushChildSignal.sendNext(SignInModel(parent: self))
+    pushChildSignal.sendNext(SignInModel(parent: self, flowParent: self))
   }
 
 }

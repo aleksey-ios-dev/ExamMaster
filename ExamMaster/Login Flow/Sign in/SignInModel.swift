@@ -19,12 +19,12 @@ class SignInModel: Model {
   let title = "Sign In"
   let inputValiditySignal: Signal<Bool>
 
-  private weak var flowModel: LoginFlowModel!
+  private weak var flowModel: LoginFlowParent!
   private let usernameSignal = Signal<String>()
   private let passwordSignal = Signal<String>()
   private let authorizationInfo = AuthorizationInfo()
   
-  init(parent: LoginFlowModel?) {
+  init(parent: Model?, flowParent: LoginFlowParent) {
     inputValiditySignal = usernameSignal.combineLatest(passwordSignal).map { username, password in
       guard let username = username, let password = password else { return false }
       return username.characters.count > 1 && password.characters.count > 1
@@ -32,7 +32,7 @@ class SignInModel: Model {
     
     super.init(parent: parent)
     
-    self.flowModel = parent
+    self.flowModel = flowParent
   }
   
   func applyUsername(username: String) {
