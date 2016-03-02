@@ -10,10 +10,9 @@ import Foundation
 import UIKit
 import ModelsTreeKit
 
-class ExamCreationFlowNavigationController: UINavigationController {
+class ExamCreationFlowNavigationController: UINavigationController, ModelApplicable {
   weak var model: ExamCreationFlowModel! {
     didSet {
-      model.applyRepresentation(self)
       model.pushChildSignal.subscribeNext { [weak self] child in
         self?.buildRepresentationFor(child)
       }.putInto(pool)
@@ -29,25 +28,25 @@ class ExamCreationFlowNavigationController: UINavigationController {
       
     case let model as ExamSubjectPickerModel:
       let controller = ExamSubjectPickerViewController()
-      controller.model = model
+      controller.applyModel(model)
       applyDefaultNavigationButtonsTo(controller)
       viewControllers = [controller]
       
     case let model as ExamTopicPickerModel:
       let controller = ExamTopicPickerViewController()
-      controller.model = model
+      controller.applyModel(model)
       applyDefaultNavigationButtonsTo(controller)
       pushViewController(controller, animated: true)
       
     case let model as ExamOptionsPickerModel:
       let controller = ExamCreationFlowStoryboard.optionsViewController()
-      controller.model = model
+      controller.applyModel(model)
       applyDefaultNavigationButtonsTo(controller)
       pushViewController(controller, animated: true)
       
     case let model as ExamCreationConfirmationModel:
       let controller = ExamCreationFlowStoryboard.confirmationViewController()
-      controller.model = model
+      controller.applyModel(model)
       controller.navigationItem.hidesBackButton = true
       pushViewController(controller, animated: true)
       

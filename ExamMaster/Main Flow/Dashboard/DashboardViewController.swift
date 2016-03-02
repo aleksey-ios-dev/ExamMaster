@@ -7,14 +7,11 @@
 //
 
 import Foundation
+import ModelsTreeKit
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: UIViewController, ModelApplicable {
   
-  weak var model: DashboardModel! {
-    didSet {
-      model.applyRepresentation(self)
-    }
-  }
+  weak var model: DashboardModel!
   
   @IBOutlet
   private weak var titleLabel: UILabel!

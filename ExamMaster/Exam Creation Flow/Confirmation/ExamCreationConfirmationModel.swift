@@ -15,6 +15,10 @@ class ExamCreationConfirmationModel: Model {
   let exam: Exam
   
   private weak var flowModel: ExamCreationFlowModel!
+  
+  deinit {
+    
+  }
  
   init(parent: ExamCreationFlowModel?, exam: Exam) {
     self.exam = exam

@@ -8,15 +8,11 @@
 
 import Foundation
 import UIKit
+import ModelsTreeKit
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, ModelApplicable {
   
-  weak var model: SignInModel! {
-    didSet {
-      model.applyRepresentation(self)
-      title = model.title
-    }
-  }
+  weak var model: SignInModel! { didSet { title = model.title } }
   
   @IBOutlet
   private weak var usernameTextField: UITextField!

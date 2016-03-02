@@ -13,7 +13,6 @@ class MainFlowNavigaionController: RESideMenu {
   
   var model: MainFlowModel! {
     didSet {
-      model.applyRepresentation(self)
       model.pushChildSignal.subscribeNext { [weak self] child in
         self?.buildRepresentationFor(child)
       }.putInto(pool)
@@ -62,18 +61,18 @@ class MainFlowNavigaionController: RESideMenu {
       
     case let model as SideMenuModel:
       let controller = MainFlowStoryboard.sideMenuViewController()
-      controller.model = model
+      controller.applyModel(model)
       leftMenuViewController = controller
       
     case let model as DashboardModel:
       let controller = MainFlowStoryboard.dashboardViewController()
-      controller.model = model
+      controller.applyModel(model)
       
       contentViewController = controller
       
     case let model as ExamCreationFlowModel:
       let controller = ExamCreationFlowNavigationController()
-      controller.model = model
+      controller.applyModel(model)
       contentViewController.presentViewController(controller, animated: true, completion: nil)
       
     default:
@@ -83,8 +82,8 @@ class MainFlowNavigaionController: RESideMenu {
   
 }
 
-extension MainFlowNavigaionController: ModelAssignable {
-  func assignModel(model: Model) {
+extension MainFlowNavigaionController: RootModelAssignable {
+  func assignRootModel(model: Model) {
     if let model = model as? MainFlowModel {
       self.model = model
     }

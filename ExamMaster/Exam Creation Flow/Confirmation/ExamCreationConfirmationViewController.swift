@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import ModelsTreeKit
 
-class ExamCreationConfirmationViewController: UIViewController {
+class ExamCreationConfirmationViewController: UIViewController, ModelApplicable {
 
   @IBOutlet
   private weak var subjectLabel: UILabel!
@@ -23,15 +24,13 @@ class ExamCreationConfirmationViewController: UIViewController {
   private weak var timeLimitLabel: UILabel!
   
   weak var model: ExamCreationConfirmationModel! {
-    didSet {
-      model.applyRepresentation(self)
-      title = model.title
-    }
+    didSet { title = model.title }
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    model.printSessionTree([.HasRepresentation])
     subjectLabel.text = model.exam.subject
     topicLabel.text = model.exam.topic
     questionsCountLabel.text = "Questions: \(model.exam.questionsCount)"

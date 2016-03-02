@@ -54,8 +54,6 @@ class MainFlowModel: Model {
   func pushInitialChildren() {
     pushChildSignal.sendNext(DashboardModel(parent: self))
     pushChildSignal.sendNext(SideMenuModel(parent: self))
-    
-    printSessionTree()
   }
   
   override func handleBubbleNotification(bubble: Bubble, sender: Model) {

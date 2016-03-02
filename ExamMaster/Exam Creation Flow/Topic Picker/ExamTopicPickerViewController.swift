@@ -11,11 +11,10 @@ import Foundation
 import Foundation
 import ModelsTreeKit
 
-class ExamTopicPickerViewController: UITableViewController {
+class ExamTopicPickerViewController: UITableViewController, ModelApplicable {
   
   weak var model: ExamTopicPickerModel! {
     didSet {
-      model.applyRepresentation(self)
       title = model.title
       
       model.progressSignal.subscribeNext { inProgress in

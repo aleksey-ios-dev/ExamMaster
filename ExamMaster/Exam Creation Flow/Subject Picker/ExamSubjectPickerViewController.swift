@@ -9,11 +9,10 @@
 import Foundation
 import ModelsTreeKit
 
-class ExamSubjectPickerViewController: UITableViewController {
+class ExamSubjectPickerViewController: UITableViewController, ModelApplicable {
   
   weak var model: ExamSubjectPickerModel! {
     didSet {
-      model.applyRepresentation(self)
       title = model.title
       
       model.progressSignal.subscribeNext { inProgress in

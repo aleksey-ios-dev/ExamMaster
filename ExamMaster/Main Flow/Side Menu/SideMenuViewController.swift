@@ -8,17 +8,14 @@
 
 import Foundation
 import UIKit
+import ModelsTreeKit
 
-class SideMenuViewController: UIViewController {
+class SideMenuViewController: UIViewController, ModelApplicable {
   
   @IBOutlet
   private weak var examsCreatedLabel: UILabel!
   
-  weak var model: SideMenuModel! {
-    didSet {
-      model.applyRepresentation(self)
-    }
-  }
+  weak var model: SideMenuModel!
   
   override func viewDidLoad() {
     super.viewDidLoad()

@@ -9,7 +9,7 @@
 import Foundation
 import ModelsTreeKit
 
-class ExamOptionsPickerViewController: UIViewController {
+class ExamOptionsPickerViewController: UIViewController, ModelApplicable {
   
   @IBOutlet
   private weak var questionsCountLabel: UILabel!
@@ -23,11 +23,7 @@ class ExamOptionsPickerViewController: UIViewController {
   @IBOutlet
   private weak var timeLimitSlider: UISlider!
   
-  weak var model: ExamOptionsPickerModel! {
-    didSet {
-      model.applyRepresentation(self)
-    }
-  }
+  weak var model: ExamOptionsPickerModel!
   
   override func viewDidLoad() {
     super.viewDidLoad()

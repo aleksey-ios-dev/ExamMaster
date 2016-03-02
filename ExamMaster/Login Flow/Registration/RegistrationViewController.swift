@@ -8,14 +8,10 @@
 
 import Foundation
 import UIKit
+import ModelsTreeKit
 
-class RegistrationViewController: UIViewController {
-  weak var model: RegistrationModel! {
-    didSet {
-      model.applyRepresentation(self)
-      title = model.title
-    }
-  }
+class RegistrationViewController: UIViewController, ModelApplicable {
+  weak var model: RegistrationModel! { didSet { title = model.title } }
   
   @IBOutlet
   private weak var usernameTextField: UITextField!
@@ -28,10 +24,10 @@ class RegistrationViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    usernameTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyUsername(text) }.putInto(pool)
-    passwordTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyPassword(text) }.putInto(pool)
-    model.inputValiditySignal.subscribeNext { [weak self] valid in self?.confirmationButton.enabled = valid }.putInto(pool)
+    model.printSessionTree([.HasRepresentation])
+//    usernameTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyUsername(text) }.putInto(pool)
+//    passwordTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyPassword(text) }.putInto(pool)
+//    model.inputValiditySignal.subscribeNext { [weak self] valid in self?.confirmationButton.enabled = valid }.putInto(pool)
   }
   
   @IBAction
