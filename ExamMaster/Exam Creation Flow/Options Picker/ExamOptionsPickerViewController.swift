@@ -37,16 +37,14 @@ class ExamOptionsPickerViewController: UIViewController, ModelApplicable {
       self?.timeLimitLabel.text = "Time limit: \(Int($0)) min"
       self?.timeLimitSlider.value = Float($0)
     }.putInto(pool)
-  }
-  
-  @IBAction
-  private func changeQuestionsCount(sender: UISlider) {
-    model.applyQuestionsCount(Int(sender.value))
-  }
-  
-  @IBAction
-  private func changeTimeLimit(sender: UISlider) {
-    model.applyTimeLimit(NSTimeInterval(sender.value))
+    
+    questionsCountSlider.valueChangeSignal.map { Int($0) }.subscribeNext { [weak self] in
+      self?.model.applyQuestionsCount($0)
+    }.putInto(pool)
+    
+    timeLimitSlider.valueChangeSignal.map { NSTimeInterval($0) }.subscribeNext { [weak self] in
+      self?.model.applyTimeLimit($0)
+    }.putInto(pool)
   }
   
   @IBAction

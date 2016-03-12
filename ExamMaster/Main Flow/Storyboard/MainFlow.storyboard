@@ -48,7 +48,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTs-F8-GvY">
                                 <rect key="frame" x="16" y="75" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -109,19 +109,63 @@
                                     <action selector="showMenu:" destination="6JG-oB-O0e" eventType="touchUpInside" id="0r2-gu-07Z"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lH8-E0-7Hk">
+                                <rect key="frame" x="46" y="199" width="228" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title=""/>
+                                    <segment title=""/>
+                                    <segment title=""/>
+                                </segments>
+                            </segmentedControl>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rUi-li-Dyx">
+                                <rect key="frame" x="136" y="279" width="51" height="31"/>
+                            </switch>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="eR8-EE-VHC">
+                                <rect key="frame" x="38" y="358" width="244" height="31"/>
+                                <connections>
+                                    <action selector="valCh:forEvent:" destination="6JG-oB-O0e" eventType="valueChanged" id="rc0-mx-JS8"/>
+                                </connections>
+                            </slider>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="7FE-Cd-ZA7">
+                                <rect key="frame" x="113" y="413" width="94" height="29"/>
+                            </stepper>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="eR8-EE-VHC" firstAttribute="top" secondItem="rUi-li-Dyx" secondAttribute="bottom" constant="48" id="10e-yV-gVM"/>
+                            <constraint firstItem="lH8-E0-7Hk" firstAttribute="top" secondItem="IaV-CI-y6w" secondAttribute="bottom" constant="47" id="2MB-E4-5Mg"/>
                             <constraint firstItem="PHi-1l-9i1" firstAttribute="top" secondItem="4JX-nq-6C6" secondAttribute="bottom" constant="50" id="5vT-6K-EEy"/>
+                            <constraint firstItem="rUi-li-Dyx" firstAttribute="top" secondItem="lH8-E0-7Hk" secondAttribute="bottom" constant="52.5" id="85S-DO-6tu"/>
                             <constraint firstItem="IaV-CI-y6w" firstAttribute="top" secondItem="Rdn-lQ-oLN" secondAttribute="bottom" constant="100" id="BbR-pd-bBn"/>
+                            <constraint firstItem="eR8-EE-VHC" firstAttribute="trailing" secondItem="wpP-cS-jrs" secondAttribute="trailingMargin" id="EKZ-rQ-sIp"/>
+                            <constraint firstAttribute="trailing" secondItem="eR8-EE-VHC" secondAttribute="trailing" constant="40" id="ExG-Bf-C5o"/>
+                            <constraint firstItem="7FE-Cd-ZA7" firstAttribute="centerX" secondItem="wpP-cS-jrs" secondAttribute="centerX" id="FbA-bv-aGX"/>
+                            <constraint firstItem="7FE-Cd-ZA7" firstAttribute="top" secondItem="eR8-EE-VHC" secondAttribute="bottom" constant="25" id="Jyy-TC-E1q"/>
+                            <constraint firstItem="lH8-E0-7Hk" firstAttribute="leading" secondItem="wpP-cS-jrs" secondAttribute="leadingMargin" constant="30" id="Ldl-Uc-eoM"/>
                             <constraint firstItem="IaV-CI-y6w" firstAttribute="centerX" secondItem="wpP-cS-jrs" secondAttribute="centerX" id="cHd-n6-bba"/>
+                            <constraint firstItem="eR8-EE-VHC" firstAttribute="leading" secondItem="wpP-cS-jrs" secondAttribute="leading" constant="40" id="gYa-hw-D6Q"/>
                             <constraint firstItem="4JX-nq-6C6" firstAttribute="centerX" secondItem="wpP-cS-jrs" secondAttribute="centerX" id="h8o-3b-W9q"/>
                             <constraint firstItem="bLO-Rp-Cqg" firstAttribute="top" secondItem="wpP-cS-jrs" secondAttribute="topMargin" constant="25" id="ioT-Uw-Jg8"/>
                             <constraint firstItem="bLO-Rp-Cqg" firstAttribute="leading" secondItem="wpP-cS-jrs" secondAttribute="leadingMargin" constant="5" id="nxV-el-4by"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lH8-E0-7Hk" secondAttribute="trailing" constant="30" id="tdG-hi-Dbq"/>
+                            <constraint firstItem="rUi-li-Dyx" firstAttribute="centerX" secondItem="wpP-cS-jrs" secondAttribute="centerX" id="xNC-GY-vKv"/>
+                            <constraint firstItem="eR8-EE-VHC" firstAttribute="leading" secondItem="wpP-cS-jrs" secondAttribute="leadingMargin" id="yN0-lt-qtr"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="EKZ-rQ-sIp"/>
+                                <exclude reference="yN0-lt-qtr"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="control" destination="lH8-E0-7Hk" id="igD-Yo-7am"/>
+                        <outlet property="slider" destination="eR8-EE-VHC" id="mGp-KW-awO"/>
+                        <outlet property="stepper" destination="7FE-Cd-ZA7" id="HMW-Xk-dDM"/>
+                        <outlet property="switchControl" destination="rUi-li-Dyx" id="8dE-Nz-e59"/>
                         <outlet property="titleLabel" destination="IaV-CI-y6w" id="4tp-6r-2FX"/>
                     </connections>
                 </viewController>

@@ -30,12 +30,14 @@ extension LoginFlowModel: LoginFlowParent {
     authorizationProgressSignal.sendNext(true)
     
     let authorizationClient: AuthorizationClient = session()!.services.getService()!
+    
     authorizationClient.authorizeWithInfo(authorizationInfo) { [weak self] params, error in
       self?.authorizationProgressSignal.sendNext(false)
       guard error == nil else {
         self?.raiseError(error!)
         return
       }
+      
       self?.session()?.closeWithParams(params)
     }
   }

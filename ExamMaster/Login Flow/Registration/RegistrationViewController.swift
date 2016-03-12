@@ -24,10 +24,10 @@ class RegistrationViewController: UIViewController, ModelApplicable {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    model.printSessionTree([.HasRepresentation])
-//    usernameTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyUsername(text) }.putInto(pool)
-//    passwordTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyPassword(text) }.putInto(pool)
-//    model.inputValiditySignal.subscribeNext { [weak self] valid in self?.confirmationButton.enabled = valid }.putInto(pool)
+    model.printSessionTree(withParams: [.HasRepresentation])
+    usernameTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyUsername(text) }.putInto(pool)
+    passwordTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyPassword(text) }.putInto(pool)
+    model.inputValiditySignal.subscribeNext { [weak self] valid in self?.confirmationButton.enabled = valid }.putInto(pool)
   }
   
   @IBAction

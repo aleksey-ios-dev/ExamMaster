@@ -11,10 +11,6 @@ import ModelsTreeKit
 
 class ExamOptionsPickerModel: Model {
   
-  deinit {
-    
-  }
-  
   let timeLimitChangeSignal = Signal<NSTimeInterval>()
   let questionsCountChangeSignal = Signal<Int>()
   
