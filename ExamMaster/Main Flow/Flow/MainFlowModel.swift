@@ -35,13 +35,15 @@ class MainFlowModel: Model {
     case AppEvent.StartExam:
       let flowModel = ExamCreationFlowModel(parent: self)
       
-      flowModel.completionSignal.subscribeCompleted { [weak self] _ in
-        self?.wantsRemoveChildSignal.sendNext(flowModel)
-        }.putInto(pool)
+      flowModel.completionSignal.subscribeCompleted { [weak self, weak flowModel] _ in
+        guard let _self = self, _flowModel = flowModel else { return }
+        _self.wantsRemoveChildSignal.sendNext(_flowModel)
+      }.putInto(pool)
       
-      flowModel.cancelSignal.subscribeCompleted { [weak self] _ in
-        self?.wantsRemoveChildSignal.sendNext(flowModel)
-        }.putInto(pool)
+      flowModel.cancelSignal.subscribeCompleted { [weak self, weak flowModel] _ in
+        guard let _self = self, _flowModel = flowModel else { return }
+        _self.wantsRemoveChildSignal.sendNext(_flowModel)
+      }.putInto(pool)
       
       pushChildSignal.sendNext(flowModel)
     default:

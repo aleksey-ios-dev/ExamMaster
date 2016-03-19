@@ -19,8 +19,8 @@ class RegistrationModel: Model {
   
   let inputValiditySignal: Signal<Bool>
   
-  private let usernameSignal = Signal<String>()
-  private let passwordSignal = Signal<String>()
+  private let usernameSignal = ValueKeepingSignal<String>(value: "")
+  private let passwordSignal = ValueKeepingSignal<String>(value: "")
   private let authorizationInfo = AuthorizationInfo()
 
   init(parent: LoginFlowModel?) {

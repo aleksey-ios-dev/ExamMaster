@@ -11,7 +11,7 @@ import ModelsTreeKit
 
 class SideMenuModel: Model {
   
-  let examsCountSignal = Signal<Int>()
+  let examsCountSignal = ValueKeepingSignal<Int>(value: 0)
   
   private var examsCount = 0 {
     didSet { examsCountSignal.sendNext(examsCount) }
