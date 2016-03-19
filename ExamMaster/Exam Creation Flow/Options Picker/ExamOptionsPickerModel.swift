@@ -11,8 +11,8 @@ import ModelsTreeKit
 
 class ExamOptionsPickerModel: Model {
   
-  let timeLimitChangeSignal = Signal<NSTimeInterval>()
-  let questionsCountChangeSignal = Signal<Int>()
+  let timeLimitChangeSignal = ValueKeepingSignal<NSTimeInterval>()
+  let questionsCountChangeSignal = ValueKeepingSignal<Int>()
   
   private weak var flowModel: ExamCreationFlowModel!
   
