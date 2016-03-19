@@ -28,6 +28,7 @@ class MainFlowModel: Model {
     
     registerForBubbleNotification(BubbleNotification.MainFlow.ShowSideMenu, inDomain: BubbleNotification.MainFlow.domain)
     registerForEvent(AppEvent.StartExam)
+    registerForEvent(AppEvent.ExamCreated)
   }
   
   override func handleSessionEvent(event: SessionEvent) {

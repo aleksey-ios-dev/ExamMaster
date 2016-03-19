@@ -9,38 +9,12 @@
 import Foundation
 import ModelsTreeKit
 
-struct NetworkErrorDomain: ErrorDomain {
-  
-  let title = "NetworkErrorDomain"
-  
-  init() {
-  }
-  
-  enum Errors: Int, ErrorCodesList, ErrorCode {
-    case ResponseError = 100
-    case BadToken = 101
-    
-    static func allCodes() -> [ErrorCode] {
-      return [Errors.ResponseError, Errors.BadToken]
-    }
-  }
-  
+enum ErrorDomains: String, ErrorDomain {
+  case Application = "ApplicationErrors"
+  case Network = "Errors"
 }
 
-
-struct ApplicationErrorDomain: ErrorDomain {
-  
-  let title = "ApplicationErrorDomain"
-  
-  init() {
-  }
-  
-  enum Errors: Int, ErrorCodesList, ErrorCode {
-    case UnknownError = 100
-    
-    static func allCodes() -> [ErrorCode] {
-      return [Errors.UnknownError]
-    }
-  }
-  
+enum NetworkErrors: Int, ErrorCode {
+  case BadResponse = 100
+  case BadToken = 101
 }

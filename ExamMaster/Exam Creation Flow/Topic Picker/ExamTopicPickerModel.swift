@@ -24,7 +24,7 @@ class ExamTopicPickerModel: List<Topic> {
     super.init(parent: parent)
     self.flowModel = parent
     
-    registerForError(Error(domain: NetworkErrorDomain(), code: NetworkErrorDomain.Errors.ResponseError))
+    registerForError(NetworkErrors.BadResponse, inDomain: ErrorDomains.Network)
   }
   
   //Actions

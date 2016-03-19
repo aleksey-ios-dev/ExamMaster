@@ -11,11 +11,19 @@ import ModelsTreeKit
 
 class AppUserSession: UserSession {
   
-  override func raiseError(error: Error) {
-    if error == Error(domain: NetworkErrorDomain(), code: NetworkErrorDomain.Errors.BadToken) {
-      print("\(self): Bad token received, closing")
+  override func sessionDidLoad() {
+    registerForError(NetworkErrors.BadToken, inDomain: ErrorDomains.Network)
+  }
+  
+  override func handleError(error: Error) {
+    if error == Error(domain: ErrorDomains.Network, code: NetworkErrors.BadToken) {
       closeWithParams(nil)
     }
+  }
+  
+  override func raiseError(error: Error) {
+    super.raiseError(error)
+    print("NO HANDLING FOR \(error)")
   }
   
 }
