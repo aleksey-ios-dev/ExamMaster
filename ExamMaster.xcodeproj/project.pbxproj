@@ -32,6 +32,7 @@
 		5B5657D91C82998100016494 /* LoginFlowDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5657D81C82998100016494 /* LoginFlowDefinitions.swift */; };
 		5B5657E91C82A06900016494 /* ExamCreationFlowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5657E81C82A06900016494 /* ExamCreationFlowModel.swift */; };
 		5B5657EB1C82A0C400016494 /* ExamCreationFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5657EA1C82A0C400016494 /* ExamCreationFlowNavigationController.swift */; };
+		5B782A6A1C9DA7FF00304412 /* AuthorizationFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B782A691C9DA7FF00304412 /* AuthorizationFormModel.swift */; };
 		5BD0819B1C81802E00269752 /* MainFlowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0819A1C81802E00269752 /* MainFlowModel.swift */; };
 		5BD0819D1C81803600269752 /* MainFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0819C1C81803600269752 /* MainFlowNavigationController.swift */; };
 		5BD081A01C81888900269752 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0819F1C81888900269752 /* DashboardModel.swift */; };
@@ -135,6 +136,7 @@
 		5B5657D81C82998100016494 /* LoginFlowDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFlowDefinitions.swift; sourceTree = "<group>"; };
 		5B5657E81C82A06900016494 /* ExamCreationFlowModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamCreationFlowModel.swift; sourceTree = "<group>"; };
 		5B5657EA1C82A0C400016494 /* ExamCreationFlowNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamCreationFlowNavigationController.swift; sourceTree = "<group>"; };
+		5B782A691C9DA7FF00304412 /* AuthorizationFormModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationFormModel.swift; sourceTree = "<group>"; };
 		5BD0819A1C81802E00269752 /* MainFlowModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlowModel.swift; sourceTree = "<group>"; };
 		5BD0819C1C81803600269752 /* MainFlowNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlowNavigationController.swift; sourceTree = "<group>"; };
 		5BD0819F1C81888900269752 /* DashboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
@@ -303,6 +305,14 @@
 			path = "Subject Picker";
 			sourceTree = "<group>";
 		};
+		5B782A671C9DA7EC00304412 /* Authorization Form */ = {
+			isa = PBXGroup;
+			children = (
+				5B782A691C9DA7FF00304412 /* AuthorizationFormModel.swift */,
+			);
+			path = "Authorization Form";
+			sourceTree = "<group>";
+		};
 		5BD081961C81801700269752 /* Main Flow */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +476,7 @@
 		5BF529E11C817EC700B8FE10 /* Login Flow */ = {
 			isa = PBXGroup;
 			children = (
+				5B782A671C9DA7EC00304412 /* Authorization Form */,
 				5BD081A81C8192C600269752 /* Storyboard */,
 				5BD081B31C81A39700269752 /* Registration */,
 				5BD081A31C818B3000269752 /* Sign in */,
@@ -613,6 +624,7 @@
 				5BD081CF1C81EE2900269752 /* SideMenuViewController.swift in Sources */,
 				5B15DD371C8324F600A4EBDB /* ExamCreationConfirmationModel.swift in Sources */,
 				5B15DD2C1C83151E00A4EBDB /* ExamOptionsPickerViewController.swift in Sources */,
+				5B782A6A1C9DA7FF00304412 /* AuthorizationFormModel.swift in Sources */,
 				5B18E0EE1C83E29E00FD22B4 /* SVRadialGradientLayer.m in Sources */,
 				5B18E0E11C83DBBA00FD22B4 /* APIClient.swift in Sources */,
 				5B5657D91C82998100016494 /* LoginFlowDefinitions.swift in Sources */,
