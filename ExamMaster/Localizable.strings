@@ -6,4 +6,4 @@
   Copyright © 2016 aleksey chernish. All rights reserved.
 */
 
-"NetworkErrorDomain.100" = "Bad request";
+"NetworkErrors.100" = "Bad request";

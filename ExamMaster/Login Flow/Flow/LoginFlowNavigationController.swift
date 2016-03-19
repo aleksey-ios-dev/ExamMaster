@@ -11,7 +11,7 @@ import ModelsTreeKit
 
 class LoginFlowNavigationController: UINavigationController {
   
-  weak var model: LoginFlowModel! {
+  weak var model: LoginFlow! {
     didSet {
       model.pushChildSignal.subscribeNext { [weak self] child in
         self?.buildRepresentationFor(child)
@@ -49,7 +49,7 @@ class LoginFlowNavigationController: UINavigationController {
 extension LoginFlowNavigationController: RootModelAssignable {
   
   func assignRootModel(model: Model) {
-    if let flowModel = model as? LoginFlowModel {
+    if let flowModel = model as? LoginFlow {
       self.model = flowModel
     }
   }

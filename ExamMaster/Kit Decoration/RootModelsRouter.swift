@@ -13,9 +13,9 @@ class AppRootModelsRouter: RootModelsRouter {
   func modelFor(session session: Session) -> Model {
     switch session {
     case is UserSession:
-      return MainFlowModel(parent: session)
+      return MainFlow(parent: session)
     default:
-      return LoginFlowModel(parent: session)
+      return LoginFlow(parent: session)
     }
   }
 }

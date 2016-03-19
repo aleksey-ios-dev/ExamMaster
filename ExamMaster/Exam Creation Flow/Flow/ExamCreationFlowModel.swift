@@ -26,7 +26,7 @@ protocol ExamCreationFlowParent {
   
 }
 
-class ExamCreationFlowModel: Model {
+class ExamCreationFlow: Model {
   
   let cancelSignal = Signal<Void>()
   let completionSignal = Signal<Void>()
@@ -53,7 +53,7 @@ class ExamCreationFlowModel: Model {
   
 }
 
-extension ExamCreationFlowModel: ExamCreationFlowParent {
+extension ExamCreationFlow: ExamCreationFlowParent {
   
   func childModelDidCancelFlow(child: Model) {
     cancelFlow()

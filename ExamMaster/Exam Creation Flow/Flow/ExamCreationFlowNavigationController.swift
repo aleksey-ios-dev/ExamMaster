@@ -11,7 +11,7 @@ import UIKit
 import ModelsTreeKit
 
 class ExamCreationFlowNavigationController: UINavigationController, ModelApplicable {
-  weak var model: ExamCreationFlowModel! {
+  weak var model: ExamCreationFlow! {
     didSet {
       model.pushChildSignal.subscribeNext { [weak self] child in
         self?.buildRepresentationFor(child)

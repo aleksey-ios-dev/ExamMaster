@@ -11,7 +11,7 @@ import ModelsTreeKit
 
 enum ErrorDomains: String, ErrorDomain {
   case Application = "ApplicationErrors"
-  case Network = "Errors"
+  case Network = "NetworkErrors"
 }
 
 enum NetworkErrors: Int, ErrorCode {

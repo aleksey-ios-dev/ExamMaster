@@ -14,7 +14,7 @@ class ExamOptionsPickerModel: Model {
   let timeLimitChangeSignal = ValueKeepingSignal<NSTimeInterval>()
   let questionsCountChangeSignal = ValueKeepingSignal<Int>()
   
-  private weak var flowModel: ExamCreationFlowModel!
+  private weak var flowModel: ExamCreationFlow!
   
   private var timeLimit: NSTimeInterval = 0 {
     didSet { timeLimitChangeSignal.sendNext(timeLimit) }
@@ -24,7 +24,7 @@ class ExamOptionsPickerModel: Model {
     didSet { questionsCountChangeSignal.sendNext(questionsCount) }
   }
   
-  init(parent: ExamCreationFlowModel?) {
+  init(parent: ExamCreationFlow?) {
     super.init(parent: parent)
     
     flowModel = parent

@@ -11,7 +11,7 @@ import ModelsTreeKit
 
 class MainFlowNavigaionController: RESideMenu {
   
-  var model: MainFlowModel! {
+  var model: MainFlow! {
     didSet {
       model.pushChildSignal.subscribeNext { [weak self] child in
         self?.buildRepresentationFor(child)
@@ -48,7 +48,7 @@ class MainFlowNavigaionController: RESideMenu {
   func removePresentationFor(child: Model) {
     switch child {
       
-    case child as ExamCreationFlowModel:
+    case child as ExamCreationFlow:
       dismissViewControllerAnimated(true, completion: nil)
       
     default:
@@ -70,7 +70,7 @@ class MainFlowNavigaionController: RESideMenu {
       
       contentViewController = controller
       
-    case let model as ExamCreationFlowModel:
+    case let model as ExamCreationFlow:
       let controller = ExamCreationFlowNavigationController()
       controller.applyModel(model)
       contentViewController.presentViewController(controller, animated: true, completion: nil)
@@ -84,7 +84,7 @@ class MainFlowNavigaionController: RESideMenu {
 
 extension MainFlowNavigaionController: RootModelAssignable {
   func assignRootModel(model: Model) {
-    if let model = model as? MainFlowModel {
+    if let model = model as? MainFlow {
       self.model = model
     }
   }

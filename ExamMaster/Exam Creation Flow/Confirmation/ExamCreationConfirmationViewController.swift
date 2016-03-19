@@ -30,7 +30,7 @@ class ExamCreationConfirmationViewController: UIViewController, ModelApplicable 
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    model.printSessionTree(withParams: [.Errors])
+    model.printSessionTree(withParams: [.GlobalEvents])
     subjectLabel.text = model.exam.subject
     topicLabel.text = model.exam.topic
     questionsCountLabel.text = "Questions: \(model.exam.questionsCount)"

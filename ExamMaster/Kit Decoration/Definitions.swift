@@ -9,7 +9,7 @@
 import Foundation
 import ModelsTreeKit
 
-public enum AppEvent: String, SessionEventName {
+public enum AppEvent: String, GlobalEventName {
   case StartExam = "StartExam"
   case ExamCreated = "ExamCreated"
 }

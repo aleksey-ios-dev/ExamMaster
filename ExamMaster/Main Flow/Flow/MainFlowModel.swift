@@ -19,7 +19,7 @@ extension BubbleNotification {
   
 }
 
-class MainFlowModel: Model {
+class MainFlow: Model {
   
   let showSideMenuSignal = Signal<Void>()
   
@@ -28,13 +28,12 @@ class MainFlowModel: Model {
     
     registerForBubbleNotification(BubbleNotification.MainFlow.ShowSideMenu, inDomain: BubbleNotification.MainFlow.domain)
     registerForEvent(AppEvent.StartExam)
-    registerForEvent(AppEvent.ExamCreated)
   }
   
-  override func handleSessionEvent(event: SessionEvent) {
+  override func handleSessionEvent(event: GlobalEvent) {
     switch event.name {
     case AppEvent.StartExam:
-      let flowModel = ExamCreationFlowModel(parent: self)
+      let flowModel = ExamCreationFlow(parent: self)
       
       flowModel.completionSignal.subscribeCompleted { [weak self, weak flowModel] _ in
         guard let _self = self, _flowModel = flowModel else { return }

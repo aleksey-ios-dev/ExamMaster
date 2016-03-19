@@ -14,7 +14,7 @@ protocol LoginFlowParent: class {
   func childModelDidSelectShowRegistration(child: Model) -> Void
 }
 
-class LoginFlowModel: Model {
+class LoginFlow: Model {
 
   let authorizationProgressSignal = Signal<Bool>()
   
@@ -24,7 +24,7 @@ class LoginFlowModel: Model {
 
 }
 
-extension LoginFlowModel: LoginFlowParent {
+extension LoginFlow: LoginFlowParent {
   
   func childModel(child: Model, didSelectRegister authorizationInfo: AuthorizationInfo) {
     authorizationProgressSignal.sendNext(true)

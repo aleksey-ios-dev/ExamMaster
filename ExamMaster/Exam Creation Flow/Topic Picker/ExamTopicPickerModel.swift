@@ -16,10 +16,10 @@ class ExamTopicPickerModel: List<Topic> {
   let title = "Topic"
   let progressSignal = Signal<Bool>()
   
-  private weak var flowModel: ExamCreationFlowModel!
+  private weak var flowModel: ExamCreationFlow!
   private let subject: Subject
   
-  init(parent: ExamCreationFlowModel, subject: Subject) {
+  init(parent: ExamCreationFlow, subject: Subject) {
     self.subject = subject
     super.init(parent: parent)
     self.flowModel = parent

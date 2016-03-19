@@ -15,7 +15,7 @@ class RegistrationModel: Model {
   
   let title = "Registration"
   
-  weak var flowModel: LoginFlowModel!
+  weak var flowModel: LoginFlow!
   
   let inputValiditySignal: Signal<Bool>
   
@@ -23,7 +23,7 @@ class RegistrationModel: Model {
   private let passwordSignal = ValueKeepingSignal<String>(value: "")
   private let authorizationInfo = AuthorizationInfo()
 
-  init(parent: LoginFlowModel?) {
+  init(parent: LoginFlow?) {
     inputValiditySignal = usernameSignal.combineLatest(passwordSignal).map { username, password in
       guard let username = username, let password = password else { return false }
       return username.characters.count > 1 && password.characters.count > 1
