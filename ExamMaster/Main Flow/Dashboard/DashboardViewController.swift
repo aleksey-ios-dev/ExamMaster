@@ -38,7 +38,7 @@ class DashboardViewController: UIViewController, ModelApplicable {
     control.selectedSegmentIndexSignal.subscribeNext { print($0) }.putInto(pool)
     switchControl.onSignal.subscribeNext { print($0) }.putInto(pool)
 
-    slider.valueChangeSignal.subscribeNext {
+    slider.valueSignal.subscribeNext {
       self.switchControl.enabled = $0 > self.slider.maximumValue / 2
     }.putInto(pool)
 

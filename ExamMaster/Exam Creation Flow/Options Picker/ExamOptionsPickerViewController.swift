@@ -38,11 +38,11 @@ class ExamOptionsPickerViewController: UIViewController, ModelApplicable {
       self?.timeLimitSlider.value = Float($0)
     }.putInto(pool)
     
-    questionsCountSlider.valueChangeSignal.map { Int($0) }.subscribeNext { [weak self] in
+    questionsCountSlider.valueSignal.map { Int($0) }.subscribeNext { [weak self] in
       self?.model.applyQuestionsCount($0)
     }.putInto(pool)
     
-    timeLimitSlider.valueChangeSignal.map { NSTimeInterval($0) }.subscribeNext { [weak self] in
+    timeLimitSlider.valueSignal.map { NSTimeInterval($0) }.subscribeNext { [weak self] in
       self?.model.applyTimeLimit($0)
     }.putInto(pool)
   }

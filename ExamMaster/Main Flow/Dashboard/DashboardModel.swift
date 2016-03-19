@@ -18,11 +18,11 @@ class DashboardModel: Model {
   }
   
   func startNewExam() {
-    raiseSessionEvent(SessionEvent(name: AppEvent.StartExam), withObject: nil)
+    raiseSessionEvent(AppEvent.StartExam)
   }
   
   func showMenu() {
-    raiseBubbleNotification(Bubble.MainFlow.ShowSideMenu, sender: self)
+    raiseBubbleNotification(BubbleNotification.MainFlow.ShowSideMenu, sender: self)
   }
   
 }

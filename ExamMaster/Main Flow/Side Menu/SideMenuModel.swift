@@ -19,8 +19,14 @@ class SideMenuModel: Model {
   
   override init(parent: Model?) {
     super.init(parent: parent)
-    registerForEvent(SessionEvent(name: AppEvent.ExamCreated)) { [weak self] _ in self?.examsCount++ }
+    registerForEvent(AppEvent.ExamCreated)
     applyInitialState()
+  }
+  
+  override func handleSessionEvent(event: SessionEvent) {
+    if event.name == AppEvent.ExamCreated {
+      examsCount++
+    }
   }
   
   private func applyInitialState() {
@@ -32,7 +38,7 @@ class SideMenuModel: Model {
   }
   
   func startNewExam() {
-    raiseSessionEvent(SessionEvent(name: AppEvent.StartExam), withObject: nil)
+    raiseSessionEvent(AppEvent.StartExam)
   }
   
 }

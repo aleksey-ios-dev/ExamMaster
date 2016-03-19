@@ -9,13 +9,13 @@
 import Foundation
 import ModelsTreeKit
 
-extension Bubble {
+extension BubbleNotification {
   
   enum MainFlow {
     private static var domain = "MainFlow"
     
-    static var ShowSideMenu: Bubble {
-      return Bubble(code: MainFlowCodes.ShowSideMenu.rawValue, domain: domain)
+    static var ShowSideMenu: BubbleNotification {
+      return BubbleNotification(code: MainFlowCodes.ShowSideMenu.rawValue, domain: domain)
     }
   }
   
@@ -32,22 +32,27 @@ class MainFlowModel: Model {
   override init(parent: Model?) {
     super.init(parent: parent)
     
-    registerForBubbleNotification(Bubble.MainFlow.ShowSideMenu)
+    registerForBubbleNotification(BubbleNotification.MainFlow.ShowSideMenu)
+    
+    registerForEvent(AppEvent.StartExam)
+  }
   
-    registerForEvent(SessionEvent(name: AppEvent.StartExam)) { [weak self] _ in
-      guard let _self = self else { return }
+  override func handleSessionEvent(event: SessionEvent) {
+    switch event.name {
+    case AppEvent.StartExam:
+      let flowModel = ExamCreationFlowModel(parent: self)
       
-      let flowModel = ExamCreationFlowModel(parent: _self)
+      flowModel.completionSignal.subscribeCompleted { [weak self] _ in
+        self?.wantsRemoveChildSignal.sendNext(flowModel)
+        }.putInto(pool)
       
-      flowModel.completionSignal.subscribeCompleted { [weak _self] _ in
-        _self?.wantsRemoveChildSignal.sendNext(flowModel)
-      }.putInto(_self.pool)
+      flowModel.cancelSignal.subscribeCompleted { [weak self] _ in
+        self?.wantsRemoveChildSignal.sendNext(flowModel)
+        }.putInto(pool)
       
-      flowModel.cancelSignal.subscribeCompleted { [weak _self] _ in
-        _self?.wantsRemoveChildSignal.sendNext(flowModel)
-      }.putInto(_self.pool)
-      
-      _self.pushChildSignal.sendNext(flowModel)
+      pushChildSignal.sendNext(flowModel)
+    default:
+      break
     }
   }
   
@@ -56,11 +61,11 @@ class MainFlowModel: Model {
     pushChildSignal.sendNext(SideMenuModel(parent: self))
   }
   
-  override func handleBubbleNotification(bubble: Bubble, sender: Model) {
-    guard bubble.domain == Bubble.MainFlow.domain else { return }
+  override func handleBubbleNotification(bubble: BubbleNotification, sender: Model) {
+    guard bubble.domain == BubbleNotification.MainFlow.domain else { return }
     
     switch bubble.code {
-    case Bubble.MainFlowCodes.ShowSideMenu.rawValue:
+    case BubbleNotification.MainFlowCodes.ShowSideMenu.rawValue:
       showSideMenuSignal.sendNext()
     default:
       break

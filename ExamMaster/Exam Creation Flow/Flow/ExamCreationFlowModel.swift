@@ -77,7 +77,7 @@ extension ExamCreationFlowModel: ExamCreationFlowParent {
   
   func childModelDidFinishFlow(child: Model) {
     completionSignal.sendCompleted()
-    raiseSessionEvent(SessionEvent(name: AppEvent.ExamCreated), withObject: exam)
+    raiseSessionEvent(AppEvent.ExamCreated)
   }
   
 }
