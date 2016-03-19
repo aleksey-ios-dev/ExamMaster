@@ -15,8 +15,8 @@ class SignInModel: Model {
   let inputValiditySignal: Signal<Bool>
 
   private weak var flowModel: LoginFlowParent!
-  private let usernameSignal = Signal<String>()
-  private let passwordSignal = Signal<String>()
+  private let usernameSignal = ValueKeepingSignal<String>()
+  private let passwordSignal = ValueKeepingSignal<String>()
   private let authorizationInfo = AuthorizationInfo()
   
   init(parent: Model?, flowParent: LoginFlowParent) {
