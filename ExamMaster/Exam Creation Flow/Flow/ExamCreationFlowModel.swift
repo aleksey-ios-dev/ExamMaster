@@ -35,6 +35,8 @@ class ExamCreationFlow: Model {
 
   override init(parent: Model?) {
     super.init(parent: parent)
+    
+    registerForError(NetworkErrors.BadResponse, inDomain: ErrorDomains.Network)
   }
   
   override func sessionWillClose() {

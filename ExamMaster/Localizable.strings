@@ -8,3 +8,4 @@
 
 "NetworkErrors.100" = "Bad response";
 "NetworkErrors.101" = "Bad token";
+"ApplicationErrors.100" = "Only letters allowed";

@@ -35,6 +35,7 @@
 		5B782A6A1C9DA7FF00304412 /* AuthorizationFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B782A691C9DA7FF00304412 /* AuthorizationFormModel.swift */; };
 		5BC0543A1C9E69D80083BBF1 /* AuthorizationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC054391C9E69D80083BBF1 /* AuthorizationForm.swift */; };
 		5BC0543D1C9E6EA00083BBF1 /* AuthorizationForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC0543C1C9E6EA00083BBF1 /* AuthorizationForm.xib */; };
+		5BC054421C9EB7CB0083BBF1 /* UIViewController+ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC054411C9EB7CB0083BBF1 /* UIViewController+ErrorAlert.swift */; };
 		5BD0819B1C81802E00269752 /* MainFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0819A1C81802E00269752 /* MainFlow.swift */; };
 		5BD0819D1C81803600269752 /* MainFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0819C1C81803600269752 /* MainFlowNavigationController.swift */; };
 		5BD081A01C81888900269752 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0819F1C81888900269752 /* DashboardModel.swift */; };
@@ -141,6 +142,7 @@
 		5B782A691C9DA7FF00304412 /* AuthorizationFormModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationFormModel.swift; sourceTree = "<group>"; };
 		5BC054391C9E69D80083BBF1 /* AuthorizationForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationForm.swift; sourceTree = "<group>"; };
 		5BC0543C1C9E6EA00083BBF1 /* AuthorizationForm.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorizationForm.xib; sourceTree = "<group>"; };
+		5BC054411C9EB7CB0083BBF1 /* UIViewController+ErrorAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorAlert.swift"; sourceTree = "<group>"; };
 		5BD0819A1C81802E00269752 /* MainFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlow.swift; sourceTree = "<group>"; };
 		5BD0819C1C81803600269752 /* MainFlowNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlowNavigationController.swift; sourceTree = "<group>"; };
 		5BD0819F1C81888900269752 /* DashboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
@@ -319,6 +321,15 @@
 			path = "Authorization Form";
 			sourceTree = "<group>";
 		};
+		5BC0543F1C9EB7B90083BBF1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5BC054411C9EB7CB0083BBF1 /* UIViewController+ErrorAlert.swift */,
+			);
+			name = Extensions;
+			path = "Main Flow/Extensions";
+			sourceTree = "<group>";
+		};
 		5BD081961C81801700269752 /* Main Flow */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +447,7 @@
 		5BF529AE1C816E8300B8FE10 /* ExamMaster */ = {
 			isa = PBXGroup;
 			children = (
+				5BC0543F1C9EB7B90083BBF1 /* Extensions */,
 				5B18E0DC1C83DB7000FD22B4 /* Services */,
 				5B15DD311C831B3C00A4EBDB /* Model */,
 				5BD081BE1C81E82900269752 /* Vendors */,
@@ -608,6 +620,7 @@
 				5BD081BC1C81DEAD00269752 /* AppSessionControllerConfiguration.swift in Sources */,
 				5BF529DE1C8179E300B8FE10 /* AppUserSession.swift in Sources */,
 				5BF529DC1C8179E300B8FE10 /* AppRootSessionRouter.swift in Sources */,
+				5BC054421C9EB7CB0083BBF1 /* UIViewController+ErrorAlert.swift in Sources */,
 				5B15DD281C830C2200A4EBDB /* ExamTopicPickerViewController.swift in Sources */,
 				5B5657EB1C82A0C400016494 /* ExamCreationFlowNavigationController.swift in Sources */,
 				5BD081A51C818B3700269752 /* SignInModel.swift in Sources */,

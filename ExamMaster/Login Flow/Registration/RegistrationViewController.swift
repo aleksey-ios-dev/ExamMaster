@@ -22,7 +22,7 @@ class RegistrationViewController: UIViewController, ModelApplicable {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    model.printSessionTree(withOptions: [.Representation])
+    model.printSessionTree(withOptions: [.ErrorsVerbous])
     authorizationForm.model = model.authorizationFormModel
     
     model.authorizationFormModel.inputValiditySignal.subscribeNext { [weak self] valid in

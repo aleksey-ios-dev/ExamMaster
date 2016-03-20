@@ -14,8 +14,8 @@ class AuthorizationFormModel: Model {
   let authorizationInfo = AuthorizationInfo()
   let inputValiditySignal: Signal<Bool>
 
-  private let usernameSignal = ValueKeepingSignal<String>(value: "")
-  private let passwordSignal = ValueKeepingSignal<String>(value: "")
+  let usernameSignal = ValueKeepingSignal<String>(value: "")
+  let passwordSignal = ValueKeepingSignal<String>(value: "")
   
   override init(parent: Model?) {
     inputValiditySignal = usernameSignal.combineLatest(passwordSignal).map { username, password in
@@ -25,15 +25,30 @@ class AuthorizationFormModel: Model {
     
     super.init(parent: parent)
   }
-
+  
   func applyUsername(username: String) {
-    authorizationInfo.username = username
+    if !containsOnlyLetters(username) {
+      raiseError(Error(domain: ErrorDomains.Application, code: ApplicationErrors.OnlyLettersInputAllowed))
+      usernameSignal.sendNext(authorizationInfo.username)
+      return
+    }
+    
     usernameSignal.sendNext(username)
+    authorizationInfo.username = username
   }
   
   func applyPassword(password: String) {
     authorizationInfo.password = password
     passwordSignal.sendNext(password)
+  }
+  
+  private func containsOnlyLetters(input: String) -> Bool {
+    for chr in input.characters {
+      if (!(chr >= "a" && chr <= "z") && !(chr >= "A" && chr <= "Z") ) {
+        return false
+      }
+    }
+    return true
   }
 
 }

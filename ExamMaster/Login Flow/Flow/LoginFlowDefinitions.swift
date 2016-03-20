@@ -10,6 +10,6 @@ import Foundation
 import ModelsTreeKit
 
 class AuthorizationInfo {
-  var username: String?
-  var password: String?
+  var username: String = ""
+  var password: String = ""
 }

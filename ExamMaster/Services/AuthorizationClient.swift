@@ -18,7 +18,7 @@ class AuthorizationClient: Service {
     dispatch_after(delayTime, dispatch_get_main_queue()) {
       var params = SessionCompletionParams()
       
-      params[AppCredentialsKeys.Token.rawValue] = String(info.password?.hash)
+      params[AppCredentialsKeys.Token.rawValue] = String(info.password.hash)
       params[AppCredentialsKeys.Uid.rawValue] = info.username
       params[AppCredentialsKeys.Username.rawValue] = info.username
       

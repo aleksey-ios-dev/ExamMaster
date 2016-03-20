@@ -21,10 +21,6 @@ class ExamTopicPickerViewController: UITableViewController, ModelApplicable {
         if inProgress { SVProgressHUD.show() }
         else { SVProgressHUD.dismiss() }
       }.putInto(pool)
-      
-      model.errorSignal.subscribeNext { [weak self] error in
-        self?.showAlertForError(error)
-      }.putInto(pool)
     }
   }
   
@@ -45,17 +41,6 @@ class ExamTopicPickerViewController: UITableViewController, ModelApplicable {
     }.putInto(pool)
     
     model.fetchTopics()
-  }
-  
-  func showAlertForError(error: Error) {
-    let controller = UIAlertController(title: "Error", message: error.localizedDescription(), preferredStyle: .Alert)
-    let action = UIAlertAction(title: "ok", style: .Cancel) { _ in
-      controller.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    controller.addAction(action)
-    
-    presentViewController(controller, animated: true, completion: nil)
   }
   
 }

@@ -16,6 +16,12 @@ protocol LoginFlowParent: class {
 
 class LoginFlow: Model {
 
+  override init(parent: Model?) {
+    super.init(parent: parent)
+    
+    registerForError(ApplicationErrors.OnlyLettersInputAllowed, inDomain: ErrorDomains.Application)
+  }
+  
   let authorizationProgressSignal = Signal<Bool>()
   
   func pushInitialChildren() {

@@ -22,6 +22,10 @@ class LoginFlowNavigationController: UINavigationController {
         else { SVProgressHUD.dismiss() }
       }.putInto(pool)
       
+      model.errorSignal.subscribeNext { [weak self] error in
+        self?.showAlertForError(error)
+      }.putInto(pool)
+      
       model.pushInitialChildren()
     }
   }

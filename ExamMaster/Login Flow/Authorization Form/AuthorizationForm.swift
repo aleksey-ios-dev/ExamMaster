@@ -11,7 +11,12 @@ import ModelsTreeKit
 
 class AuthorizationForm: UIView {
   
-  weak var model: AuthorizationFormModel!
+  weak var model: AuthorizationFormModel! {
+    didSet {
+      model.usernameSignal.subscribeNext { [weak self] in self?.usernameTextField.text = $0 }
+      model.passwordSignal.subscribeNext { [weak self] in self?.passwordTextField.text = $0 }
+    }
+  }
   
   @IBOutlet
   private weak var usernameTextField: UITextField!

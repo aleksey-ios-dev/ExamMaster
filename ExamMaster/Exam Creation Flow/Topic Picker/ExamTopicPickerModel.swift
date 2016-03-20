@@ -22,9 +22,7 @@ class ExamTopicPickerModel: List<Topic> {
   init(parent: ExamCreationFlow, subject: Subject) {
     self.subject = subject
     super.init(parent: parent)
-    self.flowModel = parent
-    
-    registerForError(NetworkErrors.BadResponse, inDomain: ErrorDomains.Network)
+    self.flowModel = parent    
   }
   
   //Actions

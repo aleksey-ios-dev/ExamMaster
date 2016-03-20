@@ -16,6 +16,10 @@ class ExamCreationFlowNavigationController: UINavigationController, ModelApplica
       model.pushChildSignal.subscribeNext { [weak self] child in
         self?.buildRepresentationFor(child)
       }.putInto(pool)
+      
+      model.errorSignal.subscribeNext { [weak self] error in
+        self?.showAlertForError(error)
+      }.putInto(pool)
     }
   }
   

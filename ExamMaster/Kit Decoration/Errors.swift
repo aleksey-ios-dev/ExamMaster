@@ -18,3 +18,7 @@ enum NetworkErrors: Int, ErrorCode {
   case BadResponse = 100
   case BadToken = 101
 }
+
+enum ApplicationErrors: Int, ErrorCode {
+  case OnlyLettersInputAllowed = 100
+}
