@@ -17,10 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     
     SessionController.controller.configuration = SessionControllerConfiguration.appConfiguration()
-    SessionController.controller.representationsRouter = AppRootRepresentationsRouter()
-    SessionController.controller.sessionsRouter = AppRootSessionsRouter()
-    SessionController.controller.modelsRouter = AppRootModelsRouter()
-    SessionController.controller.servicesConfigurator = AppServiceConfigurator()
+    SessionController.controller.representationRouter = AppRootRepresentationRouter()
+    SessionController.controller.sessionRouter = AppRootSessionRouter()
+    SessionController.controller.modelRouter = AppRootModelRouter()
+    SessionController.controller.serviceConfigurator = AppServiceConfigurator()
     SessionController.controller.navigationManager = AppNavigationManager(window: window)
     
     SessionController.controller.restoreLastOpenedOrStartLoginSession()

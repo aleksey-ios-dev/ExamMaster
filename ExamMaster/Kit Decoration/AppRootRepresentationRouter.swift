@@ -1,5 +1,5 @@
 //
-//  RootRepresentationsRouter.swift
+//  RootRepresentationRouter.swift
 //  SessionSwift
 //
 //  Created by aleksey on 10.10.15.
@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import ModelsTreeKit
 
-class AppRootRepresentationsRouter: RootRepresentationsRouter {
+class AppRootRepresentationRouter: RootRepresentationRouter {
     func representationFor(session session: Session) -> AnyObject {
         switch session {
         case is UserSession:

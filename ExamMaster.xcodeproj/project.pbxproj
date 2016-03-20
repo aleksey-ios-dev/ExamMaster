@@ -28,7 +28,7 @@
 		5B18E0ED1C83E29E00FD22B4 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B18E0E81C83E29E00FD22B4 /* SVProgressHUD.m */; };
 		5B18E0EE1C83E29E00FD22B4 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B18E0EA1C83E29E00FD22B4 /* SVRadialGradientLayer.m */; };
 		5B18E0F11C83FABD00FD22B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B18E0F01C83FABD00FD22B4 /* Localizable.strings */; };
-		5B18E0FA1C840D7E00FD22B4 /* RootModelsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B18E0F91C840D7E00FD22B4 /* RootModelsRouter.swift */; };
+		5B18E0FA1C840D7E00FD22B4 /* RootModelRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B18E0F91C840D7E00FD22B4 /* RootModelRouter.swift */; };
 		5B5657D91C82998100016494 /* LoginFlowDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5657D81C82998100016494 /* LoginFlowDefinitions.swift */; };
 		5B5657E91C82A06900016494 /* ExamCreationFlowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5657E81C82A06900016494 /* ExamCreationFlowModel.swift */; };
 		5B5657EB1C82A0C400016494 /* ExamCreationFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5657EA1C82A0C400016494 /* ExamCreationFlowNavigationController.swift */; };
@@ -61,7 +61,7 @@
 		5BF529D01C81789700B8FE10 /* ModelsTreeKit.framework in Embed Kit */ = {isa = PBXBuildFile; fileRef = 5BF529C81C81779F00B8FE10 /* ModelsTreeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5BF529D91C8179E300B8FE10 /* AppLoginSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D11C8179E300B8FE10 /* AppLoginSession.swift */; };
 		5BF529DA1C8179E300B8FE10 /* AppNavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D21C8179E300B8FE10 /* AppNavigationManager.swift */; };
-		5BF529DB1C8179E300B8FE10 /* AppRootRepresentationsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D31C8179E300B8FE10 /* AppRootRepresentationsRouter.swift */; };
+		5BF529DB1C8179E300B8FE10 /* AppRootRepresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D31C8179E300B8FE10 /* AppRootRepresentationRouter.swift */; };
 		5BF529DC1C8179E300B8FE10 /* AppRootSessionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D41C8179E300B8FE10 /* AppRootSessionRouter.swift */; };
 		5BF529DD1C8179E300B8FE10 /* AppServiceConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D51C8179E300B8FE10 /* AppServiceConfigurator.swift */; };
 		5BF529DE1C8179E300B8FE10 /* AppUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D61C8179E300B8FE10 /* AppUserSession.swift */; };
@@ -135,7 +135,7 @@
 		5B18E0EA1C83E29E00FD22B4 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		5B18E0EF1C83FA8A00FD22B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5B18E0F01C83FABD00FD22B4 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		5B18E0F91C840D7E00FD22B4 /* RootModelsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootModelsRouter.swift; sourceTree = "<group>"; };
+		5B18E0F91C840D7E00FD22B4 /* RootModelRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootModelRouter.swift; sourceTree = "<group>"; };
 		5B5657D81C82998100016494 /* LoginFlowDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFlowDefinitions.swift; sourceTree = "<group>"; };
 		5B5657E81C82A06900016494 /* ExamCreationFlowModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamCreationFlowModel.swift; sourceTree = "<group>"; };
 		5B5657EA1C82A0C400016494 /* ExamCreationFlowNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamCreationFlowNavigationController.swift; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 		5BF529C21C81779F00B8FE10 /* ModelsTreeKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ModelsTreeKit.xcodeproj; path = Kit/ModelsTreeKit.xcodeproj; sourceTree = "<group>"; };
 		5BF529D11C8179E300B8FE10 /* AppLoginSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLoginSession.swift; sourceTree = "<group>"; };
 		5BF529D21C8179E300B8FE10 /* AppNavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationManager.swift; sourceTree = "<group>"; };
-		5BF529D31C8179E300B8FE10 /* AppRootRepresentationsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRootRepresentationsRouter.swift; sourceTree = "<group>"; };
+		5BF529D31C8179E300B8FE10 /* AppRootRepresentationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRootRepresentationRouter.swift; sourceTree = "<group>"; };
 		5BF529D41C8179E300B8FE10 /* AppRootSessionRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRootSessionRouter.swift; sourceTree = "<group>"; };
 		5BF529D51C8179E300B8FE10 /* AppServiceConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppServiceConfigurator.swift; sourceTree = "<group>"; };
 		5BF529D61C8179E300B8FE10 /* AppUserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserSession.swift; sourceTree = "<group>"; };
@@ -478,8 +478,8 @@
 			children = (
 				5BF529D11C8179E300B8FE10 /* AppLoginSession.swift */,
 				5BF529D21C8179E300B8FE10 /* AppNavigationManager.swift */,
-				5BF529D31C8179E300B8FE10 /* AppRootRepresentationsRouter.swift */,
-				5B18E0F91C840D7E00FD22B4 /* RootModelsRouter.swift */,
+				5BF529D31C8179E300B8FE10 /* AppRootRepresentationRouter.swift */,
+				5B18E0F91C840D7E00FD22B4 /* RootModelRouter.swift */,
 				5BF529D41C8179E300B8FE10 /* AppRootSessionRouter.swift */,
 				5BF529D51C8179E300B8FE10 /* AppServiceConfigurator.swift */,
 				5BF529D61C8179E300B8FE10 /* AppUserSession.swift */,
@@ -625,7 +625,7 @@
 				5B5657EB1C82A0C400016494 /* ExamCreationFlowNavigationController.swift in Sources */,
 				5BD081A51C818B3700269752 /* SignInModel.swift in Sources */,
 				5BD081C51C81E82900269752 /* UIViewController+RESideMenu.m in Sources */,
-				5B18E0FA1C840D7E00FD22B4 /* RootModelsRouter.swift in Sources */,
+				5B18E0FA1C840D7E00FD22B4 /* RootModelRouter.swift in Sources */,
 				5B15DD301C83160500A4EBDB /* ExamCreationFlowStoryboard.swift in Sources */,
 				5BF529E41C817EE600B8FE10 /* LoginFlow.swift in Sources */,
 				5BD0819B1C81802E00269752 /* MainFlow.swift in Sources */,
@@ -653,7 +653,7 @@
 				5B18E0CE1C8351EE00FD22B4 /* Definitions.swift in Sources */,
 				5BD081D11C81EE4000269752 /* DashboardViewController.swift in Sources */,
 				5B18E0ED1C83E29E00FD22B4 /* SVProgressHUD.m in Sources */,
-				5BF529DB1C8179E300B8FE10 /* AppRootRepresentationsRouter.swift in Sources */,
+				5BF529DB1C8179E300B8FE10 /* AppRootRepresentationRouter.swift in Sources */,
 				5B15DD181C82B0A100A4EBDB /* ExamSubjectPickerModel.swift in Sources */,
 				5B15DD1B1C82B17000A4EBDB /* ExamSubjectPickerViewController.swift in Sources */,
 				5BD081B71C81A5CB00269752 /* RegistrationViewController.swift in Sources */,

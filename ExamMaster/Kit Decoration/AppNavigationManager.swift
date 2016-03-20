@@ -1,5 +1,5 @@
 //
-//  NavigationManager.swift
+//  AppNavigationManager.swift
 //  SessionSwift
 //
 //  Created by aleksey on 10.10.15.

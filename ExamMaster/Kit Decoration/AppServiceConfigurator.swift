@@ -1,5 +1,5 @@
  //
-//  ServiceConfigurator.swift
+//  AppServiceConfigurator.swift
 //  SessionSwift
 //
 //  Created by aleksey on 24.10.15.
@@ -9,7 +9,7 @@
 import Foundation
 import ModelsTreeKit
 
-class AppServiceConfigurator: ServicesConfigurator {
+class AppServiceConfigurator: ServiceConfigurator {
   
     func configure(session: Session) {
         let locator = ServiceLocator()
