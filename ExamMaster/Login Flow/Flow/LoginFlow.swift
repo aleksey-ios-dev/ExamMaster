@@ -1,5 +1,5 @@
 //
-//  LoginFlowModel.swift
+//  LoginFlow.swift
 //  ExamMaster
 //
 //  Created by aleksey on 27.02.16.

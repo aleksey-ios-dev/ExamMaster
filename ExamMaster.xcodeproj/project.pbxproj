@@ -35,7 +35,7 @@
 		5B782A6A1C9DA7FF00304412 /* AuthorizationFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B782A691C9DA7FF00304412 /* AuthorizationFormModel.swift */; };
 		5BC0543A1C9E69D80083BBF1 /* AuthorizationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC054391C9E69D80083BBF1 /* AuthorizationForm.swift */; };
 		5BC0543D1C9E6EA00083BBF1 /* AuthorizationForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC0543C1C9E6EA00083BBF1 /* AuthorizationForm.xib */; };
-		5BD0819B1C81802E00269752 /* MainFlowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0819A1C81802E00269752 /* MainFlowModel.swift */; };
+		5BD0819B1C81802E00269752 /* MainFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0819A1C81802E00269752 /* MainFlow.swift */; };
 		5BD0819D1C81803600269752 /* MainFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0819C1C81803600269752 /* MainFlowNavigationController.swift */; };
 		5BD081A01C81888900269752 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0819F1C81888900269752 /* DashboardModel.swift */; };
 		5BD081A51C818B3700269752 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD081A41C818B3700269752 /* SignInModel.swift */; };
@@ -65,7 +65,7 @@
 		5BF529DD1C8179E300B8FE10 /* AppServiceConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D51C8179E300B8FE10 /* AppServiceConfigurator.swift */; };
 		5BF529DE1C8179E300B8FE10 /* AppUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D61C8179E300B8FE10 /* AppUserSession.swift */; };
 		5BF529DF1C8179E300B8FE10 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D71C8179E300B8FE10 /* Errors.swift */; };
-		5BF529E41C817EE600B8FE10 /* LoginFlowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529E31C817EE600B8FE10 /* LoginFlowModel.swift */; };
+		5BF529E41C817EE600B8FE10 /* LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529E31C817EE600B8FE10 /* LoginFlow.swift */; };
 		5BF529E61C817F0C00B8FE10 /* LoginFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529E51C817F0C00B8FE10 /* LoginFlowNavigationController.swift */; };
 /* End PBXBuildFile section */
 
@@ -141,7 +141,7 @@
 		5B782A691C9DA7FF00304412 /* AuthorizationFormModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationFormModel.swift; sourceTree = "<group>"; };
 		5BC054391C9E69D80083BBF1 /* AuthorizationForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationForm.swift; sourceTree = "<group>"; };
 		5BC0543C1C9E6EA00083BBF1 /* AuthorizationForm.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorizationForm.xib; sourceTree = "<group>"; };
-		5BD0819A1C81802E00269752 /* MainFlowModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlowModel.swift; sourceTree = "<group>"; };
+		5BD0819A1C81802E00269752 /* MainFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlow.swift; sourceTree = "<group>"; };
 		5BD0819C1C81803600269752 /* MainFlowNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlowNavigationController.swift; sourceTree = "<group>"; };
 		5BD0819F1C81888900269752 /* DashboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
 		5BD081A41C818B3700269752 /* SignInModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 		5BF529D51C8179E300B8FE10 /* AppServiceConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppServiceConfigurator.swift; sourceTree = "<group>"; };
 		5BF529D61C8179E300B8FE10 /* AppUserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserSession.swift; sourceTree = "<group>"; };
 		5BF529D71C8179E300B8FE10 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
-		5BF529E31C817EE600B8FE10 /* LoginFlowModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFlowModel.swift; sourceTree = "<group>"; };
+		5BF529E31C817EE600B8FE10 /* LoginFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFlow.swift; sourceTree = "<group>"; };
 		5BF529E51C817F0C00B8FE10 /* LoginFlowNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFlowNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -333,7 +333,7 @@
 		5BD081991C81802700269752 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
-				5BD0819A1C81802E00269752 /* MainFlowModel.swift */,
+				5BD0819A1C81802E00269752 /* MainFlow.swift */,
 				5BD0819C1C81803600269752 /* MainFlowNavigationController.swift */,
 			);
 			path = Flow;
@@ -494,7 +494,7 @@
 		5BF529E21C817EDD00B8FE10 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
-				5BF529E31C817EE600B8FE10 /* LoginFlowModel.swift */,
+				5BF529E31C817EE600B8FE10 /* LoginFlow.swift */,
 				5B5657D81C82998100016494 /* LoginFlowDefinitions.swift */,
 				5BF529E51C817F0C00B8FE10 /* LoginFlowNavigationController.swift */,
 			);
@@ -614,8 +614,8 @@
 				5BD081C51C81E82900269752 /* UIViewController+RESideMenu.m in Sources */,
 				5B18E0FA1C840D7E00FD22B4 /* RootModelsRouter.swift in Sources */,
 				5B15DD301C83160500A4EBDB /* ExamCreationFlowStoryboard.swift in Sources */,
-				5BF529E41C817EE600B8FE10 /* LoginFlowModel.swift in Sources */,
-				5BD0819B1C81802E00269752 /* MainFlowModel.swift in Sources */,
+				5BF529E41C817EE600B8FE10 /* LoginFlow.swift in Sources */,
+				5BD0819B1C81802E00269752 /* MainFlow.swift in Sources */,
 				5B15DD261C830C1500A4EBDB /* ExamTopicPickerModel.swift in Sources */,
 				5BF529E61C817F0C00B8FE10 /* LoginFlowNavigationController.swift in Sources */,
 				5BF529DD1C8179E300B8FE10 /* AppServiceConfigurator.swift in Sources */,

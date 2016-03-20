@@ -1,5 +1,5 @@
 //
-//  MainFlowModel.swift
+//  MainFlow.swift
 //  ExamMaster
 //
 //  Created by aleksey on 27.02.16.
@@ -35,15 +35,13 @@ class MainFlow: Model {
     case AppEvent.StartExam:
       let flowModel = ExamCreationFlow(parent: self)
       
-      flowModel.completionSignal.subscribeCompleted { [weak self, weak flowModel] _ in
+      let completion = { [weak self, weak flowModel] (completed: Bool) -> Void in
         guard let _self = self, _flowModel = flowModel else { return }
         _self.wantsRemoveChildSignal.sendNext(_flowModel)
-      }.putInto(pool)
+      }
       
-      flowModel.cancelSignal.subscribeCompleted { [weak self, weak flowModel] _ in
-        guard let _self = self, _flowModel = flowModel else { return }
-        _self.wantsRemoveChildSignal.sendNext(_flowModel)
-      }.putInto(pool)
+      flowModel.completionSignal.subscribeCompleted(completion).putInto(pool)
+      flowModel.cancelSignal.subscribeCompleted(completion).putInto(pool)
       
       pushChildSignal.sendNext(flowModel)
     default:
