@@ -12,9 +12,9 @@ import ModelsTreeKit
 class SignInModel: Model {
 
   let title = "Sign In"
-
-  private weak var flowModel: LoginFlowParent!
   private(set) var authorizationFormModel: AuthorizationFormModel!
+  
+  private weak var flowModel: LoginFlowParent!
   
   init(parent: Model?, flowParent: LoginFlowParent) {
     super.init(parent: parent)
@@ -30,4 +30,5 @@ class SignInModel: Model {
   func register() {
     flowModel.childModelDidSelectShowRegistration(self)
   }
+  
 }

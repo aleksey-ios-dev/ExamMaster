@@ -6,4 +6,5 @@
   Copyright © 2016 aleksey chernish. All rights reserved.
 */
 
-"NetworkErrors.100" = "Bad request";
+"NetworkErrors.100" = "Bad response";
+"NetworkErrors.101" = "Bad token";

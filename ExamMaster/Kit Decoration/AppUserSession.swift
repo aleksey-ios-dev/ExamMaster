@@ -21,9 +21,4 @@ class AppUserSession: UserSession {
     }
   }
   
-  override func raiseError(error: Error) {
-    super.raiseError(error)
-    print("NO HANDLING FOR \(error)")
-  }
-  
 }

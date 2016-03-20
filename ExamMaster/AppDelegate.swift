@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     SessionController.controller.configuration = SessionControllerConfiguration.appConfiguration()
     SessionController.controller.representationsRouter = AppRootRepresentationsRouter()
-    SessionController.controller.modelsRouter = AppRootModelsRouter()
     SessionController.controller.sessionsRouter = AppRootSessionsRouter()
+    SessionController.controller.modelsRouter = AppRootModelsRouter()
     SessionController.controller.servicesConfigurator = AppServiceConfigurator()
     SessionController.controller.navigationManager = AppNavigationManager(window: window)
     

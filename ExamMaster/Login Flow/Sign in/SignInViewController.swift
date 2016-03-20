@@ -13,26 +13,21 @@ import ModelsTreeKit
 class SignInViewController: UIViewController, ModelApplicable {
   
   weak var model: SignInModel! { didSet { title = model.title } }
-  
-  @IBOutlet
-  private weak var usernameTextField: UITextField!
-  
-  @IBOutlet
-  private weak var passwordTextField: UITextField!
-  
+
   @IBOutlet
   private weak var confirmationButton: UIButton!
   
+  @IBOutlet
+  private weak var authorizationForm: AuthorizationForm!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    authorizationForm.model = model.authorizationFormModel
     
-    usernameTextField.textSignal.subscribeNext { [weak self] text in self?.model.authorizationFormModel.applyUsername(text) }.putInto(pool)
-    passwordTextField.textSignal.subscribeNext { [weak self] text in self?.model.authorizationFormModel.applyPassword(text) }.putInto(pool)
     model.authorizationFormModel.inputValiditySignal.subscribeNext { [weak self] valid in
       self?.confirmationButton.enabled = valid
     }.putInto(pool)
-    
-    usernameTextField.returnSignal.subscribeNext { [weak self] in self?.passwordTextField.becomeFirstResponder() }.putInto(pool)
+
   }
   
   @IBAction

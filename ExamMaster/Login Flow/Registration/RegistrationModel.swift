@@ -15,8 +15,7 @@ class RegistrationModel: Model {
 
   private(set) var authorizationFormModel: AuthorizationFormModel!
 
-  weak var flowModel: LoginFlow!
-
+  private weak var flowModel: LoginFlow!
 
   init(parent: LoginFlow?) {
     super.init(parent: parent)
