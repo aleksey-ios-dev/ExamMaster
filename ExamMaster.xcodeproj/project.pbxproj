@@ -30,7 +30,7 @@
 		5B18E0F11C83FABD00FD22B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B18E0F01C83FABD00FD22B4 /* Localizable.strings */; };
 		5B18E0FA1C840D7E00FD22B4 /* RootModelRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B18E0F91C840D7E00FD22B4 /* RootModelRouter.swift */; };
 		5B5657D91C82998100016494 /* LoginFlowDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5657D81C82998100016494 /* LoginFlowDefinitions.swift */; };
-		5B5657E91C82A06900016494 /* ExamCreationFlowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5657E81C82A06900016494 /* ExamCreationFlowModel.swift */; };
+		5B5657E91C82A06900016494 /* ExamCreationFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5657E81C82A06900016494 /* ExamCreationFlow.swift */; };
 		5B5657EB1C82A0C400016494 /* ExamCreationFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5657EA1C82A0C400016494 /* ExamCreationFlowNavigationController.swift */; };
 		5B782A6A1C9DA7FF00304412 /* AuthorizationFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B782A691C9DA7FF00304412 /* AuthorizationFormModel.swift */; };
 		5BC0543A1C9E69D80083BBF1 /* AuthorizationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC054391C9E69D80083BBF1 /* AuthorizationForm.swift */; };
@@ -59,12 +59,11 @@
 		5BF529B71C816E8300B8FE10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF529B61C816E8300B8FE10 /* Assets.xcassets */; };
 		5BF529BA1C816E8300B8FE10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF529B81C816E8300B8FE10 /* LaunchScreen.storyboard */; };
 		5BF529D01C81789700B8FE10 /* ModelsTreeKit.framework in Embed Kit */ = {isa = PBXBuildFile; fileRef = 5BF529C81C81779F00B8FE10 /* ModelsTreeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5BF529D91C8179E300B8FE10 /* AppLoginSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D11C8179E300B8FE10 /* AppLoginSession.swift */; };
 		5BF529DA1C8179E300B8FE10 /* AppNavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D21C8179E300B8FE10 /* AppNavigationManager.swift */; };
 		5BF529DB1C8179E300B8FE10 /* AppRootRepresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D31C8179E300B8FE10 /* AppRootRepresentationRouter.swift */; };
 		5BF529DC1C8179E300B8FE10 /* AppRootSessionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D41C8179E300B8FE10 /* AppRootSessionRouter.swift */; };
 		5BF529DD1C8179E300B8FE10 /* AppServiceConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D51C8179E300B8FE10 /* AppServiceConfigurator.swift */; };
-		5BF529DE1C8179E300B8FE10 /* AppUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D61C8179E300B8FE10 /* AppUserSession.swift */; };
+		5BF529DE1C8179E300B8FE10 /* AppAuthorizedSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D61C8179E300B8FE10 /* AppAuthorizedSession.swift */; };
 		5BF529DF1C8179E300B8FE10 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529D71C8179E300B8FE10 /* Errors.swift */; };
 		5BF529E41C817EE600B8FE10 /* LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529E31C817EE600B8FE10 /* LoginFlow.swift */; };
 		5BF529E61C817F0C00B8FE10 /* LoginFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF529E51C817F0C00B8FE10 /* LoginFlowNavigationController.swift */; };
@@ -137,7 +136,7 @@
 		5B18E0F01C83FABD00FD22B4 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		5B18E0F91C840D7E00FD22B4 /* RootModelRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootModelRouter.swift; sourceTree = "<group>"; };
 		5B5657D81C82998100016494 /* LoginFlowDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFlowDefinitions.swift; sourceTree = "<group>"; };
-		5B5657E81C82A06900016494 /* ExamCreationFlowModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamCreationFlowModel.swift; sourceTree = "<group>"; };
+		5B5657E81C82A06900016494 /* ExamCreationFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamCreationFlow.swift; sourceTree = "<group>"; };
 		5B5657EA1C82A0C400016494 /* ExamCreationFlowNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamCreationFlowNavigationController.swift; sourceTree = "<group>"; };
 		5B782A691C9DA7FF00304412 /* AuthorizationFormModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationFormModel.swift; sourceTree = "<group>"; };
 		5BC054391C9E69D80083BBF1 /* AuthorizationForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationForm.swift; sourceTree = "<group>"; };
@@ -172,12 +171,11 @@
 		5BF529B91C816E8300B8FE10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BF529BB1C816E8300B8FE10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BF529C21C81779F00B8FE10 /* ModelsTreeKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ModelsTreeKit.xcodeproj; path = Kit/ModelsTreeKit.xcodeproj; sourceTree = "<group>"; };
-		5BF529D11C8179E300B8FE10 /* AppLoginSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLoginSession.swift; sourceTree = "<group>"; };
 		5BF529D21C8179E300B8FE10 /* AppNavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationManager.swift; sourceTree = "<group>"; };
 		5BF529D31C8179E300B8FE10 /* AppRootRepresentationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRootRepresentationRouter.swift; sourceTree = "<group>"; };
 		5BF529D41C8179E300B8FE10 /* AppRootSessionRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRootSessionRouter.swift; sourceTree = "<group>"; };
 		5BF529D51C8179E300B8FE10 /* AppServiceConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppServiceConfigurator.swift; sourceTree = "<group>"; };
-		5BF529D61C8179E300B8FE10 /* AppUserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserSession.swift; sourceTree = "<group>"; };
+		5BF529D61C8179E300B8FE10 /* AppAuthorizedSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAuthorizedSession.swift; sourceTree = "<group>"; };
 		5BF529D71C8179E300B8FE10 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		5BF529E31C817EE600B8FE10 /* LoginFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFlow.swift; sourceTree = "<group>"; };
 		5BF529E51C817F0C00B8FE10 /* LoginFlowNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFlowNavigationController.swift; sourceTree = "<group>"; };
@@ -278,7 +276,7 @@
 		5B5657E31C82A05600016494 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
-				5B5657E81C82A06900016494 /* ExamCreationFlowModel.swift */,
+				5B5657E81C82A06900016494 /* ExamCreationFlow.swift */,
 				5B5657EA1C82A0C400016494 /* ExamCreationFlowNavigationController.swift */,
 			);
 			path = Flow;
@@ -476,13 +474,12 @@
 		5BF529CB1C8177C600B8FE10 /* Kit Decoration */ = {
 			isa = PBXGroup;
 			children = (
-				5BF529D11C8179E300B8FE10 /* AppLoginSession.swift */,
 				5BF529D21C8179E300B8FE10 /* AppNavigationManager.swift */,
 				5BF529D31C8179E300B8FE10 /* AppRootRepresentationRouter.swift */,
 				5B18E0F91C840D7E00FD22B4 /* RootModelRouter.swift */,
 				5BF529D41C8179E300B8FE10 /* AppRootSessionRouter.swift */,
 				5BF529D51C8179E300B8FE10 /* AppServiceConfigurator.swift */,
-				5BF529D61C8179E300B8FE10 /* AppUserSession.swift */,
+				5BF529D61C8179E300B8FE10 /* AppAuthorizedSession.swift */,
 				5BF529D71C8179E300B8FE10 /* Errors.swift */,
 				5BD081BB1C81DEAD00269752 /* AppSessionControllerConfiguration.swift */,
 				5BD081D71C82946900269752 /* AppCredentials.swift */,
@@ -618,7 +615,7 @@
 				5BD081D81C82946900269752 /* AppCredentials.swift in Sources */,
 				5BF529DA1C8179E300B8FE10 /* AppNavigationManager.swift in Sources */,
 				5BD081BC1C81DEAD00269752 /* AppSessionControllerConfiguration.swift in Sources */,
-				5BF529DE1C8179E300B8FE10 /* AppUserSession.swift in Sources */,
+				5BF529DE1C8179E300B8FE10 /* AppAuthorizedSession.swift in Sources */,
 				5BF529DC1C8179E300B8FE10 /* AppRootSessionRouter.swift in Sources */,
 				5BC054421C9EB7CB0083BBF1 /* UIViewController+ErrorAlert.swift in Sources */,
 				5B15DD281C830C2200A4EBDB /* ExamTopicPickerViewController.swift in Sources */,
@@ -658,9 +655,8 @@
 				5B15DD1B1C82B17000A4EBDB /* ExamSubjectPickerViewController.swift in Sources */,
 				5BD081B71C81A5CB00269752 /* RegistrationViewController.swift in Sources */,
 				5B15DD2A1C83146400A4EBDB /* ExamOptionsPickerModel.swift in Sources */,
-				5B5657E91C82A06900016494 /* ExamCreationFlowModel.swift in Sources */,
+				5B5657E91C82A06900016494 /* ExamCreationFlow.swift in Sources */,
 				5BD0819D1C81803600269752 /* MainFlowNavigationController.swift in Sources */,
-				5BF529D91C8179E300B8FE10 /* AppLoginSession.swift in Sources */,
 				5BF529B01C816E8300B8FE10 /* AppDelegate.swift in Sources */,
 				5BD081AC1C8193F400269752 /* LoginFlowStoryboard.swift in Sources */,
 				5BD081A01C81888900269752 /* DashboardModel.swift in Sources */,

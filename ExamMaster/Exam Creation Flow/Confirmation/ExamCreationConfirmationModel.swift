@@ -22,8 +22,6 @@ class ExamCreationConfirmationModel: Model {
     super.init(parent: parent)
     
     flowModel = parent
-    
-    printSessionTree(withOptions: [.ErrorsVerbous])
   }
   
   func finish() {

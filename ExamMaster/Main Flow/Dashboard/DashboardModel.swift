@@ -18,7 +18,7 @@ class DashboardModel: Model {
   }
   
   func startNewExam() {
-    raiseSessionEvent(AppEvent.StartExam)
+    raiseGlobalEvent(AppEvent.StartExam)
   }
   
   func showMenu() {

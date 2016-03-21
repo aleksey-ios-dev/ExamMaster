@@ -1,5 +1,5 @@
 //
-//  AppUserSession.swift
+//  AppAuthorizedSession.swift
 //  SessionSwift
 //
 //  Created by aleksey on 24.10.15.
@@ -9,7 +9,7 @@
 import Foundation
 import ModelsTreeKit
 
-class AppUserSession: UserSession {
+class AppAuthorizedSession: AuthorizedSession {
   
   override func sessionDidLoad() {
     registerForError(NetworkErrors.BadToken, inDomain: ErrorDomains.Network)

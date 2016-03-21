@@ -15,10 +15,10 @@ class AppServiceConfigurator: ServiceConfigurator {
         let locator = ServiceLocator()
         
         switch session {
-        case is UserSession:
+        case is AuthorizedSession:
           locator.registerService(APIClient(locator: locator))
           
-        case is LoginSession:
+        case is UnauthorizedSession:
           locator.registerService(AuthorizationClient(locator: locator))
           
         default:

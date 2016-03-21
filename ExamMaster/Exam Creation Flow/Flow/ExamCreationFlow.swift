@@ -1,5 +1,5 @@
 //
-//  ExamCreationFlowModel.swift
+//  ExamCreationFlow.swift
 //  ExamMaster
 //
 //  Created by aleksey on 28.02.16.
@@ -79,7 +79,7 @@ extension ExamCreationFlow: ExamCreationFlowParent {
   
   func childModelDidFinishFlow(child: Model) {
     completionSignal.sendCompleted()
-    raiseSessionEvent(AppEvent.ExamCreated)
+    raiseGlobalEvent(AppEvent.ExamCreated)
   }
   
 }

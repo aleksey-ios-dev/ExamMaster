@@ -18,12 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     SessionController.controller.configuration = SessionControllerConfiguration.appConfiguration()
     SessionController.controller.representationRouter = AppRootRepresentationRouter()
-    SessionController.controller.sessionRouter = AppRootSessionRouter()
+    SessionController.controller.sessionRouter = AppSessionRouter()
     SessionController.controller.modelRouter = AppRootModelRouter()
     SessionController.controller.serviceConfigurator = AppServiceConfigurator()
     SessionController.controller.navigationManager = AppNavigationManager(window: window)
     
-    SessionController.controller.restoreLastOpenedOrStartLoginSession()
+    SessionController.controller.restoreLastOpenedOrStartAnonymousSession()
     
     return true
   }

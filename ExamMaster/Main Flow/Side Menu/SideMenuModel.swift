@@ -24,9 +24,7 @@ class SideMenuModel: Model {
   }
   
   override func handleSessionEvent(event: GlobalEvent) {
-    if event.name == AppEvent.ExamCreated {
-      examsCount++
-    }
+    if event.name == AppEvent.ExamCreated { examsCount++ }
   }
   
   private func applyInitialState() {
@@ -38,7 +36,7 @@ class SideMenuModel: Model {
   }
   
   func startNewExam() {
-    raiseSessionEvent(AppEvent.StartExam)
+    raiseGlobalEvent(AppEvent.StartExam)
   }
   
 }

@@ -1,5 +1,5 @@
 //
-//  AppRootSessionRouter.swift
+//  AppSessionRouter.swift
 //  SessionSwift
 //
 //  Created by aleksey on 24.10.15.
@@ -9,14 +9,14 @@
 import Foundation
 import ModelsTreeKit
 
-class AppRootSessionRouter: SessionGenerator {
+class AppSessionRouter: SessionGenerator {
 
-  func classOfAnonymousSession() -> Session.Type {
-    return AppLoginSession.self
+  func unauthorizedSessionType() -> Session.Type {
+    return UnauthorizedSession.self
   }
   
-  func classOfAuthorizedSession() -> Session.Type {
-    return AppUserSession.self
+  func authorizedSessionType() -> Session.Type {
+    return AppAuthorizedSession.self
   }
 
 }
