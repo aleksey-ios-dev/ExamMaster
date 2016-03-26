@@ -60,7 +60,7 @@ class ExamCreationFlowNavigationController: UINavigationController, ModelApplica
   }
   
   func applyDefaultNavigationButtonsTo(controller: UIViewController) {
-    let button = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "cancelFlow:")
+    let button = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(cancelFlow(_:)))
     controller.navigationItem.rightBarButtonItem = button
   }
   
