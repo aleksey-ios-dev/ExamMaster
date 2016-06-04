@@ -22,7 +22,7 @@ class LoginFlow: Model {
     registerForError(ApplicationErrors.OnlyLettersInputAllowed, inDomain: ErrorDomains.Application)
   }
   
-  let authorizationProgressSignal = Signal<Bool>()
+  let authorizationProgressSignal = Pipe<Bool>()
   
   func pushInitialChildren() {
     pushChildSignal.sendNext(SignInModel(parent: self, flowParent: self))

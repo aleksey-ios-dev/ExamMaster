@@ -11,7 +11,7 @@ import ModelsTreeKit
 
 class DashboardModel: Model {
   
-  let showMenuSignal = Signal<Void>()
+  let showMenuSignal = Observable<Void>()
   
   var title: String {
     return session()!.credentials!.username

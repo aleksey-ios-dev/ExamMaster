@@ -28,8 +28,8 @@ protocol ExamCreationFlowParent {
 
 class ExamCreationFlow: Model {
   
-  let cancelSignal = Signal<Void>()
-  let completionSignal = Signal<Void>()
+  let cancelSignal = Pipe<Void>()
+  let completionSignal = Pipe<Void>()
 
   private let exam = Exam()
 

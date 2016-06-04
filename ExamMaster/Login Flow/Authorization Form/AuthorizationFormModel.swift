@@ -14,8 +14,8 @@ class AuthorizationFormModel: Model {
   let authorizationInfo = AuthorizationInfo()
   let inputValiditySignal: Signal<Bool>
 
-  let usernameSignal = ValueKeepingSignal<String>(value: "")
-  let passwordSignal = ValueKeepingSignal<String>(value: "")
+  let usernameSignal = Observable<String>(value: "")
+  let passwordSignal = Observable<String>(value: "")
   
   override init(parent: Model?) {
     inputValiditySignal = usernameSignal.combineLatest(passwordSignal).map { username, password in

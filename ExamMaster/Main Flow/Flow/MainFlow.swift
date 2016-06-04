@@ -21,7 +21,7 @@ extension BubbleNotification {
 
 class MainFlow: Model {
   
-  let showSideMenuSignal = Signal<Void>()
+  let showSideMenuSignal = Pipe<Void>()
   
   override init(parent: Model?) {
     super.init(parent: parent)

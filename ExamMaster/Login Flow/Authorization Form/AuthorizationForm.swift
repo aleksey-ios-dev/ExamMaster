@@ -13,6 +13,10 @@ class AuthorizationForm: UIView {
   
   weak var model: AuthorizationFormModel! {
     didSet {
+      usernameTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyUsername(text)}.putInto(pool)
+      passwordTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyPassword(text) }.putInto(pool)
+      usernameTextField.returnSignal.subscribeNext { [weak self] in self?.passwordTextField.becomeFirstResponder() }.putInto(pool)
+
       model.usernameSignal.subscribeNext { [weak self] in self?.usernameTextField.text = $0 }
       model.passwordSignal.subscribeNext { [weak self] in self?.passwordTextField.text = $0 }
     }
@@ -42,14 +46,6 @@ class AuthorizationForm: UIView {
     super.layoutSubviews()
     
     formView.frame = bounds
-  }
-  
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    
-    usernameTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyUsername(text) }.putInto(pool)
-    passwordTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyPassword(text) }.putInto(pool)
-    usernameTextField.returnSignal.subscribeNext { [weak self] in self?.passwordTextField.becomeFirstResponder() }.putInto(pool)
   }
   
   private func setup() {

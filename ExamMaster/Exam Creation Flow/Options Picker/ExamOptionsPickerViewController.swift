@@ -21,12 +21,19 @@ class ExamOptionsPickerViewController: UIViewController, ModelApplicable {
   private weak var questionsCountSlider: UISlider!
   
   @IBOutlet
+  private weak var someSwitch: UISwitch!
+
+  @IBOutlet
   private weak var timeLimitSlider: UISlider!
   
   weak var model: ExamOptionsPickerModel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    someSwitch.onSignal.subscribeWithOptions([.New, .Old, .Initial]) { (new, old, initial) in
+      print("new: \(new), old: \(old), initial: \(initial)")
+    }.putInto(pool)
     
     model.questionsCountChangeSignal.subscribeNext { [weak self] in
       self?.questionsCountLabel.text = "Questions: \($0)"

@@ -14,7 +14,7 @@ typealias Subject = String
 class ExamSubjectPickerModel: List<String> {
   
   let title = "Subject"
-  let progressSignal = Signal<Bool>()
+  let progressSignal = Observable<Bool>()
   
   private weak var flowModel: ExamCreationFlow!
   
