@@ -26,10 +26,16 @@ class ExamOptionsPickerViewController: UIViewController, ModelApplicable {
   @IBOutlet
   private weak var timeLimitSlider: UISlider!
   
+  @IBOutlet
+  private weak var boundLabel: UILabel!
+  
   weak var model: ExamOptionsPickerModel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    
+    someSwitch.onSignal.map { return $0 ? "hello" : "goodbye" }.bindTo(keyPath: "text", of: boundLabel)
     
     someSwitch.onSignal.subscribeWithOptions([.New, .Old, .Initial]) { (new, old, initial) in
       print("new: \(new), old: \(old), initial: \(initial)")

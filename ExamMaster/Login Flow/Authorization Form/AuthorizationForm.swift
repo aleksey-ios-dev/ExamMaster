@@ -13,7 +13,7 @@ class AuthorizationForm: UIView {
   
   weak var model: AuthorizationFormModel! {
     didSet {
-      usernameTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyUsername(text)}.putInto(pool)
+      usernameTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyUsername(text) }.putInto(pool)
       passwordTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyPassword(text) }.putInto(pool)
       usernameTextField.returnSignal.subscribeNext { [weak self] in self?.passwordTextField.becomeFirstResponder() }.putInto(pool)
 

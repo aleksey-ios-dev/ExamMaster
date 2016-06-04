@@ -128,10 +128,21 @@
                                     <constraint firstAttribute="height" constant="31" id="t4e-pe-VID"/>
                                 </constraints>
                             </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ng-Hh-9gO">
+                                <rect key="frame" x="27" y="292" width="229" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="NJ1-po-Yoz"/>
+                                    <constraint firstAttribute="width" constant="229" id="jvg-e7-yw0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="PQh-Bo-Ue5" firstAttribute="top" secondItem="zCp-8p-Zbv" secondAttribute="bottom" constant="89" id="8Mk-eF-g8V"/>
+                            <constraint firstItem="3ng-Hh-9gO" firstAttribute="top" secondItem="zCp-8p-Zbv" secondAttribute="bottom" constant="26" id="9rA-cu-mEh"/>
                             <constraint firstItem="YiO-yU-ZJ5" firstAttribute="top" secondItem="TP0-sk-2oJ" secondAttribute="bottom" constant="80" id="AzG-0G-nv2"/>
                             <constraint firstItem="0sZ-2s-fBd" firstAttribute="top" secondItem="TP0-sk-2oJ" secondAttribute="bottom" constant="51" id="ELH-4c-coF"/>
                             <constraint firstItem="YiO-yU-ZJ5" firstAttribute="trailing" secondItem="Df9-Fp-GcT" secondAttribute="trailingMargin" id="HTF-U2-ju7"/>
@@ -145,6 +156,7 @@
                             <constraint firstItem="PQh-Bo-Ue5" firstAttribute="leading" secondItem="Df9-Fp-GcT" secondAttribute="leadingMargin" constant="116" id="bBp-7w-ku7"/>
                             <constraint firstItem="zCP-rJ-uYG" firstAttribute="top" secondItem="k8I-iO-vtw" secondAttribute="bottom" constant="50" id="d3J-xC-dVO"/>
                             <constraint firstAttribute="trailing" secondItem="Aau-zI-h2r" secondAttribute="trailing" constant="20" id="dHZ-Of-8lF"/>
+                            <constraint firstItem="3ng-Hh-9gO" firstAttribute="leading" secondItem="Df9-Fp-GcT" secondAttribute="leadingMargin" constant="7" id="ezW-BM-Kk4"/>
                             <constraint firstItem="0sZ-2s-fBd" firstAttribute="centerX" secondItem="Df9-Fp-GcT" secondAttribute="centerX" id="nA8-3I-RlE"/>
                             <constraint firstItem="YiO-yU-ZJ5" firstAttribute="leading" secondItem="Df9-Fp-GcT" secondAttribute="leadingMargin" id="nxe-4X-mdh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zCp-8p-Zbv" secondAttribute="trailing" constant="-4" id="rga-04-v0h"/>
@@ -154,6 +166,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="boundLabel" destination="3ng-Hh-9gO" id="B0y-6q-X7u"/>
                         <outlet property="questionsCountLabel" destination="0sZ-2s-fBd" id="Gh1-De-52M"/>
                         <outlet property="questionsCountSlider" destination="YiO-yU-ZJ5" id="vgP-NK-zip"/>
                         <outlet property="someSwitch" destination="PQh-Bo-Ue5" id="7eB-rF-kcv"/>
