@@ -34,10 +34,9 @@ class ExamOptionsPickerViewController: UIViewController, ModelApplicable {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    someSwitch.onSignal.map { $0 ? "hello" : "goodbye" }.bindTo(keyPath: "text", of: boundLabel)
     
-    someSwitch.onSignal.map { return $0 ? "hello" : "goodbye" }.bindTo(keyPath: "text", of: boundLabel)
-    
-    someSwitch.onSignal.subscribeWithOptions([.New, .Old, .Initial]) { (new, old, initial) in
+    someSwitch.onSignal.subscribeWithOptions([.New, .Old, .Initial]) { new, old, initial in
       print("new: \(new), old: \(old), initial: \(initial)")
     }.putInto(pool)
     
