@@ -56,7 +56,7 @@ class ExamOptionsPickerViewController: UIViewController, ModelApplicable {
     
     timeLimitSlider.valueSignal.map { NSTimeInterval($0) }.subscribeNext { [weak self] in
       self?.model.applyTimeLimit($0)
-    }.putInto(pool)
+    }.takeUntil(deinitSignal)
   }
   
   @IBAction
