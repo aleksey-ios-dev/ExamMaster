@@ -34,29 +34,29 @@ class ExamOptionsPickerViewController: UIViewController, ModelApplicable {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    someSwitch.onSignal.map { $0 ? "hello" : "goodbye" }.bindTo(keyPath: "text", of: boundLabel)
+    someSwitch.onSignal.map { $0 ? "hello" : "goodbye" }.bindTo(keyPath: "text", of: boundLabel).ownedBy(self)
     
     someSwitch.onSignal.subscribeWithOptions([.New, .Old, .Initial]) { new, old, initial in
       print("new: \(new), old: \(old), initial: \(initial)")
-    }.putInto(pool)
+    }.ownedBy(self)
     
     model.questionsCountChangeSignal.subscribeNext { [weak self] in
       self?.questionsCountLabel.text = "Questions: \($0)"
       self?.questionsCountSlider.value = Float($0)
-    }.putInto(pool)
+    }.ownedBy(self)
     
     model.timeLimitChangeSignal.subscribeNext { [weak self] in
       self?.timeLimitLabel.text = "Time limit: \(Int($0)) min"
       self?.timeLimitSlider.value = Float($0)
-    }.putInto(pool)
+    }.ownedBy(self)
     
     questionsCountSlider.valueSignal.map { Int($0) }.subscribeNext { [weak self] in
       self?.model.applyQuestionsCount($0)
-    }.putInto(pool)
+    }.ownedBy(self)
     
     timeLimitSlider.valueSignal.map { NSTimeInterval($0) }.subscribeNext { [weak self] in
       self?.model.applyTimeLimit($0)
-    }.takeUntil(deinitSignal)
+    }.ownedBy(self)
   }
   
   @IBAction

@@ -40,8 +40,8 @@ class MainFlow: Model {
         _self.wantsRemoveChildSignal.sendNext(_flowModel)
       }
       
-      flowModel.completionSignal.subscribeCompleted(completion).putInto(pool)
-      flowModel.cancelSignal.subscribeCompleted(completion).putInto(pool)
+      flowModel.completionSignal.subscribeCompleted(completion).ownedBy(self)
+      flowModel.cancelSignal.subscribeCompleted(completion).ownedBy(self)
       
       pushChildSignal.sendNext(flowModel)
     default:

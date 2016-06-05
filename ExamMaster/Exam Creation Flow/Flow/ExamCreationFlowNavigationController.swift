@@ -15,11 +15,11 @@ class ExamCreationFlowNavigationController: UINavigationController, ModelApplica
     didSet {
       model.pushChildSignal.subscribeNext { [weak self] child in
         self?.buildRepresentationFor(child)
-      }.putInto(pool)
+      }.ownedBy(self)
       
       model.errorSignal.subscribeNext { [weak self] error in
         self?.showAlertForError(error)
-      }.putInto(pool)
+      }.ownedBy(self)
     }
   }
   

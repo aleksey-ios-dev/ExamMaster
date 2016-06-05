@@ -26,7 +26,7 @@ class SignInViewController: UIViewController, ModelApplicable {
     
     model.authorizationFormModel.inputValiditySignal.subscribeNext { [weak self] valid in
       self?.confirmationButton.enabled = valid
-    }.putInto(pool)
+    }.ownedBy(self)
 
   }
   

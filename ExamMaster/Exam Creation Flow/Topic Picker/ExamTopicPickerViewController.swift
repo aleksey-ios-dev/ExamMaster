@@ -20,7 +20,7 @@ class ExamTopicPickerViewController: UITableViewController, ModelApplicable {
       model.progressSignal.subscribeNext { inProgress in
         if inProgress { SVProgressHUD.show() }
         else { SVProgressHUD.dismiss() }
-      }.putInto(pool)
+      }.ownedBy(self)
     }
   }
   
@@ -38,7 +38,7 @@ class ExamTopicPickerViewController: UITableViewController, ModelApplicable {
     
     adapter.didSelectCellSignal.subscribeNext { [weak self] _, object in
       self?.model.selectTopic(object!)
-    }.putInto(pool)
+    }.ownedBy(self)
     
     model.fetchTopics()
   }
