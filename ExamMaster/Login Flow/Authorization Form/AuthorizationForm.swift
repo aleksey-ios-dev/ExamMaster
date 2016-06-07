@@ -15,6 +15,7 @@ class AuthorizationForm: UIView {
     didSet {
       usernameTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyUsername(text) }.ownedBy(self)
       passwordTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyPassword(text) }.ownedBy(self)
+      
       usernameTextField.returnSignal.subscribeNext { [weak self] in self?.passwordTextField.becomeFirstResponder() }.ownedBy(self)
 
       model.usernameSignal.subscribeNext { [weak self] in self?.usernameTextField.text = $0 }.ownedBy(self)

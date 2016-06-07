@@ -34,11 +34,9 @@ class ExamOptionsPickerViewController: UIViewController, ModelApplicable {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    someSwitch.onSignal.map { $0 ? "hello" : "goodbye" }.bindTo(keyPath: "text", of: boundLabel).ownedBy(self)
+    (!someSwitch.onSignal).bindTo(keyPath: "hidden", of: boundLabel)
     
-    someSwitch.onSignal.subscribeWithOptions([.New, .Old, .Initial]) { new, old, initial in
-      print("new: \(new), old: \(old), initial: \(initial)")
-    }.ownedBy(self)
+    boundLabel.hiddenSignal().subscribeNext { print($0) }
     
     model.questionsCountChangeSignal.subscribeNext { [weak self] in
       self?.questionsCountLabel.text = "Questions: \($0)"
