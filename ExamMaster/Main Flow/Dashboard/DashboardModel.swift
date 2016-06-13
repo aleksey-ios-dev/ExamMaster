@@ -22,7 +22,7 @@ class DashboardModel: Model {
   }
   
   func showMenu() {
-    raise(BubbleNotification.MainFlow.ShowSideMenu, sender: self)
+    raise(BubbleNotification.MainFlow.ShowSideMenu)
   }
   
 }
