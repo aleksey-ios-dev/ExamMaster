@@ -31,7 +31,7 @@ class ExamSubjectPickerModel: List<String> {
   func fetchSubjects() {
     progressSignal.sendNext(true)
     
-    let client: APIClient = session()!.services.getService()
+    let client: APIClient = session.services.getService()
     
     client.fetchSubjects { [ weak self] subjects, error in
       guard let _self = self else { return }
@@ -39,7 +39,7 @@ class ExamSubjectPickerModel: List<String> {
       _self.progressSignal.sendNext(false)
       
       guard error == nil else {
-        _self.raiseError(error!)
+        _self.raise(error!)
         
         return
       }

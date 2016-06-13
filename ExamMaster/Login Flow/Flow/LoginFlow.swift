@@ -19,7 +19,7 @@ class LoginFlow: Model {
   override init(parent: Model?) {
     super.init(parent: parent)
     
-    registerForError(ApplicationErrors.OnlyLettersInputAllowed, inDomain: ErrorDomains.Application)
+    registerFor(ApplicationError.OnlyLettersInputAllowed)
   }
   
   let authorizationProgressSignal = Pipe<Bool>()
@@ -35,16 +35,16 @@ extension LoginFlow: LoginFlowParent {
   func childModel(child: Model, didSelectRegister authorizationInfo: AuthorizationInfo) {
     authorizationProgressSignal.sendNext(true)
     
-    let authorizationClient: AuthorizationClient = session()!.services.getService()!
+    let authorizationClient: AuthorizationClient = session.services.getService()
     
     authorizationClient.authorizeWithInfo(authorizationInfo) { [weak self] params, error in
       self?.authorizationProgressSignal.sendNext(false)
       guard error == nil else {
-        self?.raiseError(error!)
+        self?.raise(error!)
         return
       }
       
-      self?.session()?.closeWithParams(params)
+      self?.session.closeWithParams(params)
     }
   }
   

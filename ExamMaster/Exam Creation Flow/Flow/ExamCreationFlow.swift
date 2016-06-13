@@ -36,7 +36,7 @@ class ExamCreationFlow: Model {
   override init(parent: Model?) {
     super.init(parent: parent)
     
-    registerForError(NetworkErrors.BadResponse, inDomain: ErrorDomains.Network)
+    registerFor(NetworkError.BadResponse)
   }
   
   override func sessionWillClose() {
@@ -79,7 +79,7 @@ extension ExamCreationFlow: ExamCreationFlowParent {
   
   func childModelDidFinishFlow(child: Model) {
     completionSignal.sendCompleted()
-    raiseGlobalEvent(AppEvent.ExamCreated)
+    raise(AppEvent.ExamCreated)
   }
   
 }

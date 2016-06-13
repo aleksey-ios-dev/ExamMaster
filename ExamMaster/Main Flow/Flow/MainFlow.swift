@@ -12,9 +12,10 @@ import ModelsTreeKit
 extension BubbleNotification {
   
   enum MainFlow: String, BubbleNotificationName {
+    
     static var domain = "MainFlow"
-
     case ShowSideMenu = "ShowSideMenu"
+    
   }
   
 }
@@ -26,11 +27,11 @@ class MainFlow: Model {
   override init(parent: Model?) {
     super.init(parent: parent)
     
-    registerForBubbleNotification(BubbleNotification.MainFlow.ShowSideMenu, inDomain: BubbleNotification.MainFlow.domain)
-    registerForEvent(AppEvent.StartExam)
+    registerFor(BubbleNotification.MainFlow.ShowSideMenu)
+    registerFor(AppEvent.StartExam)
   }
   
-  override func handleSessionEvent(event: GlobalEvent) {
+  override func handleGlobalEvent(event: GlobalEvent) {
     switch event.name {
     case AppEvent.StartExam:
       let flowModel = ExamCreationFlow(parent: self)
@@ -54,7 +55,7 @@ class MainFlow: Model {
     pushChildSignal.sendNext(SideMenuModel(parent: self))
   }
   
-  override func handleBubbleNotification(bubble: BubbleNotification, sender: Model) {
+  override func handle(bubble: BubbleNotification, sender: Model) {
     guard bubble.domain == BubbleNotification.MainFlow.domain else { return }
     
     switch bubble.name {

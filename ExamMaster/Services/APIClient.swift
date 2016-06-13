@@ -28,8 +28,8 @@ class APIClient: Service {
       case "Math": topics = ["Trigonometry", "Algebra", "Tensor calculus"]
       case "Chemistry": topics = ["Organic", "Inorganic", "Biochemistry"]
       case "History": topics = ["Medieval", "Renaissance", "Modern"]
-      case "Physics (for bad response)": error = Error(domain: ErrorDomains.Network, code: NetworkErrors.BadResponse)
-      case "English (for bad token)": error = Error(domain: ErrorDomains.Network, code: NetworkErrors.BadToken)
+      case "Physics (for bad response)": error = Error(code: NetworkError.BadResponse)
+      case "English (for bad token)": error = Error(code: NetworkError.BadToken)
       default: topics = []
       }
       

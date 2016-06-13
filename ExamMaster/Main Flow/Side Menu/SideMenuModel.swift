@@ -19,11 +19,11 @@ class SideMenuModel: Model {
   
   override init(parent: Model?) {
     super.init(parent: parent)
-    registerForEvent(AppEvent.ExamCreated)
+    registerFor(AppEvent.ExamCreated)
     applyInitialState()
   }
   
-  override func handleSessionEvent(event: GlobalEvent) {
+  override func handleGlobalEvent(event: GlobalEvent) {
     if event.name == AppEvent.ExamCreated { examsCount += 1 }
   }
   
@@ -32,11 +32,11 @@ class SideMenuModel: Model {
   }
   
   func logout() {
-    session()?.closeWithParams(nil)
+    session.closeWithParams(nil)
   }
   
   func startNewExam() {
-    raiseGlobalEvent(AppEvent.StartExam)
+    raise(AppEvent.StartExam)
   }
   
 }

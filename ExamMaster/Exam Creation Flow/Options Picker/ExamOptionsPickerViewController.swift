@@ -21,7 +21,10 @@ class ExamOptionsPickerViewController: UIViewController, ModelApplicable {
   private weak var questionsCountSlider: UISlider!
   
   @IBOutlet
-  private weak var someSwitch: UISwitch!
+  private weak var switch1: UISwitch!
+  
+  @IBOutlet
+  private weak var switch2: UISwitch!
 
   @IBOutlet
   private weak var timeLimitSlider: UISlider!
@@ -34,9 +37,9 @@ class ExamOptionsPickerViewController: UIViewController, ModelApplicable {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    (!someSwitch.onSignal).bindTo(keyPath: "hidden", of: boundLabel)
+    (switch1.onSignal && switch2.onSignal).map { $0 ? "ON" : "OFF" }.bindTo(keyPath: "text", of: boundLabel)
     
-    boundLabel.hiddenSignal().subscribeNext { print($0) }
+    boundLabel.hiddenSignal.subscribeNext { print($0) }.ownedBy(self)
     
     model.questionsCountChangeSignal.subscribeNext { [weak self] in
       self?.questionsCountLabel.text = "Questions: \($0)"

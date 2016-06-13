@@ -22,12 +22,10 @@ class RegistrationViewController: UIViewController, ModelApplicable {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    model.printSessionTree(withOptions: [.ErrorsVerbous])
+    model.printSessionTree(withOptions: [.ErrorsVerbous, .GlobalEvents, .BubbleNotifications])
     authorizationForm.model = model.authorizationFormModel
     
-    model.authorizationFormModel.inputValiditySignal.subscribeNext { [weak self] valid in
-      self?.confirmationButton.enabled = valid
-    }.ownedBy(self)
+    model.authorizationFormModel.inputValiditySignal.bindTo(keyPath: "enabled", of: confirmationButton)
   }
   
   @IBAction

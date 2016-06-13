@@ -121,11 +121,18 @@
                                     <action selector="confirm:" destination="PH5-C4-6Yy" eventType="touchUpInside" id="qnm-6d-hOM"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PQh-Bo-Ue5">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PQh-Bo-Ue5">
                                 <rect key="frame" x="132" y="355" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="bud-Lg-BLo"/>
                                     <constraint firstAttribute="height" constant="31" id="t4e-pe-VID"/>
+                                </constraints>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="J1d-FB-dvT">
+                                <rect key="frame" x="136" y="405" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="SrQ-fs-KAA"/>
+                                    <constraint firstAttribute="height" constant="31" id="Yp0-my-C5H"/>
                                 </constraints>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ng-Hh-9gO">
@@ -141,6 +148,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="J1d-FB-dvT" firstAttribute="centerX" secondItem="Df9-Fp-GcT" secondAttribute="centerX" id="73e-o4-sv3"/>
                             <constraint firstItem="PQh-Bo-Ue5" firstAttribute="top" secondItem="zCp-8p-Zbv" secondAttribute="bottom" constant="89" id="8Mk-eF-g8V"/>
                             <constraint firstItem="3ng-Hh-9gO" firstAttribute="top" secondItem="zCp-8p-Zbv" secondAttribute="bottom" constant="26" id="9rA-cu-mEh"/>
                             <constraint firstItem="YiO-yU-ZJ5" firstAttribute="top" secondItem="TP0-sk-2oJ" secondAttribute="bottom" constant="80" id="AzG-0G-nv2"/>
@@ -148,6 +156,7 @@
                             <constraint firstItem="YiO-yU-ZJ5" firstAttribute="trailing" secondItem="Df9-Fp-GcT" secondAttribute="trailingMargin" id="HTF-U2-ju7"/>
                             <constraint firstItem="Aau-zI-h2r" firstAttribute="leading" secondItem="Df9-Fp-GcT" secondAttribute="leading" constant="20" id="Hvf-wz-Qlg"/>
                             <constraint firstItem="Aau-zI-h2r" firstAttribute="top" secondItem="YiO-yU-ZJ5" secondAttribute="bottom" constant="76.5" id="L0e-dQ-nG7"/>
+                            <constraint firstItem="J1d-FB-dvT" firstAttribute="top" secondItem="PQh-Bo-Ue5" secondAttribute="bottom" constant="19" id="LGZ-gA-cWc"/>
                             <constraint firstItem="0sZ-2s-fBd" firstAttribute="leading" secondItem="Df9-Fp-GcT" secondAttribute="leading" constant="20" id="MEc-yv-g09"/>
                             <constraint firstItem="zCp-8p-Zbv" firstAttribute="top" secondItem="Aau-zI-h2r" secondAttribute="bottom" constant="9" id="NKG-Zz-jna"/>
                             <constraint firstItem="k8I-iO-vtw" firstAttribute="centerX" secondItem="Df9-Fp-GcT" secondAttribute="centerX" id="OOv-xG-Zgp"/>
@@ -169,7 +178,8 @@
                         <outlet property="boundLabel" destination="3ng-Hh-9gO" id="B0y-6q-X7u"/>
                         <outlet property="questionsCountLabel" destination="0sZ-2s-fBd" id="Gh1-De-52M"/>
                         <outlet property="questionsCountSlider" destination="YiO-yU-ZJ5" id="vgP-NK-zip"/>
-                        <outlet property="someSwitch" destination="PQh-Bo-Ue5" id="7eB-rF-kcv"/>
+                        <outlet property="switch1" destination="PQh-Bo-Ue5" id="iso-vc-lq7"/>
+                        <outlet property="switch2" destination="J1d-FB-dvT" id="lMz-xr-AK7"/>
                         <outlet property="timeLimitLabel" destination="Aau-zI-h2r" id="A6c-wd-z9k"/>
                         <outlet property="timeLimitSlider" destination="zCp-8p-Zbv" id="9C4-8E-pQM"/>
                     </connections>

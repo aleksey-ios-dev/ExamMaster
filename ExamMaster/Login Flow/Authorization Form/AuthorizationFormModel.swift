@@ -12,23 +12,21 @@ import ModelsTreeKit
 class AuthorizationFormModel: Model {
   
   let authorizationInfo = AuthorizationInfo()
-  let inputValiditySignal: Signal<Bool>
+  let inputValiditySignal: Observable<Bool>
 
   let usernameSignal = Observable<String>(value: "")
   let passwordSignal = Observable<String>(value: "")
   
   override init(parent: Model?) {
-    inputValiditySignal = usernameSignal.combineLatest(passwordSignal).map { username, password in
-      guard let username = username, let password = password else { return false }
-      return username.characters.count > 1 && password.characters.count > 1
-    }
+    let validator = Validator.longerThan(1)
+    inputValiditySignal = (usernameSignal.mapValidWith(validator) && passwordSignal.mapValidWith(validator)).observable()
     
     super.init(parent: parent)
   }
   
   func applyUsername(username: String) {
     if !containsOnlyLetters(username) {
-      raiseError(Error(domain: ErrorDomains.Application, code: ApplicationErrors.OnlyLettersInputAllowed))
+      raise(Error(code: ApplicationError.OnlyLettersInputAllowed))
       usernameSignal.sendNext(authorizationInfo.username)
       return
     }

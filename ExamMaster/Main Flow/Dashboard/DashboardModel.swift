@@ -14,15 +14,15 @@ class DashboardModel: Model {
   let showMenuSignal = Observable<Void>()
   
   var title: String {
-    return session()!.credentials!.username
+    return session.credentials!.username
   }
   
   func startNewExam() {
-    raiseGlobalEvent(AppEvent.StartExam)
+    raise(AppEvent.StartExam)
   }
   
   func showMenu() {
-    raiseBubbleNotification(BubbleNotification.MainFlow.ShowSideMenu, domain: BubbleNotification.MainFlow.domain, sender: self)
+    raise(BubbleNotification.MainFlow.ShowSideMenu, sender: self)
   }
   
 }
