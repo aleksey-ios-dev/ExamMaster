@@ -28,7 +28,7 @@ class ExamCreationConfirmationViewController: UIViewController, ModelApplicable 
   }
   
   override func viewDidLoad() {
-    super.viewDidLoad()
+
     
     model.printSessionTree(withOptions: [.ErrorsVerbous, .GlobalEvents, .BubbleNotifications])
     subjectLabel.text = model.exam.subject

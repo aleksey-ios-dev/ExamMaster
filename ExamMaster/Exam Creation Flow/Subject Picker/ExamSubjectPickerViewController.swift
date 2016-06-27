@@ -40,6 +40,7 @@ class ExamSubjectPickerViewController: UITableViewController, ModelApplicable {
     }.ownedBy(self)
     
     model.fetchSubjects()
+    
   }
   
 }

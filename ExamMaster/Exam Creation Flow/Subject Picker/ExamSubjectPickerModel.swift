@@ -44,7 +44,7 @@ class ExamSubjectPickerModel: List<String> {
         return
       }
       
-      _self.performUpdates { _self.insert(subjects!) }
+      _self.performUpdates(_self.insert(subjects!))
     }
   }
   

@@ -23,8 +23,8 @@ class SideMenuModel: Model {
     applyInitialState()
   }
   
-  override func handleGlobalEvent(event: GlobalEvent) {
-    if event.name == AppEvent.ExamCreated { examsCount += 1 }
+  override func handle(globalEvent: GlobalEvent) {
+    if globalEvent.name == AppEvent.ExamCreated { examsCount += 1 }
   }
   
   private func applyInitialState() {

@@ -31,8 +31,8 @@ class MainFlow: Model {
     registerFor(AppEvent.StartExam)
   }
   
-  override func handleGlobalEvent(event: GlobalEvent) {
-    switch event.name {
+  override func handle(globalEvent: GlobalEvent) {
+    switch globalEvent.name {
     case AppEvent.StartExam:
       let flowModel = ExamCreationFlow(parent: self)
       

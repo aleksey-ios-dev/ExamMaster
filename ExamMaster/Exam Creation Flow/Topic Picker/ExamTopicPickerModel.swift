@@ -43,7 +43,7 @@ class ExamTopicPickerModel: List<Topic> {
         return
       }
       
-      _self.performUpdates { _self.insert(topics!) }
+      _self.performUpdates(_self.insert(topics!))
     }
   }
   
