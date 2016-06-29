@@ -16,8 +16,7 @@
     "tag": "1.0.0"
   },
   "frameworks": [
-    "UIKit",
-    "XCTest"
+    "UIKit"
   ],
   "source_files": "**/*.*"
 }

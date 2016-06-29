@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.author = { 'aleksey' => 'aleksey.chernish@yalantis.com' }
   s.source   = { :git => 'https://github.com/mmrmmlrr/ModelsTreeKit.git', :tag => s.version.to_s }
 
-  s.frameworks   = ['UIKit', 'XCTest']
+  s.frameworks   = ['UIKit']
   s.source_files = '**/*.*'
 
 end
