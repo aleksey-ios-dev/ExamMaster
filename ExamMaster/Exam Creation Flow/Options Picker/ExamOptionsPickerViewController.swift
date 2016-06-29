@@ -39,8 +39,6 @@ class ExamOptionsPickerViewController: UIViewController, ModelApplicable {
     
     (switch1.onSignal && switch2.onSignal).map { $0 ? "ON" : "OFF" }.bindTo(keyPath: "text", of: boundLabel)
     
-    boundLabel.hiddenSignal.subscribeNext { print($0) }.ownedBy(self)
-    
     model.questionsCountChangeSignal.subscribeNext { [weak self] in
       self?.questionsCountLabel.text = "Questions: \($0)"
       self?.questionsCountSlider.value = Float($0)
