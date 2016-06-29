@@ -1,6 +1,0 @@
-framework module ModelsTreeKit {
-  umbrella header "ModelsTreeKit-umbrella.h"
-
-  export *
-  module * { export * }
-}
