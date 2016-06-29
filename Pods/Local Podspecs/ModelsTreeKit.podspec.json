@@ -1,0 +1,23 @@
+{
+  "name": "ModelsTreeKit",
+  "version": "1.0.0",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "license": "MIT",
+  "summary": "A set of tools for building Tree of models architecture",
+  "description": "Set of tools for building Tree of models architecture",
+  "homepage": "https://github.com/mmrmmlrr/ModelsTreeKit",
+  "authors": {
+    "aleksey": "aleksey.chernish@yalantis.com"
+  },
+  "source": {
+    "git": "https://github.com/mmrmmlrr/ModelsTreeKit.git",
+    "tag": "1.0.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "XCTest"
+  ],
+  "source_files": "**/*.*"
+}

@@ -1,0 +1,6 @@
+framework module Pods_ExamMaster {
+  umbrella header "Pods-ExamMaster-umbrella.h"
+
+  export *
+  module * { export * }
+}

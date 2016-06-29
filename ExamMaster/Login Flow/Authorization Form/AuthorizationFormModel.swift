@@ -19,7 +19,8 @@ class AuthorizationFormModel: Model {
   
   override init(parent: Model?) {
     let validator = Validator.longerThan(1)
-    inputValiditySignal = (usernameSignal.mapValidWith(validator) && passwordSignal.mapValidWith(validator)).observable()
+    inputValiditySignal = Observable<Bool>()
+//    inputValiditySignal = (usernameSignal.mapValidWith(validator) && passwordSignal.mapValidWith(validator)).observable()
     
     super.init(parent: parent)
   }
