@@ -49,9 +49,7 @@ public struct Error: ErrorType {
   
 }
 
-extension Error: Hashable, Equatable {
-  
-}
+extension Error: Hashable, Equatable {}
 
 public func ==(a: Error, b: Error) -> Bool {
   return a.code.rawValue == b.code.rawValue && a.domain == b.domain

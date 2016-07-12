@@ -210,7 +210,7 @@ extension Model {
   
   public final func printSubtree(params: [TreeInfoOptions] = []) {
     print("\n")
-    printTreeLevel(0, params: params)
+    printTreeLevel("", params: params)
     print("\n")
   }
   
@@ -218,37 +218,40 @@ extension Model {
     session.printSubtree(params)
   }
   
-  private func printTreeLevel(level: Int, params: [TreeInfoOptions] = []) {
-    var output = "|"
-    let indent = "  |"
-    
-    for _ in 0..<level {
-      output += indent
-    }
-    
-    output += "\(String(self).componentsSeparatedByString(".").last!)"
-    
+  private enum ModelPosition: String {
+    case NotLast = "├─"
+    case Last = "└─"
+  }
+  
+  private func printTreeLevel(prefix: String, position: ModelPosition = .Last, params: [TreeInfoOptions] = []) {
+    let space = prefix.isEmpty ? "" : ""
+    var structurePrefix = prefix
+    let nextLinePrefix = prefix + (position == .Last ? "    " : "│   ")
+    structurePrefix += prefix.isEmpty ? "" : space + position.rawValue
+
+    var output = structurePrefix + " \(String(self).componentsSeparatedByString(".").last!)"
+
     if params.contains(.Representation) && representationDeinitDisposable != nil {
-      output += "  | (R)"
+      output += "  / (R)"
     }
     
     if params.contains(.GlobalEvents) && !registeredGlobalEvents.isEmpty {
-      output += "  | (E):"
+      output += "  / (E):"
       registeredGlobalEvents.forEach { output += " \($0)" }
     }
     
     if params.contains(.BubbleNotifications) && !registeredBubbles.isEmpty {
-      output += "  | (B):"
+      output += "  / (B):"
       registeredBubbles.forEach { output += " \($0)" }
     }
     
     if params.contains(.ErrorsVerbous) && !registeredErrors.isEmpty {
-      output += "  | (Err): "
+      output += "  / (Err): "
       for (domain, codes) in registeredErrors {
         codes.forEach { output += "[\(NSLocalizedString("\(domain).\($0)", comment: ""))] " }
       }
     } else if params.contains(.Errors) && !registeredErrors.isEmpty {
-      output += "  | (Err): "
+      output += "  / (Err): "
       for (domain, codes) in registeredErrors {
         output += "\(domain) > "
         codes.forEach { output += "\($0) " }
@@ -257,8 +260,18 @@ extension Model {
 
     print(output)
     
-    childModels.sort { return $0.timeStamp.compare($1.timeStamp) == .OrderedAscending }.forEach { $0.printTreeLevel(level + 1, params:  params) }
-
+    let sortedModels = childModels.sort { return $0.timeStamp.compare($1.timeStamp) == .OrderedDescending }
+    
+    sortedModels.forEach {
+      var position: ModelPosition = .NotLast
+      if sortedModels.last == $0 {
+        position = .Last
+      } else if sortedModels.first == $0 {
+        position = .NotLast
+      }
+    
+      $0.printTreeLevel(nextLinePrefix, position: position,  params:  params)
+    }
   }
   
 }
