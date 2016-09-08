@@ -14,18 +14,18 @@ class MainFlowNavigaionController: RESideMenu {
   var model: MainFlow! {
     didSet {
       model.pushChildSignal.subscribeNext { [weak self] child in
-        self?.buildRepresentationFor(child)
-      }.ownedBy(self)
+        self?.buildRepresentation(for: child)
+        }.owned(by: self)
       
       model.pushInitialChildren()
       
       model.wantsRemoveChildSignal.subscribeNext { [weak self] child in
-        self?.removePresentationFor(child)
-      }.ownedBy(self)
+        self?.removePresentation(for: child)
+        }.owned(by: self)
       
       model.showSideMenuSignal.subscribeNext { [weak self] in
         self?.presentLeftMenuViewController()
-      }.ownedBy(self)
+        }.owned(by: self)
     }
   }
   
@@ -41,22 +41,22 @@ class MainFlowNavigaionController: RESideMenu {
       fatalError("init(coder:) has not been implemented")
   }
   
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
   }
   
-  func removePresentationFor(child: Model) {
+  func removePresentation(for child: Model) {
     switch child {
       
     case child as ExamCreationFlow:
-      dismissViewControllerAnimated(true, completion: nil)
+      dismiss(animated: true, completion: nil)
       
     default:
       break
     }
   }
 
-  func buildRepresentationFor(model: Model) {
+  func buildRepresentation(for model: Model) {
     switch model {
       
     case let model as SideMenuModel:
@@ -73,7 +73,7 @@ class MainFlowNavigaionController: RESideMenu {
     case let model as ExamCreationFlow:
       let controller = ExamCreationFlowNavigationController()
       controller.applyModel(model)
-      contentViewController.presentViewController(controller, animated: true, completion: nil)
+      contentViewController.present(controller, animated: true, completion: nil)
       
     default:
       break

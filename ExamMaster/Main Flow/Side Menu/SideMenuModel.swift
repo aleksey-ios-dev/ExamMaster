@@ -19,7 +19,7 @@ class SideMenuModel: Model {
   
   override init(parent: Model?) {
     super.init(parent: parent)
-    registerFor(AppEvent.ExamCreated)
+    register(for: AppEvent.ExamCreated)
     applyInitialState()
   }
   
@@ -32,11 +32,11 @@ class SideMenuModel: Model {
   }
   
   func logout() {
-    session.closeWithParams(nil)
+    session.close(withParams: nil)
   }
   
   func startNewExam() {
-    raise(AppEvent.StartExam)
+    raise(AppEvent.StartExam as! BubbleNotificationName)
   }
   
 }

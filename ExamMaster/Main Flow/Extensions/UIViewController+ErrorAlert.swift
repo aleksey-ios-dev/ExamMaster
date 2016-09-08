@@ -11,15 +11,15 @@ import ModelsTreeKit
 
 extension UIViewController {
   
-  func showAlertForError(error: Error) {
-    let controller = UIAlertController(title: "Error", message: error.localizedDescription(), preferredStyle: .Alert)
-    let action = UIAlertAction(title: "ok", style: .Cancel) { _ in
-      controller.dismissViewControllerAnimated(true, completion: nil)
+  func showAlert(for error: Error) {
+    let controller = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+    let action = UIAlertAction(title: "ok", style: .cancel) { _ in
+      controller.dismiss(animated: true, completion: nil)
     }
     
     controller.addAction(action)
     
-    presentViewController(controller, animated: true, completion: nil)
+    present(controller, animated: true, completion: nil)
   }
   
 }

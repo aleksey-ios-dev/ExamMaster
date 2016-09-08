@@ -18,7 +18,7 @@ class DashboardModel: Model {
   }
   
   func startNewExam() {
-    raise(AppEvent.StartExam)
+//    raise(AppEvent.StartExam) //TODO: restore
   }
   
   func showMenu() {

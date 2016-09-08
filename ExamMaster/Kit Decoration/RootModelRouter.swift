@@ -10,7 +10,7 @@ import Foundation
 import ModelsTreeKit
 
 class AppRootModelRouter: RootModelRouter {
-  func modelFor(session session: Session) -> Model {
+  public func model(for session: Session) -> Model {
     switch session {
     case is AuthorizedSession:
       return MainFlow(parent: session)

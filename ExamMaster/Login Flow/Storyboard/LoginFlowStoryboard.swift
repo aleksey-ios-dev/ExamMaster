@@ -11,11 +11,11 @@ import UIKit
 
 class LoginFlowStoryboard: UIStoryboard {
   class func signInViewController() -> SignInViewController {
-    return storyboard.instantiateViewControllerWithIdentifier("SignIn") as! SignInViewController
+    return storyboard.instantiateViewController(withIdentifier: "SignIn") as! SignInViewController
   }
   
   class func registrationViewController() -> RegistrationViewController {
-    return storyboard.instantiateViewControllerWithIdentifier("Registration") as! RegistrationViewController
+    return storyboard.instantiateViewController(withIdentifier: "Registration") as! RegistrationViewController
   }
   
   static var storyboard: UIStoryboard {

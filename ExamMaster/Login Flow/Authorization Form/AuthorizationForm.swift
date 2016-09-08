@@ -13,13 +13,13 @@ class AuthorizationForm: UIView {
   
   weak var model: AuthorizationFormModel! {
     didSet {
-      usernameTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyUsername(text) }.ownedBy(self)
-      passwordTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyPassword(text) }.ownedBy(self)
+      usernameTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyUsername(text) }.owned(by: self)
+      passwordTextField.textSignal.subscribeNext { [weak self] text in self?.model.applyPassword(text) }.owned(by: self)
       
-      usernameTextField.returnSignal.subscribeNext { [weak self] in self?.passwordTextField.becomeFirstResponder() }.ownedBy(self)
+      usernameTextField.returnSignal.subscribeNext { [weak self] in self?.passwordTextField.becomeFirstResponder() }.owned(by: self)
 
-      model.usernameSignal.subscribeNext { [weak self] in self?.usernameTextField.text = $0 }.ownedBy(self)
-      model.passwordSignal.subscribeNext { [weak self] in self?.passwordTextField.text = $0 }.ownedBy(self)
+      model.usernameSignal.subscribeNext { [weak self] in self?.usernameTextField.text = $0 }.owned(by: self)
+      model.passwordSignal.subscribeNext { [weak self] in self?.passwordTextField.text = $0 }.owned(by: self)
     }
   }
   
@@ -51,8 +51,8 @@ class AuthorizationForm: UIView {
   
   private func setup() {
     let nib = UINib(nibName: "AuthorizationForm", bundle: nil)
-    formView = nib.instantiateWithOwner(self, options: nil).first as! UIView
-    backgroundColor = .blackColor()
+    formView = nib.instantiate(withOwner: self, options: nil).first as! UIView
+    backgroundColor = .black
     
     addSubview(formView)
   }

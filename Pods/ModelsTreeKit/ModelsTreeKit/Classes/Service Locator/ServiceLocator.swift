@@ -16,7 +16,7 @@ public class ServiceLocator {
   
   //Access
   
-  public func register<T>(service: T) {
+  public func registerService<T>(_ service: T) {
     let key = "\(T.self)"
     services[key] = service
   }

@@ -14,12 +14,12 @@ class ExamCreationFlowNavigationController: UINavigationController, ModelApplica
   weak var model: ExamCreationFlow! {
     didSet {
       model.pushChildSignal.subscribeNext { [weak self] child in
-        self?.buildRepresentationFor(child)
-      }.ownedBy(self)
+        self?.buildRepresentation(for: child)
+        }.owned(by: self)
       
       model.errorSignal.subscribeNext { [weak self] error in
-        self?.showAlertForError(error)
-      }.ownedBy(self)
+        self?.showAlert(for: error)
+        }.owned(by: self)
     }
   }
   
@@ -27,25 +27,25 @@ class ExamCreationFlowNavigationController: UINavigationController, ModelApplica
     model.pushInitialChildren()
   }
   
-  func buildRepresentationFor(model: Model) {
+  func buildRepresentation(for model: Model) {
     switch model {
       
     case let model as ExamSubjectPickerModel:
       let controller = ExamSubjectPickerViewController()
       controller.applyModel(model)
-      applyDefaultNavigationButtonsTo(controller)
+      applyDefaultNavigationButtons(to: controller)
       viewControllers = [controller]
       
     case let model as ExamTopicPickerModel:
       let controller = ExamTopicPickerViewController()
       controller.applyModel(model)
-      applyDefaultNavigationButtonsTo(controller)
+      applyDefaultNavigationButtons(to: controller)
       pushViewController(controller, animated: true)
       
     case let model as ExamOptionsPickerModel:
       let controller = ExamCreationFlowStoryboard.optionsViewController()
       controller.applyModel(model)
-      applyDefaultNavigationButtonsTo(controller)
+      applyDefaultNavigationButtons(to: controller)
       pushViewController(controller, animated: true)
       
     case let model as ExamCreationConfirmationModel:
@@ -59,8 +59,8 @@ class ExamCreationFlowNavigationController: UINavigationController, ModelApplica
     }
   }
   
-  func applyDefaultNavigationButtonsTo(controller: UIViewController) {
-    let button = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(cancelFlow(_:)))
+  func applyDefaultNavigationButtons(to controller: UIViewController) {
+    let button = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelFlow(sender:)))
     controller.navigationItem.rightBarButtonItem = button
   }
   

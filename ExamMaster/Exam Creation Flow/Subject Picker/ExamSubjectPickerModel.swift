@@ -48,7 +48,7 @@ class ExamSubjectPickerModel: List<String> {
     }
   }
   
-  func selectSubject(subject: String) {
+  func selectSubject(_ subject: String) {
     flowModel.child(self, didSelectSubject: subject)
   }
 }

@@ -117,7 +117,7 @@ public class CollectionViewAdapter <ObjectType>: NSObject, UICollectionViewDeleg
     }.put(into: pool)
   }
   
-  public func register<U: ObjectConsuming>(cellClass: U.Type) where U.ObjectType == ObjectType {
+  public func registerCellClass<U: ObjectConsuming>(_ cellClass: U.Type) where U.ObjectType == ObjectType {
     let identifier = String(describing: cellClass)
     let nib = UINib(nibName: identifier, bundle: nil)
     collectionView.register(nib, forCellWithReuseIdentifier: identifier)

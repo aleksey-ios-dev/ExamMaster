@@ -12,12 +12,12 @@ import ModelsTreeKit
 class AppAuthorizedSession: AuthorizedSession {
   
   override func sessionDidLoad() {
-    registerFor(NetworkError.BadToken)
+    register(for: NetworkError.BadToken)
   }
   
-  override func handle(error: Error) {
+  override func handle(error: ModelTreeError) {
     guard error.code is NetworkError else { return }
-    closeWithParams(nil)
+    close(withParams: nil)
   }
   
 }

@@ -14,25 +14,24 @@ class LoginFlowNavigationController: UINavigationController {
   weak var model: LoginFlow! {
     didSet {
       model.pushChildSignal.subscribeNext { [weak self] child in
-        self?.buildRepresentationFor(child)
-      }.ownedBy(self)
+        self?.buildRepresentation(for: child)
+        }.owned(by: self)
       
       model.authorizationProgressSignal.subscribeNext { inProgress in
         if inProgress { SVProgressHUD.show() }
         else { SVProgressHUD.dismiss() }
-      }.ownedBy(self)
+        }.owned(by: self)
       
       model.errorSignal.subscribeNext { [weak self] error in
-        self?.showAlertForError(error)
-      }.ownedBy(self)
+        self?.showAlert(for: error)
+        }.owned(by: self)
       
       model.pushInitialChildren()
     }
   }
   
-  private func buildRepresentationFor(model: Model) {
+  private func buildRepresentation(for model: Model) {
     switch model {
-      
     case let model as SignInModel:
       let signInController = LoginFlowStoryboard.signInViewController()
       signInController.applyModel(model)

@@ -23,7 +23,7 @@ class SignInViewController: UIViewController, ModelApplicable {
   override func viewDidLoad() {
     super.viewDidLoad()
     authorizationForm.model = model.authorizationFormModel
-    model.authorizationFormModel.inputValiditySignal.bindTo(keyPath: "enabled", of: confirmationButton)
+    model.authorizationFormModel.inputValiditySignal.bind(toKeyPath: "enabled", of: confirmationButton)
   }
   
   @IBAction

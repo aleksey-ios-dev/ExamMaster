@@ -23,7 +23,7 @@ public protocol ModelApplicable: class {
 
 public extension ModelApplicable where Self: DeinitObservable {
   
-  func apply(model: T) {
+  func applyModel(_ model: T) {
     self.model = model
     model.applyRepresentation(representation: self)
   }

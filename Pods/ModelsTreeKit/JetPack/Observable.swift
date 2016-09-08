@@ -33,7 +33,7 @@ public class Observable<T>: Signal<T> {
     self.value = value
   }
   
-  public override func subscribeNext(handler: SignalHandler) -> Disposable {
+  public override func subscribeNext(_ handler: SignalHandler) -> Disposable {
     return subscribeNextStartingFromInitial(startingFromInitial: true, handler: handler)
   }
   
@@ -59,7 +59,7 @@ public class Observable<T>: Signal<T> {
   }
   
   private func subscribeNextStartingFromInitial(startingFromInitial: Bool, handler: SignalHandler) -> Disposable {
-    let subscription = super.subscribeNext(handler: handler) as! Subscription<T>
+    let subscription = super.subscribeNext(handler) as! Subscription<T>
     if let value = value , startingFromInitial { subscription.handler?(value) }
     
     return subscription

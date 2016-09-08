@@ -10,8 +10,8 @@ import Foundation
 import ModelsTreeKit
 
 protocol LoginFlowParent: class {
-  func childModel(child: Model, didSelectRegister authorizationInfo: AuthorizationInfo) -> Void
-  func childModelDidSelectShowRegistration(child: Model) -> Void
+  func childModel(_ child: Model, didSelectRegister authorizationInfo: AuthorizationInfo) -> Void
+  func childModelDidSelectShowRegistration(_ child: Model) -> Void
 }
 
 class LoginFlow: Model {
@@ -19,10 +19,10 @@ class LoginFlow: Model {
   override init(parent: Model?) {
     super.init(parent: parent)
     
-    registerFor(ApplicationError.OnlyLettersInputAllowed)
+    register(for: ApplicationError.OnlyLettersInputAllowed)
   }
   
-  let authorizationProgressSignal = Pipe<Bool>()
+  let authorizationProgressSignal = Observable<Bool>() //TODO: Pipe
   
   func pushInitialChildren() {
     pushChildSignal.sendNext(SignInModel(parent: self, flowParent: self))
@@ -32,23 +32,22 @@ class LoginFlow: Model {
 
 extension LoginFlow: LoginFlowParent {
   
-  func childModel(child: Model, didSelectRegister authorizationInfo: AuthorizationInfo) {
+  func childModel(_ child: Model, didSelectRegister authorizationInfo: AuthorizationInfo) {
     authorizationProgressSignal.sendNext(true)
     
     let authorizationClient: AuthorizationClient = session.services.getService()
     
-    authorizationClient.authorizeWithInfo(authorizationInfo) { [weak self] params, error in
+    authorizationClient.authorize(with: authorizationInfo) { [weak self] params, error in
       self?.authorizationProgressSignal.sendNext(false)
       guard error == nil else {
         self?.raise(error!)
         return
       }
-      
-      self?.session.closeWithParams(params)
+      self?.session.close(withParams: params)
     }
   }
   
-  func childModelDidSelectShowRegistration(child: Model) {
+  func childModelDidSelectShowRegistration(_ child: Model) {
     pushChildSignal.sendNext(RegistrationModel(parent: self))
   }
   

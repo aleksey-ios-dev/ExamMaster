@@ -25,7 +25,7 @@ class RegistrationViewController: UIViewController, ModelApplicable {
     model.printSessionTree(withOptions: [.ErrorsVerbous, .GlobalEvents, .BubbleNotifications])
     authorizationForm.model = model.authorizationFormModel
     
-    model.authorizationFormModel.inputValiditySignal.bindTo(keyPath: "enabled", of: confirmationButton)
+    model.authorizationFormModel.inputValiditySignal.bind(toKeyPath: "enabled", of: confirmationButton)
   }
   
   @IBAction

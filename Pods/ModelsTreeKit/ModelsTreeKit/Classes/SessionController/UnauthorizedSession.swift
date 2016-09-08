@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class UnauthorizedSession: Session {
+open class UnauthorizedSession: Session {
   
   public required init() {
     super.init()

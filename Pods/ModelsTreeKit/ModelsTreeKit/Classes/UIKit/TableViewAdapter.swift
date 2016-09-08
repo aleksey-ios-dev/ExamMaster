@@ -102,7 +102,7 @@ public class TableViewAdapter<ObjectType>: NSObject, UITableViewDataSource, UITa
       }.put(into: pool)
   }
   
-  public func register<U: ObjectConsuming>(cellClass: U.Type) where U.ObjectType == ObjectType {
+  public func registerCellClass<U: ObjectConsuming>(_ cellClass: U.Type) where U.ObjectType == ObjectType {
     let identifier = String(describing: cellClass)
     let nib = UINib(nibName: identifier, bundle: nil)
     tableView.register(nib, forCellReuseIdentifier: identifier)

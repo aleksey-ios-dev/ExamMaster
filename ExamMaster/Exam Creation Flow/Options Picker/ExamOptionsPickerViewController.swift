@@ -37,25 +37,26 @@ class ExamOptionsPickerViewController: UIViewController, ModelApplicable {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    (switch1.onSignal && switch2.onSignal).map { $0 ? "ON" : "OFF" }.bindTo(keyPath: "text", of: boundLabel)
+    //TODO: FIX BOOL TYPE
+//    (switch1.onSignal && switch2.onSignal).map { $0 ? "ON" : "OFF" }.bindTo(keyPath: "text", of: boundLabel)
     
     model.questionsCountChangeSignal.subscribeNext { [weak self] in
       self?.questionsCountLabel.text = "Questions: \($0)"
       self?.questionsCountSlider.value = Float($0)
-    }.ownedBy(self)
+      }.owned(by: self)
     
     model.timeLimitChangeSignal.subscribeNext { [weak self] in
       self?.timeLimitLabel.text = "Time limit: \(Int($0)) min"
       self?.timeLimitSlider.value = Float($0)
-    }.ownedBy(self)
+      }.owned(by: self)
     
     questionsCountSlider.valueSignal.map { Int($0) }.subscribeNext { [weak self] in
       self?.model.applyQuestionsCount($0)
-    }.ownedBy(self)
+      }.owned(by: self)
     
-    timeLimitSlider.valueSignal.map { NSTimeInterval($0) }.subscribeNext { [weak self] in
+    timeLimitSlider.valueSignal.map { TimeInterval($0) }.subscribeNext { [weak self] in
       self?.model.applyTimeLimit($0)
-    }.ownedBy(self)
+      }.owned(by: self)
   }
   
   @IBAction

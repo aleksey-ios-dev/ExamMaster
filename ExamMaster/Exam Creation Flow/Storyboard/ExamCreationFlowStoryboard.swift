@@ -12,11 +12,11 @@ import UIKit
 class ExamCreationFlowStoryboard: UIStoryboard {
   
   class func optionsViewController() -> ExamOptionsPickerViewController {
-    return storyboard.instantiateViewControllerWithIdentifier("Options") as! ExamOptionsPickerViewController
+    return storyboard.instantiateViewController(withIdentifier: "Options") as! ExamOptionsPickerViewController
   }
   
   class func confirmationViewController() -> ExamCreationConfirmationViewController {
-    return storyboard.instantiateViewControllerWithIdentifier("Confirmation") as! ExamCreationConfirmationViewController
+    return storyboard.instantiateViewController(withIdentifier: "Confirmation") as! ExamCreationConfirmationViewController
   }
   
   static var storyboard: UIStoryboard {

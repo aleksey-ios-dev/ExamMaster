@@ -10,20 +10,20 @@ import UIKit
 import ModelsTreeKit
 
 class AppNavigationManager: RootNavigationManager {
-    private var window: UIWindow?
+  private var window: UIWindow?
+  
+  init(window: UIWindow?) {
+    self.window = window
     
-    init(window: UIWindow?) {
-        self.window = window
-
-        self.window?.rootViewController = transitionController
-        window?.makeKeyAndVisible()
+    self.window?.rootViewController = transitionController
+    window?.makeKeyAndVisible()
+  }
+  
+  private let transitionController = TSTTransitionViewController()
+  
+  func show(rootRepresentation: AnyObject) {
+    if let controller = rootRepresentation as? UIViewController {
+      transitionController.show(controller, animated: true)
     }
-    
-    private let transitionController = TSTTransitionViewController()
-    
-    func showRootRepresentation(representation: AnyObject) {
-        if let controller = representation as? UIViewController {
-            transitionController.showViewController(controller, animated: true)
-        }
-    }
+  }
 }

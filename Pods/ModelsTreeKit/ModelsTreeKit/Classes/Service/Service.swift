@@ -5,7 +5,7 @@
 
 import Foundation
 
-public class Service {
+open class Service {
   
   public let locator: ServiceLocator
   
@@ -15,8 +15,8 @@ public class Service {
   
   //At this point all services from surrounding are instantiated
   
-  public func takeOff() {}
+  open func takeOff() {}
   
-  public func prepareToClose() {}
+  open func prepareToClose() {}
   
 }

@@ -20,7 +20,7 @@ class ExamTopicPickerViewController: UITableViewController, ModelApplicable {
       model.progressSignal.subscribeNext { inProgress in
         if inProgress { SVProgressHUD.show() }
         else { SVProgressHUD.dismiss() }
-      }.ownedBy(self)
+        }.owned(by: self)
     }
   }
   
@@ -33,12 +33,12 @@ class ExamTopicPickerViewController: UITableViewController, ModelApplicable {
     dataSource = ListDataSource(list: model)
     adapter = TableViewAdapter(dataSource: dataSource, tableView: tableView)
     
-    adapter.registerCellClass(ItemCell)
-    adapter.nibNameForObjectMatching = { _ in return String(ItemCell) }
+    adapter.registerCellClass(ItemCell.self)
+    adapter.nibNameForObjectMatching = { _ in return String(describing: ItemCell.self) }
     
     adapter.didSelectCellSignal.subscribeNext { [weak self] _, object in
-      self?.model.selectTopic(object!)
-    }.ownedBy(self)
+      self?.model.select(topic: object!)
+      }.owned(by: self)
     
     model.fetchTopics()
   }

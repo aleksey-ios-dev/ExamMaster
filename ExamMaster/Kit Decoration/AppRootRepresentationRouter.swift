@@ -11,12 +11,12 @@ import Foundation
 import ModelsTreeKit
 
 class AppRootRepresentationRouter: RootRepresentationRouter {
-    func representationFor(session session: Session) -> AnyObject {
-        switch session {
-        case is AuthorizedSession:
-            return MainFlowNavigaionController(contentViewController: UIViewController(), leftMenuViewController: UIViewController(), rightMenuViewController: UIViewController())
-        default:
-            return LoginFlowNavigationController()
-        }
+  public func representation(for session: Session) -> AnyObject {
+    switch session {
+    case is AuthorizedSession:
+      return MainFlowNavigaionController(contentViewController: UIViewController(), leftMenuViewController: UIViewController(), rightMenuViewController: UIViewController())
+    default:
+      return LoginFlowNavigationController()
     }
+  }
 }

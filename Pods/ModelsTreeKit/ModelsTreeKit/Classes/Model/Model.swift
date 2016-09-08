@@ -10,7 +10,7 @@ import Foundation
 
 extension Model: DeinitObservable { }
 
-public class Model {
+open class Model {
   
   public private(set) weak var parent: Model!
   
@@ -45,7 +45,7 @@ public class Model {
   
   //Lifecycle
   
-  public func sessionWillClose() {
+  open func sessionWillClose() {
     childModels.forEach { $0.sessionWillClose() }
   }
   
@@ -106,7 +106,7 @@ public class Model {
     }
   }
   
-  public func handle(bubble: BubbleNotification, sender: Model) {}
+  open func handle(bubble: BubbleNotification, sender: Model) {}
   
   //Errors
   
@@ -140,17 +140,17 @@ public class Model {
     return codes.contains(error.code.rawValue)
   }
   
-  public func raise(error: ModelTreeError) {
+  public func raise(_ error: ModelTreeError) {
     if isRegistered(for: error) {
       handle(error: error)
     } else {
-      parent?.raise(error: error)
+      parent?.raise(error)
     }
   }
   
   //Override to achieve custom behavior
   
-  public func handle(error: ModelTreeError) {
+  open func handle(error: ModelTreeError) {
     errorSignal.sendNext(error)
   }
   
@@ -185,7 +185,7 @@ public class Model {
     childModels.forEach { $0.propagate(globalEvent: globalEvent) }
   }
   
-  public func handle(globalEvent: GlobalEvent) {}
+  open func handle(globalEvent: GlobalEvent) {}
   
 }
 
@@ -259,7 +259,6 @@ extension Model {
     print(output)
     
     childModels.sorted { return $0.timeStamp.compare($1.timeStamp as Date) == .orderedAscending }.forEach { $0.printTreeLevel(level: level + 1, params:  params) }
-
   }
   
 }

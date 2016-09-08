@@ -12,11 +12,11 @@ import UIKit
 class MainFlowStoryboard: UIStoryboard {
   
   class func sideMenuViewController() -> SideMenuViewController {
-    return storyboard.instantiateViewControllerWithIdentifier("SideMenu") as! SideMenuViewController
+    return storyboard.instantiateViewController(withIdentifier: "SideMenu") as! SideMenuViewController
   }
   
   class func dashboardViewController() -> DashboardViewController {
-    return storyboard.instantiateViewControllerWithIdentifier("Dashboard") as! DashboardViewController
+    return storyboard.instantiateViewController(withIdentifier: "Dashboard") as! DashboardViewController
   }
   
   static var storyboard: UIStoryboard {

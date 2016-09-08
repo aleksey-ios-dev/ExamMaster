@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class AuthorizedSession: Session {
+open class AuthorizedSession: Session {
   
   public required init(archivationProxy: ArchivationProxy) {
     super.init()

@@ -22,13 +22,13 @@ extension BubbleNotification {
 
 class MainFlow: Model {
   
-  let showSideMenuSignal = Pipe<Void>()
+  let showSideMenuSignal = Observable<Void>() //TODO: Pipe
   
   override init(parent: Model?) {
     super.init(parent: parent)
     
-    registerFor(BubbleNotification.MainFlow.ShowSideMenu)
-    registerFor(AppEvent.StartExam)
+    register(for: BubbleNotification.MainFlow.ShowSideMenu)
+    register(for: AppEvent.StartExam)
   }
   
   override func handle(globalEvent: GlobalEvent) {
@@ -37,12 +37,12 @@ class MainFlow: Model {
       let flowModel = ExamCreationFlow(parent: self)
       
       let completion = { [weak self, weak flowModel] (completed: Bool) -> Void in
-        guard let _self = self, _flowModel = flowModel else { return }
+        guard let _self = self, let _flowModel = flowModel else { return }
         _self.wantsRemoveChildSignal.sendNext(_flowModel)
       }
       
-      flowModel.completionSignal.subscribeCompleted(completion).ownedBy(self)
-      flowModel.cancelSignal.subscribeCompleted(completion).ownedBy(self)
+      flowModel.completionSignal.subscribeCompleted(completion).owned(by: self)
+      flowModel.cancelSignal.subscribeCompleted(completion).owned(by: self)
       
       pushChildSignal.sendNext(flowModel)
     default:

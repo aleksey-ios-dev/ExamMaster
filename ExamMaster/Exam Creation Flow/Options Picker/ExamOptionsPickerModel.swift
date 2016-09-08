@@ -11,12 +11,12 @@ import ModelsTreeKit
 
 class ExamOptionsPickerModel: Model {
   
-  let timeLimitChangeSignal = Observable<NSTimeInterval>()
+  let timeLimitChangeSignal = Observable<TimeInterval>()
   let questionsCountChangeSignal = Observable<Int>()
   
   private weak var flowModel: ExamCreationFlow!
   
-  private var timeLimit: NSTimeInterval = 0 {
+  private var timeLimit: TimeInterval = 0 {
     didSet { timeLimitChangeSignal.sendNext(timeLimit) }
   }
   
@@ -36,11 +36,11 @@ class ExamOptionsPickerModel: Model {
     questionsCount = 30
   }
   
-  func applyTimeLimit(limit: NSTimeInterval) {
+  func applyTimeLimit(_ limit: TimeInterval) {
     timeLimit = floor(limit)
   }
   
-  func applyQuestionsCount(count: Int) {
+  func applyQuestionsCount(_ count: Int) {
     questionsCount = count
   }
   

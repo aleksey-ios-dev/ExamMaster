@@ -18,7 +18,7 @@ class ExamSubjectPickerViewController: UITableViewController, ModelApplicable {
       model.progressSignal.subscribeNext { inProgress in
         if inProgress { SVProgressHUD.show() }
         else { SVProgressHUD.dismiss() }
-      }.ownedBy(self)
+        }.owned(by: self)
     }
   }
   
@@ -32,12 +32,12 @@ class ExamSubjectPickerViewController: UITableViewController, ModelApplicable {
     dataSource.groupContentsSortingCriteria = { $0 < $1 }
     
     adapter = TableViewAdapter(dataSource: dataSource, tableView: tableView)
-    adapter.registerCellClass(ItemCell)
-    adapter.nibNameForObjectMatching = { _ in return String(ItemCell) }
+    adapter.registerCellClass(ItemCell.self)
+    adapter.nibNameForObjectMatching = { _ in return String(describing: ItemCell.self) }
     
     adapter.didSelectCellSignal.subscribeNext { [ weak self] _, subject in
       self?.model.selectSubject(subject!)
-    }.ownedBy(self)
+      }.owned(by: self)
     
     model.fetchSubjects()
     

@@ -22,7 +22,7 @@ class SideMenuViewController: UIViewController, ModelApplicable {
     
     model.examsCountSignal.map { return "Exams created: \($0)" }.subscribeNext { [weak self] in
       self?.examsCreatedLabel.text = $0
-    }.ownedBy(self)
+      }.owned(by: self)
   }
   
   @IBAction

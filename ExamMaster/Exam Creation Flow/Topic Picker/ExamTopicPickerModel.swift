@@ -14,7 +14,7 @@ typealias Topic = String
 class ExamTopicPickerModel: List<Topic> {
   
   let title = "Topic"
-  let progressSignal = Pipe<Bool>()
+  let progressSignal = Observable<Bool>() //TODO: pipe
   
   private weak var flowModel: ExamCreationFlow!
   private let subject: Subject
@@ -32,13 +32,13 @@ class ExamTopicPickerModel: List<Topic> {
     
     let client: APIClient = session.services.getService()
     
-    client.fetchTopicsForSubject(subject) { [ weak self] topics, error in
+    client.fetchTopics(for: subject) { [ weak self] topics, error in
       guard let _self = self else { return }
       
       _self.progressSignal.sendNext(false)
       
       guard error == nil else {
-        _self.raise(error!)
+        _self.raise(error! as! BubbleNotificationName)
         
         return
       }
@@ -47,7 +47,7 @@ class ExamTopicPickerModel: List<Topic> {
     }
   }
   
-  func selectTopic(topic: Topic) {
+  func select(topic: Topic) {
     flowModel.child(self, didSelectTopic: topic)
   }
 }
