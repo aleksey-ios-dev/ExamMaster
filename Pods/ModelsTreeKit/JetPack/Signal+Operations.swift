@@ -28,7 +28,7 @@ public extension Signal {
   
   //Transforms value, can change passed value type
   
-  public func map<U>(handler: @escaping (T) -> U) -> Signal<U> {
+  public func map<U>(_ handler: @escaping (T) -> U) -> Signal<U> {
     var nextSignal: Signal<U>!
     if self is Observable { nextSignal = Observable<U>() }
     else { nextSignal = Pipe<U>() }
@@ -40,7 +40,7 @@ public extension Signal {
   
   //Adds a condition for sending next value, doesn't change passed value type
   
-  public func filter(handler: @escaping (T) -> Bool) -> Signal<T> {
+  public func filter(_ handler: @escaping (T) -> Bool) -> Signal<T> {
     var nextSignal: Signal<T>!
     if self is Observable { nextSignal = Observable<T>() }
     else { nextSignal = Pipe<T>() }
@@ -55,7 +55,7 @@ public extension Signal {
   
   //Applies passed values to the cumulative reduced value
   
-  public func reduce<U>(handler: @escaping (_ newValue: T, _ reducedValue: U?) -> U) -> Signal<U> {
+  public func reduce<U>(_ handler: @escaping (_ newValue: T, _ reducedValue: U?) -> U) -> Signal<U> {
     let nextSignal = Observable<U>()
     subscribeNext { [weak nextSignal] in
       nextSignal?.sendNext(handler($0, nextSignal?.value))
@@ -68,7 +68,7 @@ public extension Signal {
   
   //Sends combined value when any of signals fire
   
-  func distinctLatest<U>(otherSignal: Signal<U>) -> Signal<(T?, U?)> {
+  func distinctLatest<U>(_ otherSignal: Signal<U>) -> Signal<(T?, U?)> {
     let transientSelf = pipe()
     let transientOther = otherSignal.pipe()
     
@@ -89,7 +89,7 @@ public extension Signal {
     return nextSignal
   }
   
-  public func combineLatest<U>(otherSignal: Signal<U>) -> Signal<(T?, U?)> {
+  public func combineLatest<U>(_ otherSignal: Signal<U>) -> Signal<(T?, U?)> {
     let persistentSelf = observable()
     let persistentOther = otherSignal.observable()
     
@@ -112,14 +112,14 @@ public extension Signal {
   
   //Sends combined value when any of signals fires and both signals have last passed value
   
-  public func combineNoNull<U>(otherSignal: Signal<U>) -> Signal<(T, U)> {
-    return combineLatest(otherSignal: otherSignal).filter { $0 != nil && $1 != nil }.map { ($0!, $1!) }
+  public func combineNoNull<U>(_ otherSignal: Signal<U>) -> Signal<(T, U)> {
+    return combineLatest(otherSignal).filter { $0 != nil && $1 != nil }.map { ($0!, $1!) }
   }
   
   //Sends combined value every time when both signals fire at least once
   
-  public func combineBound<U>(otherSignal: Signal<U>) -> Signal<(T, U)> {
-    let nextSignal = combineLatest(otherSignal: otherSignal).reduce { (newValue, reducedValue) -> ((T? , T?), (U?, U?)) in
+  public func combineBound<U>(_ otherSignal: Signal<U>) -> Signal<(T, U)> {
+    let nextSignal = combineLatest(otherSignal).reduce { (newValue, reducedValue) -> ((T? , T?), (U?, U?)) in
       
       var reducedSelfValue: T? = reducedValue?.0.1
       var reducedOtherValue: U? = reducedValue?.1.1
@@ -143,8 +143,8 @@ public extension Signal {
   
   //Zip
   
-  public func zip<U>(otherSignal: Signal <U>) -> Signal<(T, U)> {
-    let nextSignal = distinctLatest(otherSignal: otherSignal).reduce { (newValue, reducedValue) -> ((T?, [T]), (U?, [U])) in
+  public func zip<U>(_ otherSignal: Signal <U>) -> Signal<(T, U)> {
+    let nextSignal = distinctLatest(otherSignal).reduce { (newValue, reducedValue) -> ((T?, [T]), (U?, [U])) in
       let newSelfValue = newValue.0
       let newOtherValue = newValue.1
       
@@ -180,7 +180,7 @@ public extension Signal {
   
   //Adds blocking signal. false - blocks, true - passes
   
-  public func blockWith(blocker: Signal<Bool>) -> Signal<T> {
+  public func block(with blocker: Signal<Bool>) -> Signal<T> {
     let persistentBlocker = blocker.observable()
     return filter { newValue in
       
@@ -193,7 +193,7 @@ public extension Signal {
   
   //Splits signal into two
   
-  public func split<U, V>(splitter: @escaping (T) -> (a: U, b: V)) -> (a: Signal<U>, b: Signal<V>) {
+  public func split<U, V>(with splitter: @escaping (T) -> (a: U, b: V)) -> (a: Signal<U>, b: Signal<V>) {
     let signalA = Pipe<U>()
     let signalB = Pipe<V>()
     

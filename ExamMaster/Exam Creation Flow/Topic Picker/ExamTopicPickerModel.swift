@@ -37,8 +37,8 @@ class ExamTopicPickerModel: List<Topic> {
       
       _self.progressSignal.sendNext(false)
       
-      guard error == nil else {
-        _self.raise(error! as! BubbleNotificationName)
+      if let error = error {
+        _self.raise(error)
         
         return
       }

@@ -30,8 +30,10 @@ open class AuthorizedSession: Session {
 extension AuthorizedSession: Archivable {
   
   public func archivationProxy() -> ArchivationProxy {
+    guard  let credentials = credentials else { fatalError() }
+    
     var proxy = ArchivationProxy()
-    proxy["credentials"] = credentials?.archivationProxy() as AnyObject
+    proxy["credentials"] = credentials.archivationProxy() as AnyObject
     
     return proxy
   }

@@ -23,7 +23,7 @@ extension UITextField {
   
   public var editingSignal: Observable<Bool> {
     let observable = Observable<Bool>(value: isEditing)
-    editingBeginSignal.map { true }.distinctLatest(otherSignal: editingEndSignal.map { true }).map { $0 == true && $1 == nil }.bindTo(observable: observable)
+    editingBeginSignal.map { true }.distinctLatest(editingEndSignal.map { true }).map { $0 == true && $1 == nil }.bindTo(observable: observable)
     
     return observable
   }

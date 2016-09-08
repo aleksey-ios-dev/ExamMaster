@@ -36,7 +36,7 @@ class SideMenuModel: Model {
   }
   
   func startNewExam() {
-    raise(AppEvent.StartExam as! BubbleNotificationName)
+    raise(AppEvent.StartExam)
   }
   
 }

@@ -37,8 +37,7 @@ class ExamOptionsPickerViewController: UIViewController, ModelApplicable {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    //TODO: FIX BOOL TYPE
-//    (switch1.onSignal && switch2.onSignal).map { $0 ? "ON" : "OFF" }.bindTo(keyPath: "text", of: boundLabel)
+    (switch1.onSignal && switch2.onSignal).map { $0 ? "ON" : "OFF" }.bind(toKeyPath: "text", of: boundLabel)
     
     model.questionsCountChangeSignal.subscribeNext { [weak self] in
       self?.questionsCountLabel.text = "Questions: \($0)"

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Side Menu View Controller-->
@@ -15,44 +16,42 @@
                         <viewControllerLayoutGuide type="bottom" id="HsX-9q-ir0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hAk-6S-oEu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgs-ER-23q">
-                                <rect key="frame" x="136" y="488" width="48" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgs-ER-23q">
+                                <frame key="frameInset" minX="136" minY="488" width="48" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="AOk-U0-gjJ"/>
                                     <constraint firstAttribute="height" constant="30" id="syz-2s-BDe"/>
                                 </constraints>
                                 <state key="normal" title="Logout">
-                                    <color key="titleColor" red="1" green="1" blue="0.82619757401315785" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="0.82619757401315785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="logout:" destination="ngo-1Z-Pfb" eventType="touchUpInside" id="CRh-0B-soo"/>
+                                    <action selector="logoutWithSender:" destination="ngo-1Z-Pfb" eventType="touchUpInside" id="wsV-LU-3lu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WdR-gU-cj8">
-                                <rect key="frame" x="16" y="28" width="200" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="0.33000000000000002" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="UPF-l6-8A9"/>
                                     <constraint firstAttribute="height" constant="30" id="xwO-QE-Tne"/>
                                 </constraints>
                                 <state key="normal" title="Start New Exam">
-                                    <color key="titleColor" red="1" green="1" blue="0.82619757400000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="0.82619757400000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="startNewExam:" destination="ngo-1Z-Pfb" eventType="touchUpInside" id="Kpl-uE-IIB"/>
+                                    <action selector="startNewExamWithSender:" destination="ngo-1Z-Pfb" eventType="touchUpInside" id="iyV-QM-2lP"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTs-F8-GvY">
-                                <rect key="frame" x="16" y="75" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.58055037259999998" green="0.7294168472" blue="0.26324093339999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.51432287693023682" green="0.68775641918182373" blue="0.20445017516613007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="HsX-9q-ir0" firstAttribute="top" secondItem="tgs-ER-23q" secondAttribute="bottom" constant="50" id="4aO-et-M5Z"/>
                             <constraint firstItem="tgs-ER-23q" firstAttribute="centerX" secondItem="hAk-6S-oEu" secondAttribute="centerX" id="8Ku-Vi-ebi"/>
@@ -62,7 +61,6 @@
                             <constraint firstItem="RTs-F8-GvY" firstAttribute="top" secondItem="WdR-gU-cj8" secondAttribute="bottom" constant="17" id="tGB-uW-pZ5"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="examsCreatedLabel" destination="RTs-F8-GvY" id="DmI-IW-ZeC"/>
                     </connections>
@@ -80,37 +78,36 @@
                         <viewControllerLayoutGuide type="bottom" id="PHi-1l-9i1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wpP-cS-jrs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaV-CI-y6w">
-                                <rect key="frame" x="128" y="120" width="64" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaV-CI-y6w">
+                                <frame key="frameInset" minX="128" minY="120" width="64" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4JX-nq-6C6">
-                                <rect key="frame" x="85" y="488" width="150" height="30"/>
-                                <color key="backgroundColor" red="0.93106329441070557" green="1" blue="0.68452131748199463" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4JX-nq-6C6">
+                                <frame key="frameInset" minX="85" minY="488" width="150" height="30"/>
+                                <color key="backgroundColor" red="0.93106329441070557" green="1" blue="0.68452131748199463" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="635-fv-tqC"/>
                                 </constraints>
                                 <state key="normal" title="Start new exam">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="startNewExam:" destination="6JG-oB-O0e" eventType="touchUpInside" id="3tD-OK-q1p"/>
+                                    <action selector="startNewExamWithSender:" destination="6JG-oB-O0e" eventType="touchUpInside" id="Mkr-GL-E1d"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLO-Rp-Cqg">
-                                <rect key="frame" x="21" y="25" width="44" height="30"/>
                                 <state key="normal" title="MENU"/>
                                 <connections>
-                                    <action selector="showMenu:" destination="6JG-oB-O0e" eventType="touchUpInside" id="0r2-gu-07Z"/>
+                                    <action selector="showMenuWithSender:" destination="6JG-oB-O0e" eventType="touchUpInside" id="v3I-2e-wbl"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="PHi-1l-9i1" firstAttribute="top" secondItem="4JX-nq-6C6" secondAttribute="bottom" constant="50" id="5vT-6K-EEy"/>
                             <constraint firstItem="IaV-CI-y6w" firstAttribute="top" secondItem="Rdn-lQ-oLN" secondAttribute="bottom" constant="100" id="BbR-pd-bBn"/>
@@ -120,7 +117,6 @@
                             <constraint firstItem="bLO-Rp-Cqg" firstAttribute="leading" secondItem="wpP-cS-jrs" secondAttribute="leadingMargin" constant="5" id="nxV-el-4by"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="titleLabel" destination="IaV-CI-y6w" id="4tp-6r-2FX"/>
                     </connections>

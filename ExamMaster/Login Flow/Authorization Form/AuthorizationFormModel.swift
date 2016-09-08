@@ -19,10 +19,7 @@ class AuthorizationFormModel: Model {
   
   override init(parent: Model?) {
     let validator = Validator.longerThan(1)
-    //TODO: fix this! bool types
-    inputValiditySignal = Observable<Bool>() //TEMP
-//    inputValiditySignal = (usernameSignal.mapValid(with: validator) && passwordSignal.mapValid(with: validator)).observable()
-    
+    inputValiditySignal = (usernameSignal.mapValid(with: validator) && passwordSignal.mapValid(with: validator)).observable()
     
     super.init(parent: parent)
   }
@@ -30,6 +27,7 @@ class AuthorizationFormModel: Model {
   func applyUsername(_ username: String) {
     if !containsOnlyLetters(username) {
       raise(ModelTreeError(code: ApplicationError.OnlyLettersInputAllowed))
+      raise(BubbleNotification.MainFlow.ShowSideMenu)
       usernameSignal.sendNext(authorizationInfo.username)
       return
     }

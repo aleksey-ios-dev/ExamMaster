@@ -79,7 +79,7 @@ extension ExamCreationFlow: ExamCreationFlowParent {
   
   func childModelDidFinishFlow(_ child: Model) {
     completionSignal.sendCompleted()
-    raise(AppEvent.ExamCreated as! BubbleNotificationName)
+    raise(AppEvent.ExamCreated)
   }
   
 }

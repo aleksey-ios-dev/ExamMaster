@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Registration View Controller-->
@@ -15,25 +16,25 @@
                         <viewControllerLayoutGuide type="bottom" id="6CY-QX-CL2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NtM-LT-ZGA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lg-Ew-jvL">
-                                <rect key="frame" x="133" y="269" width="55" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lg-Ew-jvL">
+                                <frame key="frameInset" minX="133" minY="269" width="55" height="30"/>
                                 <state key="normal" title="Confirm"/>
                                 <connections>
-                                    <action selector="register:" destination="yxt-Na-2Qm" eventType="touchUpInside" id="Tuz-Cx-Oxg"/>
+                                    <action selector="registerWithSender:" destination="yxt-Na-2Qm" eventType="touchUpInside" id="78L-bP-ZGq"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cw6-9E-mJg" customClass="AuthorizationForm" customModule="ExamMaster" customModuleProvider="target">
-                                <rect key="frame" x="16" y="28" width="288" height="93"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cw6-9E-mJg" customClass="AuthorizationForm" customModule="ExamMaster" customModuleProvider="target">
+                                <frame key="frameInset" minX="16" minY="28" width="288" height="93"/>
+                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="93" id="4UN-rT-bye"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="cw6-9E-mJg" secondAttribute="trailing" constant="16" id="CPi-Xp-jWX"/>
                             <constraint firstItem="0lg-Ew-jvL" firstAttribute="centerX" secondItem="NtM-LT-ZGA" secondAttribute="centerX" id="IvX-VV-tdj"/>
@@ -42,7 +43,6 @@
                             <constraint firstItem="cw6-9E-mJg" firstAttribute="top" secondItem="jeY-qF-Zrs" secondAttribute="bottom" constant="8" id="yCy-3f-TmD"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="authorizationForm" destination="cw6-9E-mJg" id="oBU-Yg-swc"/>
                         <outlet property="confirmationButton" destination="0lg-Ew-jvL" id="77R-ag-2bv"/>
@@ -50,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUm-5z-02u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="529" y="178"/>
+            <point key="canvasLocation" x="838" y="178"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="q6L-MM-vfo">
@@ -61,32 +61,32 @@
                         <viewControllerLayoutGuide type="bottom" id="o1U-YN-Jwg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="93H-NJ-Gp3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8K1-5i-tHg">
-                                <rect key="frame" x="86" y="269" width="148" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8K1-5i-tHg">
+                                <frame key="frameInset" minX="86" minY="269" width="148" height="30"/>
                                 <state key="normal" title="Register new account"/>
                                 <connections>
-                                    <action selector="register:" destination="ncX-0o-ZJe" eventType="touchUpInside" id="bc3-PV-Ohu"/>
+                                    <action selector="registerWithSender:" destination="ncX-0o-ZJe" eventType="touchUpInside" id="M4L-rQ-OOo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kB2-or-eAm">
-                                <rect key="frame" x="137" y="141" width="47" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kB2-or-eAm">
+                                <frame key="frameInset" minX="137" minY="141" width="47" height="30"/>
                                 <state key="normal" title="Sign In"/>
                                 <connections>
-                                    <action selector="authorize:" destination="ncX-0o-ZJe" eventType="touchUpInside" id="QYa-6s-TAs"/>
+                                    <action selector="authorizeWithSender:" destination="ncX-0o-ZJe" eventType="touchUpInside" id="ZKp-jH-dwk"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kV-mB-ODu" customClass="AuthorizationForm" customModule="ExamMaster" customModuleProvider="target">
-                                <rect key="frame" x="16" y="28" width="288" height="93"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7kV-mB-ODu" customClass="AuthorizationForm" customModule="ExamMaster" customModuleProvider="target">
+                                <frame key="frameInset" minX="16" minY="28" width="288" height="93"/>
+                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="93" id="Hzd-O6-nIm"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="kB2-or-eAm" firstAttribute="centerX" secondItem="93H-NJ-Gp3" secondAttribute="centerX" id="19x-UI-QiJ"/>
                             <constraint firstItem="7kV-mB-ODu" firstAttribute="trailing" secondItem="93H-NJ-Gp3" secondAttribute="trailingMargin" id="1Lh-9m-4I6"/>
@@ -97,7 +97,6 @@
                             <constraint firstItem="8K1-5i-tHg" firstAttribute="centerY" secondItem="93H-NJ-Gp3" secondAttribute="centerY" id="q4x-ht-C3W"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="authorizationForm" destination="7kV-mB-ODu" id="psO-Fh-zAL"/>
                         <outlet property="confirmationButton" destination="kB2-or-eAm" id="Icp-as-UAH"/>

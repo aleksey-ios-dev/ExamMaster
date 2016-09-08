@@ -98,7 +98,7 @@ open class Model {
     _raise(bubble: bubble, withObject: object, sender: self)
   }
   
-  public func _raise(bubble: BubbleNotificationName, withObject object: Any? = nil, sender: Model) {
+  private func _raise(bubble: BubbleNotificationName, withObject object: Any? = nil, sender: Model) {
     if isRegistered(for: bubble) {
       handle(bubble: BubbleNotification(name: bubble, object: object), sender: sender)
     } else {
@@ -171,7 +171,7 @@ open class Model {
   }
   
   public final func raise(
-    globalEvent: GlobalEventName,
+    _ globalEvent: GlobalEventName,
     withObject object: Any? = nil,
     userInfo: [String: Any] = [:]) {
     let event = GlobalEvent(name: globalEvent, object: object, userInfo: userInfo)

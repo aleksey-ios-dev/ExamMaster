@@ -13,16 +13,15 @@ typealias AuthorizationCompletion = (_ params: SessionCompletionParams?, _ error
 
 class AuthorizationClient: Service {
   func authorize(with info: AuthorizationInfo, completion: AuthorizationCompletion) -> Void {
-//    let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
-//
-//    dispatch_after(delayTime, dispatch_get_main_queue()) {
-//      var params = SessionCompletionParams()
-//      
-//      params[AppCredentialsKeys.Token.rawValue] = String(info.password.hash)
-//      params[AppCredentialsKeys.Uid.rawValue] = info.username
-//      params[AppCredentialsKeys.Username.rawValue] = info.username
-//      
-//      completion(params: params, error: nil)
-//    }
+    let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+    DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
+      var params = SessionCompletionParams()
+      
+      params[AppCredentialsKeys.Token.rawValue] = String(describing: info.password.hash) as AnyObject
+      params[AppCredentialsKeys.Uid.rawValue] = info.username as AnyObject
+      params[AppCredentialsKeys.Username.rawValue] = info.username as AnyObject
+      
+      completion(params, nil)
+    })
   }
 }
