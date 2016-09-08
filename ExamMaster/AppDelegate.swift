@@ -14,8 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
   
-  func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
     SessionController.controller.configuration = SessionControllerConfiguration.appConfiguration()
     SessionController.controller.representationRouter = AppRootRepresentationRouter()
     SessionController.controller.sessionRouter = AppSessionRouter()
