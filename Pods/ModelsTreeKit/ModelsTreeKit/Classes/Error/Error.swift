@@ -21,7 +21,7 @@ public protocol ErrorCode {
   
 }
 
-public struct Error: ErrorType {
+public struct ModelTreeError: Error {
   
   public var hashValue: Int {
     return (code.rawValue.hashValue + domain.hashValue).hashValue
@@ -31,7 +31,7 @@ public struct Error: ErrorType {
   public let code: ErrorCode
   
   public init(code: ErrorCode) {
-    self.domain = code.dynamicType.domain
+    self.domain = type(of: code).domain
     self.code = code
   }
   
@@ -49,8 +49,10 @@ public struct Error: ErrorType {
   
 }
 
-extension Error: Hashable, Equatable {}
+extension ModelTreeError: Hashable, Equatable {
+  
+}
 
-public func ==(a: Error, b: Error) -> Bool {
+public func ==(a: ModelTreeError, b: ModelTreeError) -> Bool {
   return a.code.rawValue == b.code.rawValue && a.domain == b.domain
 }

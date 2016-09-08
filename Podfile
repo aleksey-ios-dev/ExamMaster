@@ -4,7 +4,7 @@ inhibit_all_warnings!
 
 target 'ExamMaster' do
 
-  pod 'ModelsTreeKit', :git => 'git://github.com/mmrmmlrr/ModelsTreeKit'
+  pod 'ModelsTreeKit', :git => 'git://github.com/mmrmmlrr/ModelsTreeKit', :branch => 'swift3'
 
 end
 

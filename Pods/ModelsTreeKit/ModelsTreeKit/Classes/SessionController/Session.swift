@@ -40,18 +40,18 @@ public class Session: Model {
   
   public func sessionDidLoad() {}
   
-  func openWithController(controller: SessionController) {
+  func open(with controller: SessionController) {
     self.controller = controller
     self.services.takeOff()
-    self.controller?.sessionDidOpen(self)
-    self.controller?.sessionDidPrepareToShowRootRepresenation(self)
+    self.controller?.sessionDidOpen(session: self)
+    self.controller?.sessionDidPrepareToShowRootRepresenation(session: self)
     sessionDidLoad()
   }
   
-  public func closeWithParams(params: Any?) {
+  public func close(withParams params: Any?) {
     sessionWillClose()
     services.prepareToClose()
-    controller?.session(self, didCloseWithParams: params)
+    controller?.session(session: self, didCloseWithParams: params)
   }
   
 }

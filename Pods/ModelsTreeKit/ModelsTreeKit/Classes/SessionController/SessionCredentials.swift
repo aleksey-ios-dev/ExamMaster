@@ -16,7 +16,7 @@ public protocol CredentialsKey {
 
 public final class SessionCredentials {
   
-  private var fields = [String: AnyObject]()
+  fileprivate var fields = [String: AnyObject]()
   
   public init() {}
   

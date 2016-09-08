@@ -24,7 +24,7 @@ public struct BubbleNotification {
   public var name: BubbleNotificationName
   public var domain: String {
     get {
-      return name.dynamicType.domain
+      return type(of: name).domain
     }
   }
   public var object: Any?
@@ -37,9 +37,7 @@ public struct BubbleNotification {
   
 }
 
-extension BubbleNotification: Hashable, Equatable {
-  
-}
+extension BubbleNotification: Hashable, Equatable {}
 
 public func ==(a: BubbleNotification, b: BubbleNotification) -> Bool {
   return a.name == b.name && a.domain == b.domain

@@ -15,7 +15,7 @@ public extension UIView {
     if  assignedOwner == nil {
       assignedOwner = superview as! DeinitObservable
     }
-    return signalForKeyPath("hidden", owner: assignedOwner).map { $0! } as! Observable<Bool>
+    return signalForKeyPath(key: "hidden", owner: assignedOwner).map { $0! } as! Observable<Bool>
   }
   
 }

@@ -16,11 +16,11 @@ extension Signal where T: Equatable {
   public func skipRepeating() -> Signal<T> {
     
     let newSignal = Signal<T>()
-    observable().subscribeWithOptions([.New, .Old]) { (new, old, initial) in
-      if let new = new where new != old {
+    observable().subscribeWithOptions(options: [.New, .Old]) { (new, old, initial) in
+      if let new = new, new != old {
         newSignal.sendNext(new)
       }
-    }.putInto(pool)
+    }.put(into: pool)
     
     return newSignal
   }

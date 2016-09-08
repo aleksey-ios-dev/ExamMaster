@@ -16,7 +16,7 @@ public enum ObservingOptions {
 
 public class Observable<T>: Signal<T> {
   
-  public typealias ObservingHandler = ((new: T?, old: T?, initial: T?) -> Void)
+  public typealias ObservingHandler = ((_ new: T?, _ old: T?, _ initial: T?) -> Void)
   
   public init(value: T? = nil) {
     super.init()
@@ -29,12 +29,12 @@ public class Observable<T>: Signal<T> {
     }
   }
   
-  public override func sendNext(value: T) {
+  public override func sendNext(_ value: T) {
     self.value = value
   }
   
   public override func subscribeNext(handler: SignalHandler) -> Disposable {
-    return subscribeNextStartingFromInitial(true, handler: handler)
+    return subscribeNextStartingFromInitial(startingFromInitial: true, handler: handler)
   }
   
   public func subscribeWithOptions(options: [ObservingOptions], handler: ObservingHandler) -> Disposable {
@@ -49,7 +49,7 @@ public class Observable<T>: Signal<T> {
       return (new, old, initial)
     } as! Observable<(T?, T?, T?)>
     
-    let subscription = extendedObservable.subscribeNextStartingFromInitial(false, handler: handler) as! Subscription<(T?, T?, T?)>
+    let subscription = extendedObservable.subscribeNextStartingFromInitial(startingFromInitial: false, handler: handler) as! Subscription<(T?, T?, T?)>
     
     if options.contains(.Initial) {
       subscription.handler?(initialValue, initialValue, initialValue)
@@ -59,8 +59,8 @@ public class Observable<T>: Signal<T> {
   }
   
   private func subscribeNextStartingFromInitial(startingFromInitial: Bool, handler: SignalHandler) -> Disposable {
-    let subscription = super.subscribeNext(handler) as! Subscription<T>
-    if let value = value where startingFromInitial { subscription.handler?(value) }
+    let subscription = super.subscribeNext(handler: handler) as! Subscription<T>
+    if let value = value , startingFromInitial { subscription.handler?(value) }
     
     return subscription
   }

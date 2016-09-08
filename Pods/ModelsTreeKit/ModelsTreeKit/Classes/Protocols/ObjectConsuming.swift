@@ -21,14 +21,14 @@ public extension ObjectConsuming {
     set {
       self.object = object
       if let object = self.object {
-        applyObject(object)
+        applyObject(object: object)
       }
     }
     get { return self.object }
   }
   
   func reapplyObject() {
-    if let object = self.object { applyObject(object) }
+    if let object = self.object { applyObject(object: object) }
   }
   
 }

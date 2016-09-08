@@ -31,7 +31,7 @@ extension AuthorizedSession: Archivable {
   
   public func archivationProxy() -> ArchivationProxy {
     var proxy = ArchivationProxy()
-    proxy["credentials"] = credentials?.archivationProxy()
+    proxy["credentials"] = credentials?.archivationProxy() as AnyObject
     
     return proxy
   }

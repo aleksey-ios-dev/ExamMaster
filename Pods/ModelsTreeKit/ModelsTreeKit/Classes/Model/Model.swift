@@ -20,8 +20,8 @@ public class Model {
   public let pool = AutodisposePool()
   public let deinitSignal = Pipe<Void>()
   
-  private let hash = NSProcessInfo.processInfo().globallyUniqueString
-  private let timeStamp = NSDate()
+  fileprivate let hash = ProcessInfo.processInfo.globallyUniqueString
+  fileprivate let timeStamp = NSDate()
   
   deinit {
     deinitSignal.sendNext()
@@ -30,16 +30,16 @@ public class Model {
   
   public init(parent: Model?) {
     self.parent = parent
-    parent?.addChild(self)
+    parent?.add(child: self)
   }
   
   //Connection with representation
   
-  private weak var representationDeinitDisposable: Disposable?
+  fileprivate weak var representationDeinitDisposable: Disposable?
   
   public func applyRepresentation(representation: DeinitObservable) {
     representationDeinitDisposable = representation.deinitSignal.subscribeNext { [weak self] _ in
-      self?.parent?.removeChild(self!)
+      self?.parent?.remove(child: self!)
     }.autodispose()
   }
   
@@ -53,16 +53,16 @@ public class Model {
   
   private(set) lazy var childModels = Set<Model>()
   
-  final func addChild(childModel: Model) {
-    childModels.insert(childModel)
+  final func add(child: Model) {
+    childModels.insert(child)
   }
   
-  final func removeChild(childModel: Model) {
-    childModels.remove(childModel)
+  final func remove(child: Model) {
+    childModels.remove(child)
   }
   
   public func removeFromParent() {
-    parent?.removeChild(self)
+    parent?.remove(child: self)
   }
   
   //Session Helpers
@@ -79,93 +79,94 @@ public class Model {
   
   //Bubble Notifications
   
-  private var registeredBubbles = Set<String>()
+  fileprivate var registeredBubbles = Set<String>()
   
-  public final func registerFor(bubbleNotification: BubbleNotificationName) {
-    registeredBubbles.insert(bubbleNotification.dynamicType.domain + "." + bubbleNotification.rawValue)
+  public final func register(for bubble: BubbleNotificationName) {
+    registeredBubbles.insert(type(of: bubble).domain + "." + bubble.rawValue)
     pushChildSignal.sendNext(self)
   }
   
-  public final func unregisterFrom(bubbleNotification: BubbleNotificationName) {
-    registeredBubbles.remove(bubbleNotification.dynamicType.domain + "." + bubbleNotification.rawValue)
+  public final func unregister(from bubble: BubbleNotificationName) {
+    registeredBubbles.remove(type(of: bubble).domain + "." + bubble.rawValue)
   }
   
-  public final func isRegisteredFor(bubbleNotification: BubbleNotificationName) -> Bool {
-    return registeredBubbles.contains(bubbleNotification.dynamicType.domain + "." + bubbleNotification.rawValue)
+  public final func isRegistered(for bubble: BubbleNotificationName) -> Bool {
+    return registeredBubbles.contains(type(of: bubble).domain + "." + bubble.rawValue)
   }
   
-  public func raise(bubbleNotification: BubbleNotificationName, withObject object: Any? = nil) {
-    _raise(bubbleNotification, withObject: object, sender: self)
+  public func raise(_ bubble: BubbleNotificationName, withObject object: Any? = nil) {
+    _raise(bubble: bubble, withObject: object, sender: self)
   }
   
-  public func _raise(bubbleNotification: BubbleNotificationName, withObject object: Any? = nil, sender: Model) {
-    if isRegisteredFor(bubbleNotification) {
-      handle(BubbleNotification(name: bubbleNotification, object: object), sender: sender)
+  public func _raise(bubble: BubbleNotificationName, withObject object: Any? = nil, sender: Model) {
+    if isRegistered(for: bubble) {
+      handle(bubble: BubbleNotification(name: bubble, object: object), sender: sender)
     } else {
-      parent?._raise(bubbleNotification, withObject: object, sender: sender)
+      parent?._raise(bubble: bubble, withObject: object, sender: sender)
     }
   }
   
-  public func handle(bubbleNotification: BubbleNotification, sender: Model) {}
+  public func handle(bubble: BubbleNotification, sender: Model) {}
   
   //Errors
   
   //TODO: extensions
-  private var registeredErrors = [String: Set<Int>]()
+  fileprivate var registeredErrors = [String: Set<Int>]()
   
-  public final func registerFor(error: ErrorCode) {
-    var allCodes = registeredErrors[error.dynamicType.domain] ?? []
+  public final func register(for error: ErrorCode) {
+    var allCodes = registeredErrors[type(of: error).domain] ?? []
     allCodes.insert(error.rawValue)
-    registeredErrors[error.dynamicType.domain] = allCodes
+    registeredErrors[type(of: error).domain] = allCodes
   }
   
-  public final func registerForErrorCodes<T where T: ErrorCode>(errorCodes codes: [T]) {
+  public final func register<T>(for errorCodes: [T]) where T: ErrorCode {
     var allCodes = registeredErrors[T.domain] ?? []
-    let mappedCodes = codes.map { $0.rawValue }
+    let mappedCodes = errorCodes.map { $0.rawValue }
     mappedCodes.forEach { allCodes.insert($0) }
     registeredErrors[T.domain] = allCodes
   }
   
-  public final func unregisterFrom(error: ErrorCode) {
-    if let codes = registeredErrors[error.dynamicType.domain] {
+  public final func unregister(from error: ErrorCode) {
+
+    if let codes = registeredErrors[type(of: error).domain] {
       var filteredCodes = codes
       filteredCodes.remove(error.rawValue)
-      registeredErrors[error.dynamicType.domain] = filteredCodes
+      registeredErrors[type(of: error).domain] = filteredCodes
     }
   }
   
-  public final func isRegisteredFor(error: Error) -> Bool {
+  public final func isRegistered(for error: ModelTreeError) -> Bool {
     guard let codes = registeredErrors[error.domain] else { return false }
     return codes.contains(error.code.rawValue)
   }
   
-  public func raise(error: Error) {
-    if isRegisteredFor(error) {
-      handle(error)
+  public func raise(error: ModelTreeError) {
+    if isRegistered(for: error) {
+      handle(error: error)
     } else {
-      parent?.raise(error)
+      parent?.raise(error: error)
     }
   }
   
   //Override to achieve custom behavior
   
-  public func handle(error: Error) {
+  public func handle(error: ModelTreeError) {
     errorSignal.sendNext(error)
   }
   
   //Global events
   
-  private var registeredGlobalEvents = Set<String>()
+  fileprivate var registeredGlobalEvents = Set<String>()
   
-  public final func registerFor(globalEvent: GlobalEventName) {
+  public final func register(for globalEvent: GlobalEventName) {
     registeredGlobalEvents.insert(globalEvent.rawValue)
   }
   
-  public final func unregisterFrom(globalEvent: GlobalEventName) {
+  public final func unregister(from globalEvent: GlobalEventName) {
     registeredGlobalEvents.remove(globalEvent.rawValue)
   }
   
-  public final func isRegisteredFor(globalEvent: GlobalEventName) -> Bool {
+  public final func isRegistered(for globalEvent: GlobalEventName) -> Bool {
     return registeredGlobalEvents.contains(globalEvent.rawValue)
   }
   
@@ -174,14 +175,14 @@ public class Model {
     withObject object: Any? = nil,
     userInfo: [String: Any] = [:]) {
     let event = GlobalEvent(name: globalEvent, object: object, userInfo: userInfo)
-    session.propagate(event)
+    session.propagate(globalEvent: event)
   }
   
   private func propagate(globalEvent: GlobalEvent) {
-    if isRegisteredFor(globalEvent.name) {
-      handle(globalEvent)
+    if isRegistered(for: globalEvent.name) {
+      handle(globalEvent: globalEvent)
     }
-    childModels.forEach { $0.propagate(globalEvent) }
+    childModels.forEach { $0.propagate(globalEvent: globalEvent) }
   }
   
   public func handle(globalEvent: GlobalEvent) {}
@@ -208,50 +209,47 @@ extension Model {
     case ErrorsVerbous
   }
   
-  public final func printSubtree(params: [TreeInfoOptions] = []) {
+  public final func printSubtree(withParams params: [TreeInfoOptions] = []) {
     print("\n")
-    printTreeLevel("", params: params)
+    printTreeLevel(level: 0, params: params)
     print("\n")
   }
   
   public final func printSessionTree(withOptions params: [TreeInfoOptions] = []) {
-    session.printSubtree(params)
+    session.printSubtree(withParams: params)
   }
   
-  private enum ModelPosition: String {
-    case NotLast = "├─"
-    case Last = "└─"
-  }
-  
-  private func printTreeLevel(prefix: String, position: ModelPosition = .Last, params: [TreeInfoOptions] = []) {
-    let space = prefix.isEmpty ? "" : ""
-    var structurePrefix = prefix
-    let nextLinePrefix = prefix + (position == .Last ? "    " : "│   ")
-    structurePrefix += prefix.isEmpty ? "" : space + position.rawValue
+  private func printTreeLevel(level: Int, params: [TreeInfoOptions] = []) {
+    var output = "|"
+    let indent = "  |"
+    
+    for _ in 0..<level {
+      output += indent
+    }
 
-    var output = structurePrefix + " \(String(self).componentsSeparatedByString(".").last!)"
-
+    output += "\(String(describing: self).components(separatedBy: ".").last!)"
+    
     if params.contains(.Representation) && representationDeinitDisposable != nil {
-      output += "  / (R)"
+      output += "  | (R)"
     }
     
     if params.contains(.GlobalEvents) && !registeredGlobalEvents.isEmpty {
-      output += "  / (E):"
+      output += "  | (E):"
       registeredGlobalEvents.forEach { output += " \($0)" }
     }
     
     if params.contains(.BubbleNotifications) && !registeredBubbles.isEmpty {
-      output += "  / (B):"
+      output += "  | (B):"
       registeredBubbles.forEach { output += " \($0)" }
     }
     
     if params.contains(.ErrorsVerbous) && !registeredErrors.isEmpty {
-      output += "  / (Err): "
+      output += "  | (Err): "
       for (domain, codes) in registeredErrors {
         codes.forEach { output += "[\(NSLocalizedString("\(domain).\($0)", comment: ""))] " }
       }
     } else if params.contains(.Errors) && !registeredErrors.isEmpty {
-      output += "  / (Err): "
+      output += "  | (Err): "
       for (domain, codes) in registeredErrors {
         output += "\(domain) > "
         codes.forEach { output += "\($0) " }
@@ -260,18 +258,8 @@ extension Model {
 
     print(output)
     
-    let sortedModels = childModels.sort { return $0.timeStamp.compare($1.timeStamp) == .OrderedDescending }
-    
-    sortedModels.forEach {
-      var position: ModelPosition = .NotLast
-      if sortedModels.last == $0 {
-        position = .Last
-      } else if sortedModels.first == $0 {
-        position = .NotLast
-      }
-    
-      $0.printTreeLevel(nextLinePrefix, position: position,  params:  params)
-    }
+    childModels.sorted { return $0.timeStamp.compare($1.timeStamp as Date) == .orderedAscending }.forEach { $0.printTreeLevel(level: level + 1, params:  params) }
+
   }
   
 }

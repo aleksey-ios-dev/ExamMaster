@@ -10,7 +10,7 @@ import Foundation
 
 private class KeyValueObserver: NSObject {
   
-  typealias ObservingAction = Any? -> Void
+  typealias ObservingAction = (Any?) -> Void
   
   private weak var object: NSObject!
   private var blocks = [String: ObservingAction]()
@@ -23,12 +23,12 @@ private class KeyValueObserver: NSObject {
   }
   
   //TODO: owner required
-  private func _signalForKeyPath<T>(keyPath: String, owner: DeinitObservable) -> Observable<T?> {
+  fileprivate func _signalForKeyPath<T>(keyPath: String, owner: DeinitObservable) -> Observable<T?> {
     var signal = signals[keyPath]
     if signal == nil {
       signal = Observable<T?>()
       signals[keyPath] = signal
-      startObservingKey(keyPath)
+      startObservingKey(key: keyPath)
       
       blocks[keyPath] = { value in
         let castedSignal = signal as! Observable<T?>
@@ -45,22 +45,22 @@ private class KeyValueObserver: NSObject {
         for keyPath in _self.signals.keys {
           _self.object.removeObserver(_self, forKeyPath: keyPath, context: &_self.context)
         }
-      }.putInto(pool)
+      }.put(into: pool)
     }
     
     return signal as! Observable<T?>
   }
   
   private func startObservingKey(key: String) {
-    object.addObserver(self, forKeyPath: key, options: [.New, .Initial], context: &context)
+    object.addObserver(self, forKeyPath: key, options: [.new, .initial], context: &context)
   }
   
-  override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+  override private func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
     if context != &self.context { return }
     
     guard let keyPath = keyPath, let change = change else { return }
     
-    if let value = change[NSKeyValueChangeNewKey] {
+    if let value = change[NSKeyValueChangeKey.newKey] {
       blocks[keyPath]?(value)
     }
   }
@@ -74,7 +74,7 @@ extension NSObject {
   }
   
   public func signalForKeyPath<T>(key: String, owner: DeinitObservable) -> Observable<T?> {
-    return keyValueObserver._signalForKeyPath(key, owner: owner)
+    return keyValueObserver._signalForKeyPath(keyPath: key, owner: owner)
   }
   
   private var keyValueObserver: KeyValueObserver {

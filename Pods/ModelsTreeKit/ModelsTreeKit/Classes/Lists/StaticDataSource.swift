@@ -29,11 +29,11 @@ public class StaticDataSource<ObjectType> : ObjectsDataSource<ObjectType> {
     return sections.count
   }
   
-  override func numberOfObjectsInSection(section: Int) -> Int {
+  override func numberOfObjects(inSection section: Int) -> Int {
     return sections[section].objects.count
   }
   
-  override func objectAtIndexPath(indexPath: NSIndexPath) -> ObjectType? {
+  override func object(at indexPath: IndexPath) -> ObjectType {
     return sections[indexPath.section].objects[indexPath.row]
   }
   

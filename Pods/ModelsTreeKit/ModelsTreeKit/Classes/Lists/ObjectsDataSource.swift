@@ -9,7 +9,7 @@ public class ObjectsDataSource<ObjectType> {
   
   let beginUpdatesSignal = Pipe<Void>()
   let endUpdatesSignal = Pipe<Void>()
-  let didChangeObjectSignal = Pipe<(object: ObjectType, changeType: ListChangeType, fromIndexPath: NSIndexPath?, toIndexPath: NSIndexPath?)>()
+  let didChangeObjectSignal = Pipe<(object: ObjectType, changeType: ListChangeType, fromIndexPath: IndexPath?, toIndexPath: IndexPath?)>()
   let didChangeSectionSignal = Pipe<(changeType: ListChangeType, fromIndex: Int?, toIndex: Int?)>()
   let reloadDataSignal = Pipe<Void>()
   
@@ -17,12 +17,12 @@ public class ObjectsDataSource<ObjectType> {
     return 0
   }
   
-  func numberOfObjectsInSection(section: Int) -> Int {
+  func numberOfObjects(inSection section: Int) -> Int {
     return 0
   }
   
-  func objectAtIndexPath(indexPath: NSIndexPath) -> ObjectType? {
-    return nil
+  func object(at indexPath: IndexPath) -> ObjectType {
+    fatalError()
   }
   
 }

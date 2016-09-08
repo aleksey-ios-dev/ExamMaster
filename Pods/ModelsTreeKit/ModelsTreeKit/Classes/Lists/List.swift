@@ -14,10 +14,10 @@ enum ListChangeType {
   
 }
 
-public class List<T where T: Hashable, T: Equatable>: Model {
+public class List<T>: Model where T: Hashable, T: Equatable {
   
-  public typealias FetchCompletionBlock = (success: Bool, response: [T]?, error: Error?) -> Void
-  public typealias FetchBlock = (completion: FetchCompletionBlock, offset: Int) -> NSOperation?
+  public typealias FetchCompletionBlock = (_ success: Bool, _ response: [T]?, _ error: Error?) -> Void
+  public typealias FetchBlock = (_ completion: FetchCompletionBlock, _ offset: Int) -> Operation?
   
   let beginUpdatesSignal = Pipe<Void>()
   let endUpdatesSignal = Pipe<Void>()
@@ -29,7 +29,7 @@ public class List<T where T: Hashable, T: Equatable>: Model {
   private var fetchBlock: FetchBlock?
   private var updatesPool = UpdatesPool<T>()
   
-  private weak var fetchOperation: NSOperation?
+  private weak var fetchOperation: Operation?
   
   deinit {
     fetchOperation?.cancel()
@@ -47,9 +47,17 @@ public class List<T where T: Hashable, T: Equatable>: Model {
     self.fetchBlock = fetchBlock
   }
   
-  public func performUpdates(@autoclosure updates: Void -> Void ) {
-    beginUpdatesSignal.sendNext()
+  public func performUpdates(_ updates: @autoclosure (Void) -> Void ) {
+    beginUpdates()
     updates()
+    endUpdates()
+  }
+  
+  internal func beginUpdates() {
+    beginUpdatesSignal.sendNext()
+  }
+  
+  internal func endUpdates() {
     applyChanges()
     pushUpdates()
     updatesPool.drain()
@@ -60,58 +68,57 @@ public class List<T where T: Hashable, T: Equatable>: Model {
   
   public func delete(objects: [T]) {
     if objects.isEmpty { return }
-    updatesPool.deletions.unionInPlace(Set(objects))
+    updatesPool.deletions.formUnion(Set(objects))
   }
   
   public func insert(objects: [T]) {
     if objects.isEmpty { return }
-    updatesPool.insertions.unionInPlace(Set(objects))
+    updatesPool.insertions.formUnion(Set(objects))
   }
   
   //Call outside the batch update block. Informs subscriber that data should be reloaded
   //To perform batch-based replacement use removeAllObjects() and insert() methods within the batch update block
   
-  public func replaceWith(objects: [T]) {
+  public func replace(with objects: [T]) {
     self.objects = Set(objects)
     didReplaceContentSignal.sendNext(self.objects)
   }
   
   public func reset() {
-    replaceWith([])
+    replace(with: [])
   }
   
   public func removeAllObjects() {
-    delete(Array(objects))
+    delete(objects: Array(objects))
   }
   
   //Fetch objects
   
   public func getNext() {
-    getNextOffset(objects.count)
+    getNext(offset: objects.count)
   }
   
-  public func didFinishFetchingObjects() {
-  }
+  public func didFinishFetchingObjects() {}
   
   //Private
   
-  private func getNextOffset(offset: Int) {
+  private func getNext(offset: Int = 0) {
     fetchOperation?.cancel()
     let completion: FetchCompletionBlock = {[weak self] success, response, error in
       if let response = response {
         guard let strongSelf = self else { return }
-        strongSelf.performUpdates(strongSelf.insert(response))
+        strongSelf.performUpdates(strongSelf.insert(objects: response))
       }
       self?.didFinishFetchingObjects()
     }
-    fetchOperation = fetchBlock?(completion: completion, offset: offset)
+    fetchOperation = fetchBlock?(completion, offset)
   }
   
   private func applyChanges() {
-    updatesPool.optimizeFor(objects)
-    objects.unionInPlace(updatesPool.insertions)
-    objects.unionInPlace(updatesPool.updates)
-    objects.subtractInPlace(updatesPool.deletions)
+    updatesPool.optimize(for: objects)
+    objects.formUnion(updatesPool.insertions)
+    objects.formUnion(updatesPool.updates)
+    objects.subtract(updatesPool.deletions)
   }
   
   private func pushUpdates() {
@@ -124,16 +131,16 @@ public class List<T where T: Hashable, T: Equatable>: Model {
   
 }
 
-internal class UpdatesPool<T where T: protocol <Hashable, Equatable>> {
+internal class UpdatesPool<T> where T: Hashable & Equatable {
   
-  private(set) var insertions = Set<T>()
-  private(set) var deletions = Set<T>()
-  private(set) var updates = Set<T>()
+  var insertions = Set<T>()
+  var deletions = Set<T>()
+  var updates = Set<T>()
   
-  func addObjects(objects: [T], forChangeType changeType: ListChangeType) {
+  func add(_ objects: [T], forChangeType changeType: ListChangeType) {
     switch changeType {
-    case .Insertion: insertions.unionInPlace(objects)
-    case .Deletion: deletions.unionInPlace(objects)
+    case .Insertion: insertions.formUnion(objects)
+    case .Deletion: deletions.formUnion(objects)
     default: break
     }
   }
@@ -144,17 +151,17 @@ internal class UpdatesPool<T where T: protocol <Hashable, Equatable>> {
     updates = []
   }
   
-  func optimizeFor(objects: Set<T>) {
+  func optimize(for objects: Set<T>) {
     optimizeDuplicatingEntries()
-    updates.unionInPlace(objects.intersect(insertions))
-    insertions.subtractInPlace(updates)
-    deletions.intersectInPlace(objects)
+    updates.formUnion(objects.intersection(insertions))
+    insertions.subtract(updates)
+    deletions.formIntersection(objects)
   }
   
   func optimizeDuplicatingEntries() {
-    let commonObjects = insertions.intersect(deletions)
-    insertions.subtractInPlace(commonObjects)
-    deletions.subtractInPlace(commonObjects)
+    let commonObjects = insertions.intersection(deletions)
+    insertions.subtract(commonObjects)
+    deletions.subtract(commonObjects)
   }
   
 }

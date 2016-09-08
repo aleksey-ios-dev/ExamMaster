@@ -784,6 +784,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = AC.ExamMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRC_ROOT)BridgingHeader.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -797,6 +798,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = AC.ExamMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRC_ROOT)BridgingHeader.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -13,17 +13,19 @@ public extension Signal {
   //Binds value for keypath of object to signal. Unsubscribes on object deallocation,
   //or earlier if you handle subscrition manually
   
-  public func bindTo(keyPath keyPath: String, of object: NSObject) -> Disposable {
+  @discardableResult
+  public func bind(toKeyPath keyPath: String, of object: NSObject) -> Disposable {
     
     return subscribeNext { [weak object] in
-      if let value = $0 as? AnyObject, let object = object {
-        object.setValue(value, forKey: keyPath)
+      if let object = object {
+        object.setValue($0, forKey: keyPath)
       }
-    }.takeUntil(object.deinitSignal)
+      }.take(until: object.deinitSignal)
   }
   
   //Binds values passed by source signal to target observable. Subscription disposed manually.
   
+  @discardableResult
   public func bindTo(observable: Observable<T>) -> Disposable {
 
     return subscribeNext { [weak observable] in

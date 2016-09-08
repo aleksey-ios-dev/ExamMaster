@@ -11,19 +11,19 @@ import Foundation
 
 public protocol RootRepresentationRouter {
   
-  func representationFor(session session: Session) -> AnyObject;
+  func representation(for session: Session) -> AnyObject;
   
 }
 
 public protocol RootModelRouter {
   
-  func modelFor(session session: Session) -> Model;
+  func model(for session: Session) -> Model;
   
 }
 
 public protocol RootNavigationManager {
   
-  func showRootRepresentation(representation: AnyObject) -> Void
+  func show(rootRepresentation: AnyObject) -> Void
   
 }
 

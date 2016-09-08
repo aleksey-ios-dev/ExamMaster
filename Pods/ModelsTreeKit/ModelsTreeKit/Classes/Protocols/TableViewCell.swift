@@ -11,12 +11,12 @@ import UIKit
 
 public protocol HeightCalculatingCell {
   
-  func heightFor(object: Any?, width: CGFloat) -> CGFloat
+  func height(for object: Any?, width: CGFloat) -> CGFloat
   
 }
 
 public protocol SizeCalculatingCell {
   
-  func sizeFor(object: Any?) -> CGSize
+  func size(for object: Any?) -> CGSize
   
 }
