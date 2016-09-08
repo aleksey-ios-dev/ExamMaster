@@ -41,7 +41,7 @@ open class List<T>: Model where T: Hashable, T: Equatable {
     objects = Set(array)
   }
   
-  public init(parent: Model?, fetchBlock: FetchBlock) {
+  public init(parent: Model?, fetchBlock: @escaping FetchBlock) {
     super.init(parent: parent)
     
     self.fetchBlock = fetchBlock

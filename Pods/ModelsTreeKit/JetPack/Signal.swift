@@ -10,7 +10,7 @@ import Foundation
 
 infix operator >>> : MultiplicationPrecedence
 
-public func >>><T> (signal: Signal<T>, handler: ((T) -> Void)) -> Disposable {
+public func >>><T> (signal: Signal<T>, handler: @escaping ((T) -> Void)) -> Disposable {
   return signal.subscribeNext(handler)
 }
 
@@ -46,14 +46,14 @@ public class Signal<T> {
   
   //Adds handler to signal and returns subscription
   
-  public func subscribeNext(_ handler: SignalHandler) -> Disposable {
+  public func subscribeNext(_ handler: @escaping SignalHandler) -> Disposable {
     let wrapper = Subscription(handler: handler, signal: self)
     nextHandlers.append(wrapper)
     
     return wrapper
   }
   
-  public func subscribeCompleted(_ handler: StateHandler) -> Disposable {
+  public func subscribeCompleted(_ handler: @escaping StateHandler) -> Disposable {
     let wrapper = Subscription(handler: nil, signal: self)
     wrapper.stateHandler = handler
     completedHandlers.append(wrapper)

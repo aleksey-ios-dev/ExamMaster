@@ -10,11 +10,11 @@ import Foundation
 
 extension Signal {
   
-  public func filterValid(with validator: ((T) -> Bool)) -> Signal<T> {
+  public func filterValid(with validator: @escaping ((T) -> Bool)) -> Signal<T> {
     return self.filter { validator($0) }
   }
   
-  public func mapValid(with validator: ((T) -> Bool)) -> Signal<Bool> {
+  public func mapValid(with validator: @escaping ((T) -> Bool)) -> Signal<Bool> {
     return self.map { validator($0) }
   }
   

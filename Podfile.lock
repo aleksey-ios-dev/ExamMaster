@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ModelsTreeKit:
-    :commit: dba31d674229340566877db3d04c714f43a08784
+    :commit: 813e52cb1c8ba6732c3fbbf047c3b8ac96c9a778
     :git: git://github.com/mmrmmlrr/ModelsTreeKit
 
 SPEC CHECKSUMS:

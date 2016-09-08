@@ -10,19 +10,19 @@ import UIKit
 
 public typealias StringValidator = ((String) -> Bool)
 
-public func && (left: StringValidator, right: StringValidator) -> StringValidator {
+public func && (left: @escaping StringValidator, right: @escaping StringValidator) -> StringValidator {
   return { left($0) && right($0) }
 }
 
-public func || (left: StringValidator, right: StringValidator) -> StringValidator {
+public func || (left: @escaping StringValidator, right: @escaping StringValidator) -> StringValidator {
   return { left($0) || right($0) }
 }
 
-public func != (left: StringValidator, right: StringValidator) -> StringValidator {
+public func != (left: @escaping StringValidator, right: @escaping StringValidator) -> StringValidator {
   return { left($0) != right($0) }
 }
 
-public prefix func ! (left: StringValidator) -> StringValidator {
+public prefix func ! (left: @escaping StringValidator) -> StringValidator {
   return { !left($0) }
 }
 

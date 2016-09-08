@@ -12,7 +12,7 @@ import ModelsTreeKit
 typealias AuthorizationCompletion = (_ params: SessionCompletionParams?, _ error: ModelTreeError?) -> Void
 
 class AuthorizationClient: Service {
-  func authorize(with info: AuthorizationInfo, completion: AuthorizationCompletion) -> Void {
+  func authorize(with info: AuthorizationInfo, completion: @escaping AuthorizationCompletion) -> Void {
     let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
     DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
       var params = SessionCompletionParams()
