@@ -60,7 +60,7 @@ public class SessionController {
     get {
       guard let key = userDefaults.valueForKey(configuration.keychainAccessKey) as? String else { return nil }
       do { return try archivedUserSessionForKey(key) }
-      catch {fatalError() }
+      catch { fatalError() }
       
       return nil
     }

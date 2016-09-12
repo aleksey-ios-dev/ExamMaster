@@ -17,7 +17,7 @@ class APIClient: Service {
       completion(subjects: ["Math", "Chemistry", "History", "Physics (for bad response)", "English (for bad token)"], error: nil)
     }
   }
-  
+
   func fetchTopicsForSubject(subject: Subject, completion: (topics: [Subject]?, error: Error?) -> Void) -> Void {
     let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
     

@@ -19,7 +19,7 @@ class LoginFlow: Model {
   override init(parent: Model?) {
     super.init(parent: parent)
     
-    registerFor(ApplicationError.OnlyLettersInputAllowed)
+    register(for: ApplicationError.OnlyLettersInputAllowed)
   }
   
   let authorizationProgressSignal = Pipe<Bool>()

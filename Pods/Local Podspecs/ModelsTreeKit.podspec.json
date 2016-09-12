@@ -18,5 +18,5 @@
   "frameworks": [
     "UIKit"
   ],
-  "source_files": "**/*.*"
+  "source_files": "**/*.{m,h,mm,hpp,cpp,c,swift}"
 }

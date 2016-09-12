@@ -19,7 +19,7 @@ class SideMenuModel: Model {
   
   override init(parent: Model?) {
     super.init(parent: parent)
-    registerFor(AppEvent.ExamCreated)
+    register(for: AppEvent.ExamCreated)
     applyInitialState()
   }
   

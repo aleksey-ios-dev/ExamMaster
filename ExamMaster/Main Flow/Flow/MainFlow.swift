@@ -27,8 +27,8 @@ class MainFlow: Model {
   override init(parent: Model?) {
     super.init(parent: parent)
     
-    registerFor(BubbleNotification.MainFlow.ShowSideMenu)
-    registerFor(AppEvent.StartExam)
+    register(for: BubbleNotification.MainFlow.ShowSideMenu)
+    register(for: AppEvent.StartExam)
   }
   
   override func handle(globalEvent: GlobalEvent) {

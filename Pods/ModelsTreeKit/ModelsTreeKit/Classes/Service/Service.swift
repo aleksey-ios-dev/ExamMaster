@@ -7,7 +7,7 @@ import Foundation
 
 public class Service {
   
-  public let locator: ServiceLocator
+  private unowned var locator: ServiceLocator
   
   public init(locator: ServiceLocator) {
     self.locator = locator

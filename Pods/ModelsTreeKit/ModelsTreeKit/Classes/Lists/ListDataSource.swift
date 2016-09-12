@@ -125,66 +125,66 @@ GroupKeyType: Hashable, GroupKeyType: Comparable>: ObjectsDataSource<ObjectType>
     deletions: Set<ObjectType>,
     updates: Set<ObjectType>,
     oldSections: Sections) {
-    
-    //Objects
-    
-    for object in insertions {
-      didChangeObjectSignal.sendNext((
-        object: object,
-        changeType: .Insertion,
-        fromIndexPath: nil,
-        toIndexPath: indexPathFor(object, inSections: sections))
-      )
-    }
-    
-    for object in deletions {
-      didChangeObjectSignal.sendNext((
-        object: object,
-        changeType: .Deletion,
-        fromIndexPath: indexPathFor(object, inSections: oldSections),
-        toIndexPath: nil)
-      )
-    }
-    
-    for object in updates {
-      guard
-        let oldIndexPath = indexPathFor(object, inSections: oldSections),
-        let newIndexPath = indexPathFor(object, inSections: oldSections)
-        else {
-          continue
-      }
       
-      let changeType: ListChangeType = oldIndexPath == newIndexPath ? .Update : .Move
+      //Objects
       
-      didChangeObjectSignal.sendNext((
-        object: object,
-        changeType: changeType,
-        fromIndexPath: oldIndexPath,
-        toIndexPath: newIndexPath)
-      )
-    }
-    
-    //Sections
-    
-    for (index, section) in oldSections.enumerate() {
-      if sections.filter({ return $0.key == section.key }).isEmpty {
-        didChangeSectionSignal.sendNext((
-          changeType: .Deletion,
-          fromIndex: index,
-          toIndex: nil)
-        )
-      }
-    }
-    
-    for (index, section) in sections.enumerate() {
-      if oldSections.filter({ return $0.key == section.key }).isEmpty {
-        didChangeSectionSignal.sendNext((
+      for object in insertions {
+        didChangeObjectSignal.sendNext((
+          object: object,
           changeType: .Insertion,
-          fromIndex: nil,
-          toIndex: index)
+          fromIndexPath: nil,
+          toIndexPath: indexPathFor(object, inSections: sections))
         )
       }
-    }
+      
+      for object in deletions {
+        didChangeObjectSignal.sendNext((
+          object: object,
+          changeType: .Deletion,
+          fromIndexPath: indexPathFor(object, inSections: oldSections),
+          toIndexPath: nil)
+        )
+      }
+      
+      for object in updates {
+        guard
+          let oldIndexPath = indexPathFor(object, inSections: oldSections),
+          let newIndexPath = indexPathFor(object, inSections: oldSections)
+          else {
+            continue
+        }
+        
+        let changeType: ListChangeType = oldIndexPath == newIndexPath ? .Update : .Move
+        
+        didChangeObjectSignal.sendNext((
+          object: object,
+          changeType: changeType,
+          fromIndexPath: oldIndexPath,
+          toIndexPath: newIndexPath)
+        )
+      }
+      
+      //Sections
+      
+      for (index, section) in oldSections.enumerate() {
+        if sections.filter({ return $0.key == section.key }).isEmpty {
+          didChangeSectionSignal.sendNext((
+            changeType: .Deletion,
+            fromIndex: index,
+            toIndex: nil)
+          )
+        }
+      }
+      
+      for (index, section) in sections.enumerate() {
+        if oldSections.filter({ return $0.key == section.key }).isEmpty {
+          didChangeSectionSignal.sendNext((
+            changeType: .Insertion,
+            fromIndex: nil,
+            toIndex: index)
+          )
+        }
+      }
   }
   
   private func indexPathFor(object: ObjectType, inSections sections: Sections) -> NSIndexPath? {

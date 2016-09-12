@@ -48,8 +48,16 @@ public class List<T where T: Hashable, T: Equatable>: Model {
   }
   
   public func performUpdates(@autoclosure updates: Void -> Void ) {
-    beginUpdatesSignal.sendNext()
+    beginUpdates()
     updates()
+    endUpdates()
+  }
+  
+  internal func beginUpdates() {
+      beginUpdatesSignal.sendNext()
+  }
+  
+  internal func endUpdates() {
     applyChanges()
     pushUpdates()
     updatesPool.drain()

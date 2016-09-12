@@ -10,11 +10,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ModelsTreeKit:
-    :commit: f4192da1bc9c1c9365c3519ccba9d670761c54a6
+    :commit: dc9cd741be8b40374847687ba59e2f1837693fc5
     :git: git://github.com/mmrmmlrr/ModelsTreeKit
 
 SPEC CHECKSUMS:
-  ModelsTreeKit: 341ac1e1774a6f5f28c64141326006bb26f20804
+  ModelsTreeKit: bc2fbabd45f1cb61578bd75862b0c436a996cd5d
 
 PODFILE CHECKSUM: 5e876135161ef273e710bc0652ab3cdc0b96d2c2
 
