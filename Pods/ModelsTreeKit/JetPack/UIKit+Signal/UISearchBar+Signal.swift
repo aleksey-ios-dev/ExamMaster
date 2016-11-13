@@ -9,6 +9,14 @@
 import UIKit
 
 extension UISearchBar {
-  func textSignal() {
+  
+  public func textSignal() -> Observable<String>? {
+    for subview in flatSubviews() {
+      if let textField = subview as? UITextField {
+        return textField.textSignal
+      }
+    }
+    return nil
   }
+  
 }

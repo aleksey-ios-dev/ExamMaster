@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class FetchedResultsList<T where T: Hashable, T: Equatable>: List<T> {
+class FetchedResultsList<T where T: Hashable, T: Equatable>: UnorderedList<T> {
   
   private let listener: FetchedResultsControllerListener
   

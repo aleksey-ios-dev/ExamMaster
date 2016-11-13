@@ -2,20 +2,21 @@ PODS:
   - ModelsTreeKit (1.0.0)
 
 DEPENDENCIES:
-  - ModelsTreeKit (from `git://github.com/mmrmmlrr/ModelsTreeKit`)
+  - ModelsTreeKit (from `git://github.com/mmrmmlrr/ModelsTreeKit`, commit `cc74cde`)
 
 EXTERNAL SOURCES:
   ModelsTreeKit:
+    :commit: cc74cde
     :git: git://github.com/mmrmmlrr/ModelsTreeKit
 
 CHECKOUT OPTIONS:
   ModelsTreeKit:
-    :commit: dc9cd741be8b40374847687ba59e2f1837693fc5
+    :commit: cc74cde
     :git: git://github.com/mmrmmlrr/ModelsTreeKit
 
 SPEC CHECKSUMS:
   ModelsTreeKit: bc2fbabd45f1cb61578bd75862b0c436a996cd5d
 
-PODFILE CHECKSUM: 5e876135161ef273e710bc0652ab3cdc0b96d2c2
+PODFILE CHECKSUM: 3e8045d9a8475d3caed8056b9c6be1fecfdfa617
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.0.beta.1

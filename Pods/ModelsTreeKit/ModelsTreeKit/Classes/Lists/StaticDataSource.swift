@@ -5,19 +5,23 @@
 
 import Foundation
 
-public struct StaticObjectsSection<U> {
+public class StaticObjectsSection<U>: CustomStringConvertible {
   
-  var title: String?
-  var objects: [U]
+  public private(set) var title: String?
+  public var objects: [U]
   
   public init(title: String?, objects: [U]) {
     self.title = title
     self.objects = objects
   }
   
+  public var description: String {
+    return String(StaticObjectsSection) + ", title: \(title)" + ", objects: \(objects)"
+  }
+  
 }
 
-public class StaticDataSource<ObjectType> : ObjectsDataSource<ObjectType> {
+public class StaticDataSource<ObjectType where ObjectType: Equatable, ObjectType: Hashable> : ObjectsDataSource<ObjectType> {
   
   public override init() { }
   
@@ -35,6 +39,24 @@ public class StaticDataSource<ObjectType> : ObjectsDataSource<ObjectType> {
   
   override func objectAtIndexPath(indexPath: NSIndexPath) -> ObjectType? {
     return sections[indexPath.section].objects[indexPath.row]
+  }
+  
+  public func indexPath(forObject object: ObjectType) -> NSIndexPath {
+    var objectRow = 0
+    var objectSection = 0
+    
+    for (index, section) in sections.enumerate() {
+      if section.objects.contains(object) {
+        objectSection = index
+        objectRow = section.objects.indexOf(object)!
+      }
+    }
+    
+    return NSIndexPath(forRow: objectRow, inSection: objectSection) 
+  }
+  
+  override func titleForSection(atIndex sectionIndex: Int) -> String? {
+    return sections[sectionIndex].title
   }
   
 }

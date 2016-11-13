@@ -9,18 +9,18 @@
 import Foundation
 import ModelsTreeKit
 
-enum NetworkError: Int, ErrorCode {
+enum NetworkError: String, ErrorCode {
   
   static var domain = "NetworkErrors"
   
-  case BadResponse = 100
-  case BadToken = 101
+  case BadResponse = "100"
+  case BadToken = "101"
   
 }
 
-enum ApplicationError: Int, ErrorCode {
+enum ApplicationError: String, ErrorCode {
   
   static var domain = "ApplicationErrors"
   
-  case OnlyLettersInputAllowed = 100
+  case OnlyLettersInputAllowed = "100"
 }

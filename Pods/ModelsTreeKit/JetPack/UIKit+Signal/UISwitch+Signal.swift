@@ -12,7 +12,7 @@ extension UISwitch {
   
   public var onSignal: Observable<Bool> {
     get {
-      let observable = Observable<Bool>(value: on)
+      let observable = Observable<Bool>(on)
       signalForControlEvents(.ValueChanged).map { ($0 as! UISwitch).on }.bindTo(observable)
       
       return observable

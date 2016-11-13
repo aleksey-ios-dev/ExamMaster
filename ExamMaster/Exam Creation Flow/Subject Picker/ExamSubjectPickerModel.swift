@@ -11,10 +11,10 @@ import ModelsTreeKit
 
 typealias Subject = String
 
-class ExamSubjectPickerModel: List<String> {
+class ExamSubjectPickerModel: UnorderedList<String> {
   
   let title = "Subject"
-  let progressSignal = Observable<Bool>()
+  let progressSignal = Observable(false)
   
   private weak var flowModel: ExamCreationFlow!
   
@@ -44,7 +44,9 @@ class ExamSubjectPickerModel: List<String> {
         return
       }
       
-      _self.performUpdates(_self.insert(subjects!))
+      _self.performUpdates {
+        $0.insert(subjects!)
+      }
     }
   }
   

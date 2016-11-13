@@ -28,7 +28,7 @@ public class Model {
     representationDeinitDisposable?.dispose()
   }
   
-  public init(parent: Model?) {
+  public required init(parent: Model?) {
     self.parent = parent
     parent?.addChild(self)
   }
@@ -40,7 +40,7 @@ public class Model {
   public func applyRepresentation(representation: DeinitObservable) {
     representationDeinitDisposable = representation.deinitSignal.subscribeNext { [weak self] _ in
       self?.parent?.removeChild(self!)
-    }.autodispose()
+      }.autodispose()
   }
   
   //Lifecycle
@@ -111,7 +111,7 @@ public class Model {
   //Errors
   
   //TODO: extensions
-  private var registeredErrors = [String: Set<Int>]()
+  private var registeredErrors = [String: Set<String>]()
   
   public final func register(for error: ErrorCode) {
     var allCodes = registeredErrors[error.dynamicType.domain] ?? []
@@ -172,7 +172,7 @@ public class Model {
   public final func raise(
     globalEvent: GlobalEventName,
     withObject object: Any? = nil,
-    userInfo: [String: Any] = [:]) {
+               userInfo: [String: Any] = [:]) {
     let event = GlobalEvent(name: globalEvent, object: object, userInfo: userInfo)
     session.propagate(event)
   }
@@ -206,27 +206,49 @@ extension Model {
     case BubbleNotifications
     case Errors
     case ErrorsVerbous
+    case YouAreHere
   }
   
   public final func printSubtree(params: [TreeInfoOptions] = []) {
+    _printSubtree(params, sender: self)
+  }
+  
+  private func _printSubtree(params: [TreeInfoOptions] = [], sender: Model) {
     print("\n")
-    printTreeLevel(0, params: params)
+    printTree(withPrefix: nil, decoration: .EntryPoint, params: params, sender: sender)
     print("\n")
   }
   
   public final func printSessionTree(withOptions params: [TreeInfoOptions] = []) {
-    session.printSubtree(params)
+    session._printSubtree(params, sender: self)
   }
   
-  private func printTreeLevel(level: Int, params: [TreeInfoOptions] = []) {
-    var output = "|"
-    let indent = "  |"
+  private enum NodDecoration: String {
+    case EntryPoint = "──"
+    case Middle = "├─"
+    case Last = "└─"
+  }
+  
+  private func printTree(withPrefix prefix: String?, decoration: NodDecoration, params: [TreeInfoOptions] = [], sender: Model) {
+    let indent = prefix == nil ? "" : "   "
     
-    for _ in 0..<level {
-      output += indent
+    let currentPrefix = (prefix ?? "") + indent
+    
+    var nextIndent = ""
+    if prefix != nil {
+      if decoration == .Last {
+        nextIndent = "   "
+      } else {
+        nextIndent = "   │"
+      }
     }
     
-    output += "\(String(self).componentsSeparatedByString(".").last!)"
+    let nextPrefix = (prefix ?? "") + nextIndent
+    
+    var output = currentPrefix + decoration.rawValue + "\(String(self).componentsSeparatedByString(".").last!)"
+    if params.contains(.YouAreHere) && sender == self {
+      output += " <- "
+    }
     
     if params.contains(.Representation) && representationDeinitDisposable != nil {
       output += "  | (R)"
@@ -254,11 +276,20 @@ extension Model {
         codes.forEach { output += "\($0) " }
       }
     }
-
     print(output)
     
-    childModels.sort { return $0.timeStamp.compare($1.timeStamp) == .OrderedAscending }.forEach { $0.printTreeLevel(level + 1, params:  params) }
-
+    let models = childModels.sort { return $0.timeStamp.compare($1.timeStamp) == .OrderedAscending }
+    
+    models.forEach {
+      var decoration: NodDecoration
+      if models.count == 1 {
+        decoration = .Last
+      } else {
+        decoration = $0 == models.last ? .Last : .Middle
+      }
+      
+      $0.printTree(withPrefix: nextPrefix, decoration: decoration, params: params, sender: sender)
+    }
   }
   
 }

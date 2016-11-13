@@ -103,6 +103,7 @@ extension SessionController: SessionDelegate {
     do {
       let uidString = loginParams[configuration.credentialsPrimaryKey.rawValue]!
       let session = try archivedUserSessionForKey(String(uidString.hash))
+      session.refresh(withParams: loginParams)
       openSession(session)
     } catch {
       openSession(sessionRouter.authorizedSessionType().init(params: loginParams))

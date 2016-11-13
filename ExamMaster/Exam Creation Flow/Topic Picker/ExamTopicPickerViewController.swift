@@ -25,19 +25,19 @@ class ExamTopicPickerViewController: UITableViewController, ModelApplicable {
   }
   
   private var adapter: TableViewAdapter<String>!
-  private var dataSource: ListDataSource<String, String>!
+  private var dataSource: UnorderedListDataAdapter<String, String>!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    dataSource = ListDataSource(list: model)
+    dataSource = UnorderedListDataAdapter(list: model)
     adapter = TableViewAdapter(dataSource: dataSource, tableView: tableView)
     
     adapter.registerCellClass(ItemCell)
     adapter.nibNameForObjectMatching = { _ in return String(ItemCell) }
     
-    adapter.didSelectCellSignal.subscribeNext { [weak self] _, object in
-      self?.model.selectTopic(object!)
+    adapter.didSelectCell.subscribeNext { [weak self] _, _, object in
+      self?.model.selectTopic(object)
     }.ownedBy(self)
     
     model.fetchTopics()

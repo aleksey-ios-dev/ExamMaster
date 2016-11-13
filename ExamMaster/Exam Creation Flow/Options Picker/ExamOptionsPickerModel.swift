@@ -11,8 +11,8 @@ import ModelsTreeKit
 
 class ExamOptionsPickerModel: Model {
   
-  let timeLimitChangeSignal = Observable<NSTimeInterval>()
-  let questionsCountChangeSignal = Observable<Int>()
+  let timeLimitChangeSignal = Observable<NSTimeInterval>(0)
+  let questionsCountChangeSignal = Observable<Int>(0)
   
   private weak var flowModel: ExamCreationFlow!
   
@@ -24,10 +24,10 @@ class ExamOptionsPickerModel: Model {
     didSet { questionsCountChangeSignal.sendNext(questionsCount) }
   }
   
-  init(parent: ExamCreationFlow?) {
+  required init(parent: Model?) {
     super.init(parent: parent)
     
-    flowModel = parent
+    flowModel = parent as! ExamCreationFlow
     applyInitialState()
   }
   

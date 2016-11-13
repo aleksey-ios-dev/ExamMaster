@@ -14,10 +14,10 @@ class AuthorizationFormModel: Model {
   let authorizationInfo = AuthorizationInfo()
   let inputValiditySignal: Observable<Bool>
 
-  let usernameSignal = Observable<String>(value: "")
-  let passwordSignal = Observable<String>(value: "")
+  let usernameSignal = Observable("")
+  let passwordSignal = Observable("")
   
-  override init(parent: Model?) {
+  required init(parent: Model?) {
     let validator = Validator.longerThan(1)
     inputValiditySignal = (usernameSignal.mapValidWith(validator) && passwordSignal.mapValidWith(validator)).observable()
     

@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  UnorderedList.swift
 //  SessionSwift
 //
 //  Created by aleksey on 15.10.15.
@@ -14,10 +14,7 @@ enum ListChangeType {
   
 }
 
-public class List<T where T: Hashable, T: Equatable>: Model {
-  
-  public typealias FetchCompletionBlock = (success: Bool, response: [T]?, error: Error?) -> Void
-  public typealias FetchBlock = (completion: FetchCompletionBlock, offset: Int) -> NSOperation?
+public class UnorderedList<T where T: Hashable, T: Equatable>: Model {
   
   let beginUpdatesSignal = Pipe<Void>()
   let endUpdatesSignal = Pipe<Void>()
@@ -26,30 +23,17 @@ public class List<T where T: Hashable, T: Equatable>: Model {
   
   public private(set) var objects = Set<T>()
   
-  private var fetchBlock: FetchBlock?
   private var updatesPool = UpdatesPool<T>()
   
-  private weak var fetchOperation: NSOperation?
-  
-  deinit {
-    fetchOperation?.cancel()
-  }
-  
-  public init(parent: Model?, array: [T] = []) {
+  public init(parent: Model?, objects: [T] = []) {
     super.init(parent: parent)
     
-    objects = Set(array)
+    self.objects = Set(objects)
   }
   
-  public init(parent: Model?, fetchBlock: FetchBlock) {
-    super.init(parent: parent)
-    
-    self.fetchBlock = fetchBlock
-  }
-  
-  public func performUpdates(@autoclosure updates: Void -> Void ) {
+  public func performUpdates(updates: UnorderedList -> Void) {
     beginUpdates()
-    updates()
+    updates(self)
     endUpdates()
   }
   
@@ -92,28 +76,10 @@ public class List<T where T: Hashable, T: Equatable>: Model {
     delete(Array(objects))
   }
   
-  //Fetch objects
-  
-  public func getNext() {
-    getNextOffset(objects.count)
-  }
-  
   public func didFinishFetchingObjects() {
   }
   
   //Private
-  
-  private func getNextOffset(offset: Int) {
-    fetchOperation?.cancel()
-    let completion: FetchCompletionBlock = {[weak self] success, response, error in
-      if let response = response {
-        guard let strongSelf = self else { return }
-        strongSelf.performUpdates(strongSelf.insert(response))
-      }
-      self?.didFinishFetchingObjects()
-    }
-    fetchOperation = fetchBlock?(completion: completion, offset: offset)
-  }
   
   private func applyChanges() {
     updatesPool.optimizeFor(objects)
@@ -134,9 +100,9 @@ public class List<T where T: Hashable, T: Equatable>: Model {
 
 internal class UpdatesPool<T where T: protocol <Hashable, Equatable>> {
   
-  private(set) var insertions = Set<T>()
-  private(set) var deletions = Set<T>()
-  private(set) var updates = Set<T>()
+  var insertions = Set<T>()
+  var deletions = Set<T>()
+  var updates = Set<T>()
   
   func addObjects(objects: [T], forChangeType changeType: ListChangeType) {
     switch changeType {
@@ -154,7 +120,7 @@ internal class UpdatesPool<T where T: protocol <Hashable, Equatable>> {
   
   func optimizeFor(objects: Set<T>) {
     optimizeDuplicatingEntries()
-    updates.unionInPlace(objects.intersect(insertions))
+    updates.unionInPlace(insertions.intersect(objects))
     insertions.subtractInPlace(updates)
     deletions.intersectInPlace(objects)
   }

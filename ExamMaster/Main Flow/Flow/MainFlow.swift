@@ -24,7 +24,7 @@ class MainFlow: Model {
   
   let showSideMenuSignal = Pipe<Void>()
   
-  override init(parent: Model?) {
+  required init(parent: Model?) {
     super.init(parent: parent)
     
     register(for: BubbleNotification.MainFlow.ShowSideMenu)

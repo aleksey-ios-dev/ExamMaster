@@ -14,12 +14,17 @@ public extension Signal {
   //or earlier if you handle subscrition manually
   
   public func bindTo(keyPath keyPath: String, of object: NSObject) -> Disposable {
-    
+
+    if let observable = self as? Observable {
+      object.setValue(observable.value as? AnyObject, forKeyPath: keyPath)
+    }
+
     return subscribeNext { [weak object] in
       if let value = $0 as? AnyObject, let object = object {
         object.setValue(value, forKey: keyPath)
       }
     }.takeUntil(object.deinitSignal)
+    
   }
   
   //Binds values passed by source signal to target observable. Subscription disposed manually.

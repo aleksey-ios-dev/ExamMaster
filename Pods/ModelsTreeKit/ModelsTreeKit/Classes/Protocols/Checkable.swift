@@ -5,10 +5,8 @@
 
 import Foundation
 
-public protocol ObjectConsuming {
+public protocol Checkable {
   
-  associatedtype ObjectType
-  
-  func applyObject(object: ObjectType) -> Void
+  var checked: Bool { get set }
   
 }

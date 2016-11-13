@@ -11,13 +11,13 @@ import ModelsTreeKit
 
 class SideMenuModel: Model {
   
-  let examsCountSignal = Observable<Int>(value: 0)
+  let examsCountSignal = Observable<Int>(0)
   
   private var examsCount = 0 {
     didSet { examsCountSignal.sendNext(examsCount) }
   }
   
-  override init(parent: Model?) {
+  required init(parent: Model?) {
     super.init(parent: parent)
     register(for: AppEvent.ExamCreated)
     applyInitialState()

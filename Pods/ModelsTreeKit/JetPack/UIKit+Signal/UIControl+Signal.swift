@@ -45,6 +45,7 @@ private class ControlSignalEmitter: NSObject {
     UIControlEvents.EditingChanged.rawValue,
     UIControlEvents.ValueChanged.rawValue,
     UIControlEvents.EditingDidEnd.rawValue,
+     UIControlEvents.EditingDidBegin.rawValue,
     UIControlEvents.EditingDidEndOnExit.rawValue,
     UIControlEvents.TouchUpInside.rawValue
   ]

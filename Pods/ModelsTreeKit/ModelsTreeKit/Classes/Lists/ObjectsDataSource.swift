@@ -25,4 +25,8 @@ public class ObjectsDataSource<ObjectType> {
     return nil
   }
   
+  func titleForSection(atIndex sectionIndex: Int) -> String? {
+    return nil
+  }
+  
 }

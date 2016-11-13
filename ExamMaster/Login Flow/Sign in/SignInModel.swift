@@ -23,6 +23,10 @@ class SignInModel: Model {
     authorizationFormModel = AuthorizationFormModel(parent: self)
   }
   
+  required init(parent: Model?) {
+    fatalError("init(parent:) has not been implemented")
+  }
+  
   func authorize() {
     flowModel.childModel(self, didSelectRegister: authorizationFormModel.authorizationInfo)
   }

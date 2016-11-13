@@ -14,25 +14,35 @@ public protocol ErrorCodesList {
   
 }
 
+public protocol ErrorContext {
+  
+  var rawValue: String { get }
+  
+}
+
 public protocol ErrorCode {
   
   static var domain: String { get }
-  var rawValue: Int { get }
+  var rawValue: String { get }
   
 }
 
 public struct Error: ErrorType {
   
   public var hashValue: Int {
-    return (code.rawValue.hashValue + domain.hashValue).hashValue
+    return (code.rawValue + domain).hashValue
   }
   
   public let domain: String
   public let code: ErrorCode
+  public let context: ErrorContext?
+  public let underlyingError: NSError?
   
-  public init(code: ErrorCode) {
+  public init(code: ErrorCode, context: ErrorContext? = nil, underlyingError: NSError? = nil) {
     self.domain = code.dynamicType.domain
     self.code = code
+    self.context = context
+    self.underlyingError = underlyingError
   }
   
   public func localizedDescription() -> String {
@@ -44,7 +54,13 @@ public struct Error: ErrorType {
   }
   
   private func descriptionString() -> String {
-    return "\(domain).\(code.rawValue)"
+    
+    var descriptionString = "\(domain).\(code.rawValue)"
+    if let context = context {
+      descriptionString += ".\(context.rawValue)"
+    }
+    
+    return descriptionString
   }
   
 }
@@ -54,5 +70,9 @@ extension Error: Hashable, Equatable {
 }
 
 public func ==(a: Error, b: Error) -> Bool {
-  return a.code.rawValue == b.code.rawValue && a.domain == b.domain
+  return a.code == b.code
+}
+
+public func ==(a: ErrorCode, b: ErrorCode) -> Bool {
+  return a.rawValue == b.rawValue && a.dynamicType.domain == b.dynamicType.domain
 }

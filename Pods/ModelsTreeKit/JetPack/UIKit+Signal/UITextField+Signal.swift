@@ -11,19 +11,22 @@ import UIKit
 extension UITextField {
   
   public var textSignal: Observable<String> {
-    let textSignal = signalForControlEvents(.EditingChanged).map { ($0 as! UITextField).text! }
+    let textSignal = signalForControlEvents(.EditingChanged).map { ($0 as! UITextField).text ?? "" }
     let textObservable = textSignal.observable()
-    let onClearSignal = sig_delegate.clearSignal.map { [weak self] in self?.text }.filter { $0 != nil }.map { $0! }
+    textObservable.value = text ?? ""
+    let onClearSignal = sig_delegate.clearSignal.map { [weak self] in self?.text ?? "" }.filter { $0 != nil }.map { $0! }
     
-    let observable = Observable<String>(value: text)
+    let observable = Observable<String>(text ?? "")
+    
+    
     Signals.merge([textObservable, onClearSignal]).bindTo(observable)
     
     return observable
   }
   
   public var editingSignal: Observable<Bool> {
-    let observable = Observable<Bool>(value: editing)
-    editingBeginSignal.map { true }.distinctLatest(editingEndSignal.map { true }).map { $0 == true && $1 == nil }.bindTo(observable)
+    let observable = Signals.merge([editingBeginSignal.map { true }, editingEndSignal.map { false }]).observable()
+    observable.value = editing
     
     return observable
   }
@@ -43,7 +46,7 @@ extension UITextField {
 }
 
 private class TextFieldDelegate: NSObject, UITextFieldDelegate {
- 
+  
   let clearSignal = Pipe<Void>()
   
   private static var DelegateHandler: Int = 0
@@ -54,6 +57,7 @@ private class TextFieldDelegate: NSObject, UITextFieldDelegate {
   
   @objc private func textFieldShouldClear(textField: UITextField) -> Bool {
     dispatch_async(dispatch_get_main_queue()) { self.clearSignal.sendNext() }
+    
     return true
   }
   

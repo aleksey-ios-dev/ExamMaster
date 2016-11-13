@@ -28,7 +28,9 @@ public extension Signal {
   
   public func map<U>(handler: T -> U) -> Signal<U> {
     var nextSignal: Signal<U>!
-    if self is Observable { nextSignal = Observable<U>() }
+    if let observableSelf = self as? Observable<T> {
+      nextSignal = Observable<U>(handler(observableSelf.value))
+    }
     else { nextSignal = Pipe<U>() }
     subscribeNext { [weak nextSignal] in nextSignal?.sendNext(handler($0)) }.putInto(nextSignal.pool)
     chainSignal(nextSignal)
@@ -38,10 +40,8 @@ public extension Signal {
   
   //Adds a condition for sending next value, doesn't change passed value type
   
-  public func filter(handler: T -> Bool) -> Signal<T> {
-    var nextSignal: Signal<T>!
-    if self is Observable { nextSignal = Observable<T>() }
-    else { nextSignal = Pipe<T>() }
+  public func filter(handler: T -> Bool) -> Pipe<T> {
+    let nextSignal = Pipe<T>()
     subscribeNext { [weak nextSignal] in
       if handler($0) { nextSignal?.sendNext($0) }
       }.putInto(nextSignal.pool)
@@ -90,6 +90,13 @@ public extension Signal {
   public func combineLatest<U>(otherSignal: Signal<U>) -> Signal<(T?, U?)> {
     let persistentSelf = observable()
     let persistentOther = otherSignal.observable()
+    if let observableSelf = self as? Observable<T> {
+      persistentSelf.value = observableSelf.value
+    }
+    
+    if let observableOther = otherSignal as? Observable<U> {
+      persistentOther.value = observableOther.value
+    }
     
     let nextSignal = Observable<(T?, U?)>()
     
@@ -106,12 +113,6 @@ public extension Signal {
     chainSignal(nextSignal)
     
     return nextSignal
-  }
-  
-  //Sends combined value when any of signals fires and both signals have last passed value
-  
-  public func combineNoNull<U>(otherSignal: Signal<U>) -> Signal<(T, U)> {
-    return combineLatest(otherSignal).filter { $0 != nil && $1 != nil }.map { ($0!, $1!) }
   }
   
   //Sends combined value every time when both signals fire at least once
@@ -131,7 +132,7 @@ public extension Signal {
       }
       
       }.map { ($0.0.0, $0.1.0)
-      }.filter { $0.0 != nil && 0.1 != nil
+      }.filter { $0.0 != nil && $0.1 != nil
       }.map { ($0.0!, $0.1!) }
     
     chainSignal(nextSignal)
@@ -167,7 +168,7 @@ public extension Signal {
       
       return ((zippedSelfValue, reducedSelf!), (zippedOtherValue, reducedOther!))
       }.map { ($0.0.0, $0.1.0)
-      }.filter { $0.0 != nil && 0.1 != nil
+      }.filter { $0.0 != nil && $0.1 != nil
       }.map { ($0.0!, $0.1!)
     }
     
@@ -181,10 +182,6 @@ public extension Signal {
   public func blockWith(blocker: Signal<Bool>) -> Signal<T> {
     let persistentBlocker = blocker.observable()
     return filter { newValue in
-      
-      guard let _ = persistentBlocker.value else {
-        return true
-      }
       return persistentBlocker.value == false
     }
   }
@@ -202,6 +199,24 @@ public extension Signal {
     chainSignal(signalB)
     
     return (signalA, signalB)
+  }
+  
+  //Skips n first values
+  
+  public func skipFirst(n: Int) -> Pipe<T> {
+    let nextSignal = Pipe<T>()
+    
+    var count = 0
+    
+    subscribeNext { [weak nextSignal] in
+      if count >= n {
+        nextSignal?.sendNext($0)
+      } else {
+        count += 1
+      }
+    }.putInto(nextSignal.pool)
+    
+    return nextSignal
   }
   
 }

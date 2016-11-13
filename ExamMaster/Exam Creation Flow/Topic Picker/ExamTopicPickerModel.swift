@@ -11,7 +11,7 @@ import ModelsTreeKit
 
 typealias Topic = String
 
-class ExamTopicPickerModel: List<Topic> {
+class ExamTopicPickerModel: UnorderedList<Topic> {
   
   let title = "Topic"
   let progressSignal = Pipe<Bool>()
@@ -43,7 +43,9 @@ class ExamTopicPickerModel: List<Topic> {
         return
       }
       
-      _self.performUpdates(_self.insert(topics!))
+      _self.performUpdates {
+        $0.insert(topics!)
+      }
     }
   }
   

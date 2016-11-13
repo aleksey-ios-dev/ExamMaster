@@ -24,6 +24,10 @@ class ExamCreationConfirmationModel: Model {
     flowModel = parent
   }
   
+  required init(parent: Model?) {
+    fatalError("init(parent:) has not been implemented")
+  }
+  
   func finish() {
     flowModel.childModelDidFinishFlow(self)
   }

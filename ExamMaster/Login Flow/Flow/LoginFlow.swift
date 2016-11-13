@@ -16,7 +16,7 @@ protocol LoginFlowParent: class {
 
 class LoginFlow: Model {
 
-  override init(parent: Model?) {
+  required init(parent: Model?) {
     super.init(parent: parent)
     
     register(for: ApplicationError.OnlyLettersInputAllowed)

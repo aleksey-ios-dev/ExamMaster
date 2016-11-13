@@ -38,6 +38,10 @@ public class Session: Model {
     credentials = SessionCredentials(params: params)
   }
   
+  public required init(parent: Model?) {
+    super.init(parent: parent)
+  }
+  
   public func sessionDidLoad() {}
   
   func openWithController(controller: SessionController) {
@@ -52,6 +56,10 @@ public class Session: Model {
     sessionWillClose()
     services.prepareToClose()
     controller?.session(self, didCloseWithParams: params)
+  }
+  
+  func refresh(withParams params: SessionCompletionParams) {
+    credentials = SessionCredentials(params: params)
   }
   
 }

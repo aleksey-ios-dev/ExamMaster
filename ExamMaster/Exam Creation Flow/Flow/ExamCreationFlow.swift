@@ -33,7 +33,7 @@ class ExamCreationFlow: Model {
 
   private let exam = Exam()
 
-  override init(parent: Model?) {
+  required init(parent: Model?) {
     super.init(parent: parent)
     
     register(for: NetworkError.BadResponse)

@@ -46,6 +46,7 @@ public class Signal<T> {
   
   //Adds handler to signal and returns subscription
   
+  @warn_unused_result(message="Did you forget to handle the subscription")
   public func subscribeNext(handler: SignalHandler) -> Disposable {
     let wrapper = Subscription(handler: handler, signal: self)
     nextHandlers.append(wrapper)

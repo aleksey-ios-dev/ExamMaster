@@ -25,6 +25,10 @@ public class AuthorizedSession: Session {
     super.init(params: params)
   }
   
+  public required init(parent: Model?) {
+    super.init(parent: parent)
+  }
+  
 }
 
 extension AuthorizedSession: Archivable {

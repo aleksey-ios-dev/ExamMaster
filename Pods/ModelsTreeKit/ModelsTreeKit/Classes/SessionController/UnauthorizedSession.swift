@@ -22,4 +22,8 @@ public class UnauthorizedSession: Session {
     fatalError("init(params:) has not been implemented")
   }
   
+  public required init(parent: Model?) {
+    super.init(parent: parent)
+  }
+  
 }
